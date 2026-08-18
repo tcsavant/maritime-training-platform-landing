@@ -19,7 +19,7 @@
 
       <nav class="desktop-nav" id="main-navigation" aria-label="Main navigation">
         <button type="button" data-scroll="courses">Courses</button>
-        <button type="button" data-scroll="providers">Training Providers</button>
+        <button type="button" data-scroll="education-providers">Training Providers</button>
         <button type="button" data-scroll="companies">For Companies</button>
         <button type="button" data-scroll="about">About</button>
       </nav>
@@ -109,6 +109,43 @@
           <button class="category-card" type="button" data-category="Tanker Operations"><span>04</span><strong>Tanker Operations</strong><b>→</b></button>
           <button class="category-card" type="button" data-category="GMDSS"><span>05</span><strong>GMDSS</strong><b>→</b></button>
           <button class="category-card" type="button" data-category="Security"><span>06</span><strong>Security</strong><b>→</b></button>
+        </div>
+      </section>
+
+      <section class="section section-muted" id="education-providers">
+        <div class="section-heading split-heading">
+          <div>
+            <p class="eyebrow">EDUCATIONAL SERVICE PROVIDERS</p>
+            <h2>Discover Training Providers</h2>
+            <p>Explore the types of maritime academies and specialist training centres planned for the future platform.</p>
+          </div>
+          <button class="button button-light" type="button" data-audience="provider">Join as a Provider →</button>
+        </div>
+        <div class="provider-directory-grid">
+          <article class="wire-card provider-directory-card" tabindex="0" data-provider="Maritime Academy">
+            <div class="provider-card-placeholder">PROVIDER PROFILE<br>PLACEHOLDER</div>
+            <span class="provider-type">ACADEMY · MULTI-DISCIPLINE</span>
+            <h3>Maritime Academy</h3>
+            <p>Safety, navigation and professional development programmes for seafarers.</p>
+            <div class="provider-card-meta"><span>Europe / International</span><span>Profile concept</span></div>
+            <button class="text-link" type="button" data-provider="Maritime Academy">View Provider Concept →</button>
+          </article>
+          <article class="wire-card provider-directory-card" tabindex="0" data-provider="Technical Training Centre">
+            <div class="provider-card-placeholder">PROVIDER PROFILE<br>PLACEHOLDER</div>
+            <span class="provider-type">TECHNICAL · ENGINEERING</span>
+            <h3>Technical Training Centre</h3>
+            <p>Engineering, machinery and operational training for maritime professionals.</p>
+            <div class="provider-card-meta"><span>Europe / International</span><span>Profile concept</span></div>
+            <button class="text-link" type="button" data-provider="Technical Training Centre">View Provider Concept →</button>
+          </article>
+          <article class="wire-card provider-directory-card" tabindex="0" data-provider="Safety Training Institute">
+            <div class="provider-card-placeholder">PROVIDER PROFILE<br>PLACEHOLDER</div>
+            <span class="provider-type">SAFETY · STCW-ORIENTED</span>
+            <h3>Safety Training Institute</h3>
+            <p>Planned access to practical safety, security and emergency response training.</p>
+            <div class="provider-card-meta"><span>Europe / International</span><span>Profile concept</span></div>
+            <button class="text-link" type="button" data-provider="Safety Training Institute">View Provider Concept →</button>
+          </article>
         </div>
       </section>
 
@@ -233,7 +270,7 @@
       </div>
       <div class="footer-links">
         <button type="button" data-scroll="courses">Courses</button>
-        <button type="button" data-scroll="providers">Providers</button>
+        <button type="button" data-scroll="education-providers">Providers</button>
         <button type="button" data-scroll="companies">For Companies</button>
         <button type="button" data-audience="seafarer">Contact</button>
       </div>
@@ -243,12 +280,12 @@
 
   <dialog class="prototype-dialog" id="course-dialog" aria-labelledby="dialog-title">
     <div class="dialog-heading">
-      <span>COURSE CATEGORY · CONCEPT PREVIEW</span>
+      <span id="dialog-kicker">COURSE CATEGORY · CONCEPT PREVIEW</span>
       <button type="button" data-close-dialog aria-label="Close course preview">Close</button>
     </div>
     <h2 id="dialog-title">Training Category</h2>
-    <p>This catalogue is part of the future platform concept. Course availability, providers and certification conditions will be confirmed before launch.</p>
-    <button class="button button-dark" type="button" data-dialog-enquiry>Request Training Guidance →</button>
+    <p id="dialog-body">This catalogue is part of the future platform concept. Course availability, providers and certification conditions will be confirmed before launch.</p>
+    <button class="button button-dark" type="button" data-dialog-enquiry id="dialog-enquiry">Request Training Guidance →</button>
   </dialog>
 
   <div class="toast" role="status" aria-live="polite" aria-atomic="true"></div>

@@ -7,7 +7,11 @@ const page = {
   formTitle: document.querySelector('#form-title'),
   formSubmit: document.querySelector('#form-submit'),
   courseDialog: document.querySelector('#course-dialog'),
+  dialogKicker: document.querySelector('#dialog-kicker'),
   dialogTitle: document.querySelector('#dialog-title'),
+  dialogBody: document.querySelector('#dialog-body'),
+  dialogEnquiry: document.querySelector('#dialog-enquiry'),
+  dialogAudience: 'seafarer',
   toast: document.querySelector('.toast')
 };
 
@@ -135,14 +139,28 @@ document.addEventListener('click', event => {
 
   const categoryControl = event.target.closest('[data-category]');
   if (categoryControl) {
+    page.dialogKicker.textContent = 'COURSE CATEGORY · CONCEPT PREVIEW';
     page.dialogTitle.textContent = categoryControl.dataset.category;
+    page.dialogBody.textContent = 'This catalogue is part of the future platform concept. Course availability, providers and certification conditions will be confirmed before launch.';
+    page.dialogEnquiry.textContent = 'Request Training Guidance →';
+    page.dialogAudience = 'seafarer';
+    page.courseDialog.showModal();
+  }
+
+  const providerControl = event.target.closest('[data-provider]');
+  if (providerControl) {
+    page.dialogKicker.textContent = 'EDUCATIONAL PROVIDER · PROFILE CONCEPT';
+    page.dialogTitle.textContent = providerControl.dataset.provider;
+    page.dialogBody.textContent = 'This placeholder demonstrates how a future provider profile may present specialisms, delivery formats and planned courses. No provider partnership or course availability is implied.';
+    page.dialogEnquiry.textContent = 'Discuss Provider Partnership →';
+    page.dialogAudience = 'provider';
     page.courseDialog.showModal();
   }
 
   if (event.target.closest('[data-close-dialog]')) page.courseDialog.close();
   if (event.target.closest('[data-dialog-enquiry]')) {
     page.courseDialog.close();
-    selectAudience('seafarer');
+    selectAudience(page.dialogAudience);
   }
 
   const languageControl = event.target.closest('[data-language]');
@@ -165,6 +183,15 @@ document.querySelectorAll('.audience-card').forEach(card => {
   });
 });
 
+document.querySelectorAll('.provider-directory-card').forEach(card => {
+  card.addEventListener('keydown', event => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      card.querySelector('[data-provider]').click();
+    }
+  });
+});
+
 page.menuButton.addEventListener('click', () => {
   const open = !page.navigation.classList.contains('mobile-open');
   page.navigation.classList.toggle('mobile-open', open);
@@ -178,7 +205,7 @@ page.leadForm.addEventListener('submit', event => {
   page.leadForm.querySelector('[data-restart-form]').addEventListener('click', () => location.reload());
 });
 
-const observedSections = ['courses', 'providers', 'companies', 'about']
+const observedSections = ['courses', 'education-providers', 'companies', 'about']
   .map(id => document.getElementById(id))
   .filter(Boolean);
 
