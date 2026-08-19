@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Clickable concept prototype for a European maritime training platform connecting international learners, providers and shipping companies.">
+  <link rel="icon" href="data:,">
   <title>European Maritime Training Platform</title>
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -26,9 +27,9 @@
 
       <div class="header-actions">
         <div class="language-switcher" aria-label="Language selector">
-          <button class="active" type="button" aria-pressed="true" data-language="EN">EN</button>
-          <button type="button" aria-pressed="false" data-language="繁中">繁中</button>
-          <button type="button" aria-pressed="false" data-language="简中">简中</button>
+          <button class="active" type="button" aria-pressed="true" data-language="en">EN</button>
+          <button type="button" aria-pressed="false" data-language="ru">RU</button>
+          <button type="button" aria-pressed="false" data-language="uk">УКР</button>
         </div>
         <button class="button button-dark button-small desktop-contact" type="button" data-audience="provider">Contact</button>
         <button class="menu-button" type="button" aria-expanded="false" aria-controls="main-navigation">Menu</button>
@@ -100,15 +101,19 @@
             <p class="eyebrow">PLANNED COURSE CATALOGUE</p>
             <h2>Explore Training Categories</h2>
           </div>
-          <button class="button button-light" type="button" data-category="All Training">View All Training →</button>
+          <button class="button button-light" type="button" data-category="all">View All Training →</button>
         </div>
-        <div class="category-grid">
-          <button class="category-card" type="button" data-category="Safety &amp; STCW"><span>01</span><strong>Safety &amp; STCW</strong><b>→</b></button>
-          <button class="category-card" type="button" data-category="Navigation"><span>02</span><strong>Navigation</strong><b>→</b></button>
-          <button class="category-card" type="button" data-category="Engineering"><span>03</span><strong>Engineering</strong><b>→</b></button>
-          <button class="category-card" type="button" data-category="Tanker Operations"><span>04</span><strong>Tanker Operations</strong><b>→</b></button>
-          <button class="category-card" type="button" data-category="GMDSS"><span>05</span><strong>GMDSS</strong><b>→</b></button>
-          <button class="category-card" type="button" data-category="Security"><span>06</span><strong>Security</strong><b>→</b></button>
+        <div class="source-status" id="source-status" aria-live="polite">
+          <span class="status-dot"></span>
+          <span>Connecting to the tcsavant.com course catalogue…</span>
+        </div>
+        <div class="category-grid" id="category-grid" aria-busy="true">
+          <div class="category-card category-skeleton" aria-hidden="true"></div>
+          <div class="category-card category-skeleton" aria-hidden="true"></div>
+          <div class="category-card category-skeleton" aria-hidden="true"></div>
+          <div class="category-card category-skeleton" aria-hidden="true"></div>
+          <div class="category-card category-skeleton" aria-hidden="true"></div>
+          <div class="category-card category-skeleton" aria-hidden="true"></div>
         </div>
       </section>
 
@@ -260,6 +265,51 @@
           <label class="consent"><input required type="checkbox"> <span>I agree to be contacted about this enquiry. <small>(Prototype only — no data is stored.)</small></span></label>
           <button class="button button-dark form-submit" type="submit" id="form-submit">Request Training Guidance →</button>
         </form>
+      </section>
+
+      <section class="catalogue-page" id="catalogue-page" hidden aria-labelledby="catalogue-title">
+        <div class="catalogue-breadcrumbs" aria-label="Breadcrumb">
+          <button type="button" data-catalogue-home>Home</button>
+          <span>→</span>
+          <button type="button" data-catalogue-all>Training Categories</button>
+          <span>→</span>
+          <strong id="catalogue-breadcrumb-current">All Training</strong>
+        </div>
+
+        <div class="catalogue-hero">
+          <div>
+            <p class="eyebrow">COURSE CATALOGUE · INTERNAL PAGE PROTOTYPE</p>
+            <h1 id="catalogue-title">All Training</h1>
+            <p class="lead" id="catalogue-description">Live course titles are loaded from tcsavant.com. Marketplace details remain placeholders.</p>
+          </div>
+          <div class="catalogue-summary">
+            <span>COURSES FOUND</span>
+            <strong id="catalogue-count">—</strong>
+            <small id="catalogue-source-label">Connecting to source…</small>
+          </div>
+        </div>
+
+        <div class="catalogue-body">
+          <aside class="catalogue-sidebar" aria-label="Course categories">
+            <div class="catalogue-sidebar-heading">
+              <span>FILTER BY CATEGORY</span>
+              <button type="button" data-catalogue-close>Back to landing</button>
+            </div>
+            <div id="catalogue-category-nav"></div>
+          </aside>
+
+          <div class="catalogue-results">
+            <div class="catalogue-results-heading">
+              <div>
+                <span id="catalogue-results-kicker">SELECTED CATEGORY</span>
+                <strong id="catalogue-results-title">All Training</strong>
+              </div>
+              <span class="prototype-chip">PROTOTYPE DATA VIEW</span>
+            </div>
+            <div class="course-results-grid" id="course-results-grid" aria-live="polite" aria-busy="true"></div>
+            <button class="button button-light catalogue-more" type="button" id="catalogue-more" hidden>Show More Courses →</button>
+          </div>
+        </div>
       </section>
     </main>
 
