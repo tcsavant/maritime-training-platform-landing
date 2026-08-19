@@ -99,7 +99,7 @@
         <div class="section-heading split-heading">
           <div>
             <p class="eyebrow">PLANNED COURSE CATALOGUE</p>
-            <h2>Explore Training Categories</h2>
+            <h2>Explore Training Directions</h2>
           </div>
           <button class="button button-light" type="button" data-category="all">View All Training →</button>
         </div>
@@ -108,6 +108,7 @@
           <span>Connecting to the tcsavant.com course catalogue…</span>
         </div>
         <div class="category-grid" id="category-grid" aria-busy="true">
+          <div class="category-card category-skeleton" aria-hidden="true"></div>
           <div class="category-card category-skeleton" aria-hidden="true"></div>
           <div class="category-card category-skeleton" aria-hidden="true"></div>
           <div class="category-card category-skeleton" aria-hidden="true"></div>
@@ -271,7 +272,7 @@
         <div class="catalogue-breadcrumbs" aria-label="Breadcrumb">
           <button type="button" data-catalogue-home>Home</button>
           <span>→</span>
-          <button type="button" data-catalogue-all>Training Categories</button>
+          <button type="button" data-catalogue-all>Training Directions</button>
           <span>→</span>
           <strong id="catalogue-breadcrumb-current">All Training</strong>
         </div>
@@ -290,9 +291,9 @@
         </div>
 
         <div class="catalogue-body">
-          <aside class="catalogue-sidebar" aria-label="Course categories">
+          <aside class="catalogue-sidebar" aria-label="Course directions">
             <div class="catalogue-sidebar-heading">
-              <span>FILTER BY CATEGORY</span>
+              <span>FILTER BY DIRECTION</span>
               <button type="button" data-catalogue-close>Back to landing</button>
             </div>
             <div id="catalogue-category-nav"></div>
@@ -301,7 +302,7 @@
           <div class="catalogue-results">
             <div class="catalogue-results-heading">
               <div>
-                <span id="catalogue-results-kicker">SELECTED CATEGORY</span>
+                <span id="catalogue-results-kicker">SELECTED DIRECTION</span>
                 <strong id="catalogue-results-title">All Training</strong>
               </div>
               <span class="prototype-chip">PROTOTYPE DATA VIEW</span>
@@ -330,10 +331,10 @@
 
   <dialog class="prototype-dialog" id="course-dialog" aria-labelledby="dialog-title">
     <div class="dialog-heading">
-      <span id="dialog-kicker">COURSE CATEGORY · CONCEPT PREVIEW</span>
+      <span id="dialog-kicker">PROVIDER PROFILE · CONCEPT PREVIEW</span>
       <button type="button" data-close-dialog aria-label="Close course preview">Close</button>
     </div>
-    <h2 id="dialog-title">Training Category</h2>
+    <h2 id="dialog-title">Training Provider</h2>
     <p id="dialog-body">This catalogue is part of the future platform concept. Course availability, providers and certification conditions will be confirmed before launch.</p>
     <button class="button button-dark" type="button" data-dialog-enquiry id="dialog-enquiry">Request Training Guidance →</button>
   </dialog>

@@ -2,32 +2,72 @@ const SOURCE_API = 'https://tcsavant.com/wp-json/wp/v2/courses';
 const DEFAULT_TITLE = document.title;
 const PAGE_SIZE = 12;
 
-const categoryDefinitions = [
-  { slug: 'security', label: 'Security & Safety', description: 'Safety, security, firefighting, survival and emergency-response training.', keywords: ['security', 'safety', 'fire', 'survival', 'rescue', 'lifesaving', 'cyber', 'emergency', 'crowd', 'dangerous goods', 'охорон', 'безпек', 'безопас', 'пожар', 'пожеж', 'спас', 'авар'] },
-  { slug: 'medical', label: 'Medical Care', description: 'First aid, medical care and health-related maritime training.', keywords: ['medical', 'medicine', 'first aid', 'медицин', 'медич', 'перша допомога', 'первая помощь'] },
-  { slug: 'navigation', label: 'Navigation', description: 'Bridge operations, navigation systems and ship-handling training.', keywords: ['navigation', 'radar', 'arpa', 'bridge', 'compass', 'gmdss', 'helmsman', 'manoeuv', 'навигац', 'навігац', 'радар', 'компас', 'судовожд'] },
-  { slug: 'engineering', label: 'Engineering', description: 'Marine engineering, electrical systems and technical maintenance.', keywords: ['engineer', 'engine room', 'engine', 'electrical', 'electrician', 'high voltage', 'machinery', 'maintenance', 'механик', 'механік', 'електр', 'электр', 'двигун', 'двигател'] },
-  { slug: 'passenger_ships', label: 'Passenger Ships', description: 'Passenger, cruise and hospitality-focused vessel training.', keywords: ['passenger', 'cruise', 'steward', 'waiter', 'cook', 'пасажир', 'пассажир', 'стюард', 'офіціант', 'официант', 'повар', 'кухар'] },
-  { slug: 'tanker_ships', label: 'Tanker Ships', description: 'Tanker, gas carrier and liquid-cargo operations training.', keywords: ['tanker', 'cargo', 'ballast', 'gas carrier', 'chemical', 'oil tanker', 'inert gas', 'tank cleaning', 'танкер', 'вантаж', 'груз', 'баласт', 'балласт', 'газовоз', 'нафтов', 'нефт'] },
-  { slug: 'language', label: 'Languages', description: 'Professional and maritime language development.', keywords: ['language', 'english', 'maritime english', 'англ', 'мова', 'язык'] },
-  { slug: 'other', label: 'Other', description: 'Additional specialist and professional-development courses.', keywords: [] }
+const directionDefinitions = [
+  {
+    slug: 'officers_navigation',
+    label: 'Training for Officers (Deck)',
+    labels: { ru: 'Подготовка для лиц командного состава судна (Судоводители)', uk: 'Підготовка для командного складу судна (Судноводії)' },
+    description: 'Professional training for deck officers and navigation watch personnel.',
+    sourceSlugs: 'ship-security-officer designated-security-duties-of-shipboard-personnel security-awarness-training advanced-fire-fighting medical-first-aid-on-board-ship training-for-proficiency-in-survival-craft-and-rescue-boats-other-than-fast-rescue-boats medical-care-on-board-ship radar-navigation-arpa-bridge-teamwork-and-search-and-rescue-management-level safety-familiarization-basic-training-and-instruction ship-safety-officer-sso global-maritime-distress-and-safety-system-restricted-operators-certificate-gmdss-roc training-and-refresh-training-of-gmdss-operators-general-operators-certificate radar-navigation-radar-plotting-and-use-of-arpa-operational-level ship-handling-and-maneuvering-shm bridge-resource-management-management-level-operational-level okazanie-pervoy-meditsinskoy-pomoschi-na-bortu-sudna meditsinskiy-uhod-na-bortu-sudna radarnaya-navigatsiya-sarp-komandnaya-rabota-na-mostike-poisk-i-spasenie-uroven-upravleniya ofitser-po-bezopasnosti-sudna globalnaya-morskaya-sistema-svyazi-pri-bedstvii-gmssb-ogranichennyy-diplom-operatora operator-gmssb-dlya-polucheniya-ili-podtverzhdeniya-obschego-diploma sudovozhdenie-s-ispolzovaniem-radiolokatora-radiolokatsionnoy-prokladki-i-ispolzovaniem-arpa-uroven-ekspluatatsii upravlenie-sostavom-navigatsionnoy-vahty-na-mostike-uroven-upravleniya-i-ekspluatatsii medychnyy-doglyad-na-bortu-sudna sudnovodinnya-z-vykorystannyam-radiolokatora-zarp-robota-v-komandi-na-mistku-ta-poshuk-i-poryatunok-riven-upravlinnya nadannya-pershoy-medichnoy-dopomogy ofitser-z-bezpeky-sudna hlobalna-morska-systema-zvyazku-pid-chas-lykha-ta-dlya-zabezpechennya-bezpeky-moreplavstva-hmzlb-obmezhenyy-dyplom-operatora operator-gmzlb-na-otrymannya-abo-pidtverdzhennya-zagalnogo-dyplomu sudnovodinnya-z-vykorystannyam-radiolokatora-radiolokatsiynoyi-prokladky-ta-vykorystannyam-zarp-riven-ekspluatatsiyi upravlinnya-skladom-navigatsiynoy-vahty-na-mistku-riven-upravlinnya-i-ekspluatatsiyi'.split(' ')
+  },
+  {
+    slug: 'officers_engineers',
+    label: 'Training for Officers (Engine)',
+    labels: { ru: 'Подготовка для лиц командного состава судна (Механики)', uk: 'Підготовка для командного складу судна (Механіки)' },
+    description: 'Professional training for engineering officers and engine-room watch personnel.',
+    sourceSlugs: 'operation-and-maintenance-of-electrical-systems-with-voltage-over-1000-volts ship-security-officer designated-security-duties-of-shipboard-personnel security-awarness-training advanced-fire-fighting medical-first-aid-on-board-ship training-for-proficiency-in-survival-craft-and-rescue-boats-other-than-fast-rescue-boats medical-care-on-board-ship safety-familiarization-basic-training-and-instruction engine-room okazanie-pervoy-meditsinskoy-pomoschi-na-bortu-sudna meditsinskiy-uhod-na-bortu-sudna medychnyy-doglyad-na-bortu-sudna nadannya-pershoy-medichnoy-dopomogy ekspluatacziya-ta-obslugovuvannya-elektrychnyh-system-s-naprugoyu-ponad-1000-volt'.split(' ')
+  },
+  {
+    slug: 'ratings',
+    label: 'Training for Ratings',
+    labels: { ru: 'Подготовка для рядового состава судна', uk: 'Підготовка для рядового складу судна' },
+    description: 'Core safety and professional training for vessel ratings.',
+    sourceSlugs: 'designated-security-duties-of-shipboard-personnel security-awarness-training advanced-fire-fighting medical-first-aid-on-board-ship training-for-proficiency-in-survival-craft-and-rescue-boats-other-than-fast-rescue-boats safety-familiarization-basic-training-and-instruction okazanie-pervoy-meditsinskoy-pomoschi-na-bortu-sudna zalyshannya-potopayuchogo-gelikoptera nadannya-pershoy-medichnoy-dopomogy'.split(' ')
+  },
+  {
+    slug: 'ship_types',
+    label: 'Special training for certain types of ships',
+    labels: { ru: 'Специальная подготовка для определенных типов судов', uk: 'Спеціальна підготовка за певними типами суден' },
+    description: 'Specialised preparation for tanker, gas carrier, polar and dangerous-goods operations.',
+    sourceSlugs: 'advanced-training-for-ships-operating-in-polar-waters liquefied-gas-tanker-cargo-operation chemical-tanker-cargo-operations-advanced-level-atct-atctco-chemco basic-training-polar-waters advanced-training-igf-code basic-training-igf-code liquefied-gas-tanker-cargo-operations-advanced-level-gasco-atlgtco oil-tanker-cargo-operations-advanced-level-atctco-tasco basic-training-tankr-operations cargo-operations-on-ships-carrying-dangerous-goods-in-solid-form-in-bulk-and-packaged-form-imdg-hazmat-handling rasshirennaya-podgotovka-dlya-sudov-v-polyarnykh-vodakh gruzovye-operatsii-na-tankerah-himovozah-prodvinutyy-uroven gruzovye-operatsii-na-tankerah-gazovozah-prodvinutyy-uroven gruzovye-operatsii-na-neftyanyh-tankerah-prodvinutyy-uroven basic-training-tanker-operations gruzovye-operatsii-na-sudah-perevozyaschih-opasnye-gruzy-v-tverdoy-forme-navalom-i-v-upakovke sudna-shcho-pratsyuyut-u-polyarnykh-vodakh-rozshyrena-pidhotovka-polyarni-vody vantazhni-operatsiyi-na-tankerakh-khimovozakh-rozshyrenyy-riven vantazhni-operatsiyi-na-tankerakh-hazovozakh-rozshyrenyy-riven vantazhni-operatsiyi-na-naftovykh-tankerakh-rozshyrenyy-riven pidhotovka-osib-komandnoho-ta-ryadovoho-skladu-yaki-vidpovidayut-za-vantazhni-operatsiyi-na-sudnakh-shcho-perevozyat-nebezpechni-rechovyny-navalom-ta-v-upakovtsi'.split(' ')
+  },
+  {
+    slug: 'passenger',
+    label: 'Training for the crew of passenger ships',
+    labels: { ru: 'Подготовка персонала пассажирских судов', uk: 'Підготовка персоналу пасажирських суден' },
+    description: 'Safety, service and crisis-management training for passenger ship personnel.',
+    sourceSlugs: 'ships-cook-category-iv ships-waiter-category-iv english-language ship-steward crisis-management-and-human-behavior-cmhb passenger-safety-cargo-safety crowd-management-training-cmt safety-training-for-personnel-providing-direct-service-to-passengers-in-passenger-spaces podgotovka-po-upravleniyu-krizisnymi-situatsiyami-i-povedeniyu-lyudey podgotovka-po-upravleniyu-neorganizovannymi-massami-lyudey-obuchenie-upravleniyu-tolpoy podgotovka-po-voprosam-bezopasnosti-dlya-personala-obespechivayuschego-neposredstvennoe-obsluzhivanie-passazhirov-v-passazhirskih-pomescheniyah english-courses styuard oficziant-sudnovyj-chetvertogo-rozryadu kuhar-sudnovyj-chetvertogo-rozryadu pidhotovka-z-upravlinnya-ta-povedinky-lyudey-u-kryzovykh-sytuatsiyakh pidhotovka-z-upravlinnya-neorhanizovanymy-masamy-lyudey pidgotovka-z-pytan-bezpeky-dlya-personalu-yakyy-zabezpechue-bezposeredne-obslugovuvannya-pasazhyriv-u-pasazhyrskyh-prymischennyah'.split(' ')
+  },
+  {
+    slug: 'professional_technical',
+    label: 'Professional Technical Education',
+    labels: { ru: 'Профессионально-техническое образование', uk: 'Професійно-технічна освіта' },
+    description: 'Long-form vocational preparation for maritime technical and service roles.',
+    sourceSlugs: 'ship-electrician-second-class ship-electric-gas-welder-fourth-grade ship-electrician-first-class motorman-machinist-second-class seaman-first-class seaman-second-class motorman-machinist-first-class ships-cook-category-iv motoryst-mashynyst-vtorogo-klassa matros-pervogo-klassa matros-vtorogo-klassa motoryst-mashynyst-pervogo-klassa motoryst-mashynist-pershogo-klasu motoryst-mashynist-drugogo-klasu matros-pershogo-klasu matros-drugogo-klasu kuhar-sudnovyj-chetvertogo-rozryadu elektrogazozvarnyk-sudnovyj-chetvertogo-rozryadu elektryk-sudnovyj-pershogo-klasu elektryk-sudnovyj-drugogo-klasu'.split(' ')
+  },
+  {
+    slug: 'competence_upgrade',
+    label: 'Increasing the level of competence',
+    labels: { ru: 'Повышение уровня компетентности', uk: 'Підвищення рівня компетентності' },
+    description: 'Short specialist courses for competence maintenance and professional development.',
+    sourceSlugs: 'inert-gas-system sash ship-to-ship combating-maritime-cybersecurity-threats-cyber-risks-en ship-crane-operator-training helmsman-training automatic-identification-systems-ais scba-use-of-isolated-breathing-apparatus-with-compressed-air maintenance-of-electrical-and-electronic-equipment tank-cleaning-with-crude-oil ballast-system-and-use-of-ballast-system liquid-cargo-handling-simulator cargo-pump-systems-and-use-of-pump-systems safe-food-system-on-board-ship international-labour-convention-in-maritime-shipping-mlc tank-inspection safety-management-system-ism pollution-prevention-and-protection-of-marine-environment-marpol abandonment-of-sinking-helicopter automatic-external-defibrillator-defibrillators-saver-one-svo-v0001 hazards-associated-with-h2s-gas planned-system-maintenance-amos-for-windows entry-into-enclosed-spaces-premises-on-board-ships leadership-and-teamwork-human-factor en-liquefied-petroleum-gas-lpg-tanker-cargo-and-ballast-handling-operations combating-maritime-cybersecurity-threats-cyber-risks inert-gas-system-ru borba-s-ugrozamy-morskoy-kyberbezop ballastnaya-systema-y-yspolzovanye-b proverka-tankov systema-bezopasnogo-pytanyya-na-sudne mezhdunarodnaya-konventsyya-o-trude-v-mor systema-upravlenyya-bezopasnostyu-mk predotvrashhenye-zagryaznenyya-y-zashhyta ostavlenye-tonushhego-vertoleta avtomatycheskyy-vneshnyy-defybryllyato opasnost-svyazannaya-s-gazom-h2s planovoe-tehnycheskoe-obsluzhyvanye-s lyderstvo-y-rabota-v-komande-cheloveche ru-liquefied-petroleum-gas-lpg-tanker-cargo-and-ballast-handling-operations borba-s-ugrozami-morskoj-kiberbezopasnosti-kiberriski inert-gas-system-uk liquefied-petroleum-gas-lpg-tanker-cargo-and-ballast-handling-operations lyderstvo-y-rabota-v-komande-chelovecheskyj-faktor vhid-do-zamknutyh-prostoriv-prymishhen-na-bortu-suden derzhavnyj-portovyj-kontrol avtomatychnyj-zovnishnij-defibrylyator-defibrylyatory-saver-one-svo-v0001 nebezpeka-povyazana-z-gazom-h2s planove-tehnichne-obslugovuvannya-systemy-amos-for-windows systema-upravlinnya-bezpekoyu-mkub zapobigannya-zabrudnennya-ta-zahyst-morskogo-otochuyuchogo-seredovyshha-marpol zalyshannya-potopayuchogo-gelikoptera systema-bezpechnogo-harchuvannya-na-sudni mizhnarodna-konvencziya-z-praczi-u-morskomu-sudnoplavstvi-mop perevirka-tankiv vantazhni-nasosni-systemy balastna-systema myttya-syroyu-naftoyu asv-vykorystannya-izolovanyh-dyhalnyh-aparativ-iz-stysnutym-povitryam obslugovuvannya-elektrychnogo-ta-elektronnogo-obladnannya pidgotovka-z-upravlinnya-kranamy pidgotovka-rulovyh avtomatychni-identyfikaczijni-systemy-aic borotba-z-pogrozamy-morskoyi-kiberbezpeky-kiberryzyky'.split(' ')
+  }
 ];
 
 const languageNames = { en: 'English', ru: 'Russian', uk: 'Ukrainian' };
 
 const fallbackCourses = [
-  ['security', 'Basic Safety Training'],
-  ['medical', 'Medical First Aid on Board Ship'],
-  ['navigation', 'Radar Navigation and ARPA'],
-  ['engineering', 'Marine Engineering Fundamentals'],
-  ['passenger_ships', 'Passenger Ship Safety Training'],
-  ['tanker_ships', 'Basic Training for Oil and Chemical Tanker Cargo Operations'],
-  ['language', 'Maritime English'],
-  ['other', 'Professional Competence Development']
+  ['officers_navigation', 'Bridge Resource Management'],
+  ['officers_engineers', 'Engine Room Watchkeeping'],
+  ['ratings', 'Basic Safety Training'],
+  ['ship_types', 'Specialised Tanker Operations'],
+  ['passenger', 'Passenger Ship Crew Training'],
+  ['professional_technical', 'Maritime Technical Education'],
+  ['competence_upgrade', 'Professional Competence Development']
 ].map((course, index) => ({
   id: `placeholder-${index}`,
   slug: `placeholder-${index}`,
-  category: course[0],
+  directions: [course[0]],
   title: course[1],
   link: 'https://tcsavant.com/en/page-courses/',
   placeholder: true
@@ -132,54 +172,54 @@ function decodeHtml(value) {
   return textarea.value.trim();
 }
 
-function categoryBySlug(slug) {
-  return categoryDefinitions.find(category => category.slug === slug);
+function directionBySlug(slug) {
+  return directionDefinitions.find(direction => direction.slug === slug);
 }
 
-function normalizeCategory(value) {
+function directionLabel(direction, language = state.currentLanguage) {
+  return direction && direction.labels && direction.labels[language]
+    ? direction.labels[language]
+    : direction.label;
+}
+
+function normalizeDirections(value) {
   if (!value) return null;
-  const candidate = Array.isArray(value) ? value[0] : value;
-  const raw = typeof candidate === 'object'
-    ? candidate.slug || candidate.value || candidate.name || candidate.label
-    : candidate;
-  if (!raw) return null;
-  const normalized = String(raw).toLowerCase().replace(/&/g, 'and').replace(/[\s-]+/g, '_');
-  const aliases = {
-    security_and_safety: 'security',
-    medical_care: 'medical',
-    passenger_ships: 'passenger_ships',
-    tanker_ships: 'tanker_ships',
-    languages: 'language'
-  };
-  const slug = aliases[normalized] || normalized;
-  return categoryBySlug(slug) ? slug : null;
+  const candidates = Array.isArray(value) ? value : [value];
+  const normalized = candidates.map(candidate => {
+    const raw = typeof candidate === 'object'
+      ? candidate.slug || candidate.value || candidate.name || candidate.label
+      : candidate;
+    if (!raw) return null;
+    const slug = String(raw).toLowerCase().replace(/[\s-]+/g, '_');
+    return directionBySlug(slug) ? slug : null;
+  }).filter(Boolean);
+  return normalized.length ? [...new Set(normalized)] : null;
 }
 
-function exposedCategory(course) {
+function exposedDirections(course) {
   const candidates = [
-    course.course_category,
-    course.category,
-    course.acf && (course.acf.course_category || course.acf.category || course.acf.course_categories),
-    course.meta && (course.meta.course_category || course.meta.category)
+    course.course_directions,
+    course.course_direction,
+    course.direction,
+    course.acf && (course.acf.course_directions || course.acf.course_direction || course.acf.directions),
+    course.meta && (course.meta.course_directions || course.meta.course_direction || course.meta.directions)
   ];
-  return candidates.map(normalizeCategory).find(Boolean) || null;
+  return candidates.map(normalizeDirections).find(Boolean) || null;
 }
 
-function inferCategory(title) {
-  const normalizedTitle = title.toLocaleLowerCase();
-  const ordered = ['language', 'medical', 'passenger_ships', 'tanker_ships', 'engineering', 'security', 'navigation'];
-  for (const slug of ordered) {
-    const definition = categoryBySlug(slug);
-    if (definition.keywords.some(keyword => normalizedTitle.includes(keyword))) return slug;
-  }
-  return 'other';
+function sourceDirections(course) {
+  const fromApi = exposedDirections(course);
+  if (fromApi) return fromApi;
+  return directionDefinitions
+    .filter(direction => direction.sourceSlugs.includes(course.slug))
+    .map(direction => direction.slug);
 }
 
 function sourceFieldsUrl(language) {
   const params = new URLSearchParams({
     per_page: '100',
     lang: language,
-    _fields: 'id,slug,link,title,acf,meta,category,course_category'
+    _fields: 'id,slug,link,title,acf,meta,direction,directions,course_direction,course_directions'
   });
   return `${SOURCE_API}?${params}`;
 }
@@ -200,7 +240,7 @@ async function fetchCourses(language) {
         slug: course.slug,
         title: title || 'Course title pending',
         link: course.link || 'https://tcsavant.com/en/page-courses/',
-        category: exposedCategory(course) || inferCategory(title),
+        directions: sourceDirections(course),
         placeholder: false
       };
     });
@@ -215,8 +255,8 @@ async function fetchCourses(language) {
   }
 }
 
-function categoryCount(slug) {
-  return state.courses.filter(course => course.category === slug).length;
+function directionCount(slug) {
+  return state.courses.filter(course => course.directions.includes(slug)).length;
 }
 
 function renderSourceStatus() {
@@ -229,12 +269,12 @@ function renderSourceStatus() {
 }
 
 function renderLandingCategories() {
-  page.categoryGrid.innerHTML = categoryDefinitions.map((category, index) => {
-    const count = categoryCount(category.slug);
+  page.categoryGrid.innerHTML = directionDefinitions.map((direction, index) => {
+    const count = directionCount(direction.slug);
     return `
-      <button class="category-card" type="button" data-category="${category.slug}">
+      <button class="category-card" type="button" data-category="${direction.slug}">
         <span class="category-number">${String(index + 1).padStart(2, '0')}</span>
-        <strong>${escapeHtml(category.label)}</strong>
+        <strong>${escapeHtml(directionLabel(direction))}</strong>
         <small>${count} course${count === 1 ? '' : 's'}</small>
         <span class="card-arrow" aria-hidden="true">↗</span>
       </button>`;
@@ -263,7 +303,7 @@ function renderForm(audience = 'seafarer') {
   const definition = formDefinitions[audience];
   const fields = definition.fields.map(field => {
     if (audience === 'seafarer' && field[0] === 'Course Interest') {
-      return [field[0], field[1], ['Select a course area', ...categoryDefinitions.map(category => category.label)]];
+      return [field[0], field[1], ['Select a course direction', ...directionDefinitions.map(direction => directionLabel(direction))]];
     }
     return field;
   });
@@ -285,13 +325,13 @@ function renderForm(audience = 'seafarer') {
 function filteredCourses() {
   return state.currentCategory === 'all'
     ? state.courses
-    : state.courses.filter(course => course.category === state.currentCategory);
+    : state.courses.filter(course => course.directions.includes(state.currentCategory));
 }
 
 function catalogueDefinition() {
   return state.currentCategory === 'all'
     ? { label: 'All Training', description: 'Explore the complete prototype course catalogue sourced from tcsavant.com.' }
-    : categoryBySlug(state.currentCategory);
+    : { ...directionBySlug(state.currentCategory), label: directionLabel(directionBySlug(state.currentCategory)) };
 }
 
 function renderCatalogue() {
@@ -308,23 +348,24 @@ function renderCatalogue() {
   page.catalogueResultsTitle.textContent = results.length ? 'Available course titles' : 'Courses are being mapped';
   page.catalogueCategoryNav.innerHTML = `
     <button type="button" data-catalogue-category="all" class="catalogue-category-button ${state.currentCategory === 'all' ? 'active' : ''}"><span>All Training</span><small>${state.courses.length}</small></button>
-    ${categoryDefinitions.map(category => `
-      <button type="button" data-catalogue-category="${category.slug}" class="catalogue-category-button ${state.currentCategory === category.slug ? 'active' : ''}">
-        <span>${escapeHtml(category.label)}</span><small>${categoryCount(category.slug)}</small>
+    ${directionDefinitions.map(direction => `
+      <button type="button" data-catalogue-category="${direction.slug}" class="catalogue-category-button ${state.currentCategory === direction.slug ? 'active' : ''}">
+        <span>${escapeHtml(directionLabel(direction))}</span><small>${directionCount(direction.slug)}</small>
       </button>`).join('')}`;
   page.courseResultsGrid.innerHTML = visible.length ? visible.map((course, index) => {
-    const category = categoryBySlug(course.category) || categoryBySlug('other');
+    const selectedDirection = state.currentCategory === 'all' ? course.directions[0] : state.currentCategory;
+    const direction = directionBySlug(selectedDirection);
     return `<article class="catalogue-course-card">
       <div class="course-card-topline"><span>${course.placeholder ? 'PROTOTYPE COURSE' : 'TCSAVANT.COM SOURCE'}</span><span>${String(index + 1).padStart(2, '0')}</span></div>
       <h3>${escapeHtml(course.title)}</h3>
       <p>Course details, delivery options and provider availability will be mapped into the future marketplace.</p>
-      <div class="catalogue-course-meta"><span>Category<strong>${escapeHtml(category.label)}</strong></span><span>Source language<strong>${escapeHtml(languageNames[state.currentLanguage])}</strong></span></div>
+      <div class="catalogue-course-meta"><span>Course direction<strong>${escapeHtml(direction ? directionLabel(direction) : 'Direction pending')}</strong></span><span>Source language<strong>${escapeHtml(languageNames[state.currentLanguage])}</strong></span></div>
       <div class="catalogue-course-actions">
         <a href="${escapeHtml(course.link)}" target="_blank" rel="noopener">Source details ↗</a>
-        <button type="button" data-course-enquire="${escapeHtml(course.title)}" data-course-category="${course.category}">Request guidance</button>
+        <button type="button" data-course-enquire="${escapeHtml(course.title)}" data-course-direction="${selectedDirection || ''}">Request guidance</button>
       </div>
     </article>`;
-  }).join('') : '<div class="catalogue-empty"><strong>No matched courses yet.</strong><p>This category remains visible because it is part of the source catalogue structure. Titles will appear when the public data exposes or matches them.</p></div>';
+  }).join('') : '<div class="catalogue-empty"><strong>No matched courses yet.</strong><p>This direction remains visible because it is part of the source catalogue structure. Titles will appear when the source data is updated.</p></div>';
   page.catalogueMore.hidden = state.visibleCount >= results.length;
   page.catalogueMore.textContent = `Show more courses (${Math.max(0, results.length - state.visibleCount)})`;
   document.title = `${definition.label} Courses — Maritime Training Platform`;
@@ -335,7 +376,7 @@ function routeForCategory(slug) {
 }
 
 function openCatalogue(slug = 'all', updateHistory = true) {
-  state.currentCategory = slug === 'all' || categoryBySlug(slug) ? slug : 'all';
+  state.currentCategory = slug === 'all' || directionBySlug(slug) ? slug : 'all';
   state.visibleCount = PAGE_SIZE;
   page.cataloguePage.hidden = false;
   document.body.classList.add('catalogue-open');
@@ -360,13 +401,13 @@ function scrollToSection(id) {
   page.menuButton.setAttribute('aria-expanded', 'false');
 }
 
-function selectAudience(audience, shouldScroll = true, categorySlug = '') {
+function selectAudience(audience, shouldScroll = true, directionSlug = '') {
   renderForm(audience);
   if (shouldScroll) scrollToSection('contact');
-  if (audience === 'seafarer' && categorySlug) {
+  if (audience === 'seafarer' && directionSlug) {
     const select = page.dynamicFields.querySelector('select');
-    const category = categoryBySlug(categorySlug);
-    if (select && category) select.value = category.label;
+    const direction = directionBySlug(directionSlug);
+    if (select && direction) select.value = directionLabel(direction);
   }
 }
 
@@ -422,7 +463,7 @@ document.addEventListener('click', event => {
   if (event.target.closest('[data-catalogue-close]')) scrollToSection('courses');
   if (event.target.closest('[data-catalogue-all]')) openCatalogue('all');
   const courseEnquiry = event.target.closest('[data-course-enquire]');
-  if (courseEnquiry) selectAudience('seafarer', true, courseEnquiry.dataset.courseCategory);
+  if (courseEnquiry) selectAudience('seafarer', true, courseEnquiry.dataset.courseDirection);
   const providerControl = event.target.closest('[data-provider]');
   if (providerControl) {
     page.dialogKicker.textContent = 'EDUCATIONAL PROVIDER · PROFILE CONCEPT';
