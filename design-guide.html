@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Visual component inventory and design specification for the Maritime Training Platform prototype.">
+  <link rel="icon" href="data:,">
+  <title>Maritime Training Platform — Design Guide</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="design-guide.css">
+</head>
+<body class="design-guide-body">
+  <a class="skip-link" href="#guide-content">Skip to components</a>
+
+  <header class="guide-header">
+    <a class="logo" href="index.html" aria-label="Back to prototype">
+      <span class="logo-mark">LOGO</span>
+      <span>Maritime Training Platform</span>
+    </a>
+    <div class="guide-header-meta">
+      <span>DESIGN SPECIFICATION</span>
+      <a class="button button-dark button-small" href="index.html">Open Prototype →</a>
+    </div>
+  </header>
+
+  <div class="guide-layout">
+    <aside class="guide-sidebar" aria-label="Design guide contents">
+      <p class="guide-sidebar-title">COMPONENT INDEX</p>
+      <nav>
+        <a href="#overview">00 · Overview</a>
+        <a href="#foundations">01 · Foundations</a>
+        <a href="#typography">02 · Typography</a>
+        <a href="#buttons">03 · Buttons & Links</a>
+        <a href="#navigation">04 · Navigation</a>
+        <a href="#cards">05 · Cards & Lists</a>
+        <a href="#course-card">06 · Course Card</a>
+        <a href="#forms">07 · Forms</a>
+        <a href="#feedback">08 · System Feedback</a>
+        <a href="#media">09 · Icons & Media</a>
+        <a href="#footer">10 · Footer</a>
+        <a href="#application">11 · Applied Blocks</a>
+        <a href="#catalogue">12 · Catalogue</a>
+        <a href="#responsive">13 · Responsive</a>
+        <a href="#handoff">14 · Figma Handoff</a>
+      </nav>
+    </aside>
+
+    <main class="guide-main" id="guide-content">
+      <section class="guide-cover" id="overview">
+        <div>
+          <p class="eyebrow">LOW-FIDELITY SOURCE OF TRUTH · VERSION 1.0</p>
+          <h1>Component<br>Design Guide</h1>
+          <p class="lead">A visual inventory of the confirmed interface patterns, variants and responsive behaviour in the clickable prototype.</p>
+        </div>
+        <div class="guide-cover-note">
+          <span>FOR DESIGNER HANDOFF</span>
+          <strong>Use this page together with the written design specification.</strong>
+          <p>Preserve component purpose and information hierarchy. Define the visual language in Figma; do not treat the low-fidelity greyscale styling as a final brand direction.</p>
+          <dl>
+            <div><dt>Languages</dt><dd>EN · RU · UA</dd></div>
+            <div><dt>Surfaces</dt><dd>Landing · Catalogue · Course · Provider</dd></div>
+            <div><dt>Breakpoints</dt><dd>1100 · 800 · 600 px</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="guide-section" id="foundations">
+        <div class="guide-section-heading">
+          <span>01</span>
+          <div><p class="eyebrow">FOUNDATIONS</p><h2>Current prototype tokens</h2></div>
+        </div>
+        <p class="guide-intro">These values document the prototype, not the final brand palette. The designer should propose a restrained professional maritime/B2B direction and keep functional contrast.</p>
+
+        <div class="guide-subsection">
+          <div class="guide-subheading"><h3>Colour roles</h3><p>Neutral source palette and semantic intent.</p></div>
+          <div class="token-grid">
+            <div class="color-token"><span style="--swatch:#191919"></span><strong>Ink</strong><code>#191919</code><small>Primary text, dark surfaces</small></div>
+            <div class="color-token"><span style="--swatch:#686868"></span><strong>Muted</strong><code>#686868</code><small>Secondary text, metadata</small></div>
+            <div class="color-token"><span style="--swatch:#c8c8c8"></span><strong>Line</strong><code>#C8C8C8</code><small>Borders and dividers</small></div>
+            <div class="color-token"><span style="--swatch:#858585"></span><strong>Line dark</strong><code>#858585</code><small>Control borders</small></div>
+            <div class="color-token"><span style="--swatch:#ffffff"></span><strong>Paper</strong><code>#FFFFFF</code><small>Primary surface</small></div>
+            <div class="color-token"><span style="--swatch:#f2f2f0"></span><strong>Wash</strong><code>#F2F2F0</code><small>Alternate surface, hover</small></div>
+            <div class="color-token"><span style="--swatch:#fafaf9"></span><strong>Soft</strong><code>#FAFAF9</code><small>Internal page hero</small></div>
+          </div>
+        </div>
+
+        <div class="guide-subsection">
+          <div class="guide-subheading"><h3>Layout & spacing</h3><p>Core geometry visible in the current build.</p></div>
+          <div class="foundation-grid">
+            <div class="foundation-card"><span>CONTAINER</span><strong>1240 px max</strong><p>4vw side padding until the max-width is reached.</p></div>
+            <div class="foundation-card"><span>SECTION SPACE</span><strong>90 px</strong><p>Desktop vertical section padding; 65 px at mobile.</p></div>
+            <div class="foundation-card"><span>BASE GAP</span><strong>18 / 24 / 32 px</strong><p>Repeated card, content and form spacing.</p></div>
+            <div class="foundation-card"><span>BORDER</span><strong>1 px square</strong><p>No decorative radius or elevation in the wireframe.</p></div>
+          </div>
+          <div class="spacing-scale" aria-label="Spacing scale">
+            <div><span style="--space:4px"></span><code>4</code></div>
+            <div><span style="--space:8px"></span><code>8</code></div>
+            <div><span style="--space:12px"></span><code>12</code></div>
+            <div><span style="--space:18px"></span><code>18</code></div>
+            <div><span style="--space:24px"></span><code>24</code></div>
+            <div><span style="--space:32px"></span><code>32</code></div>
+            <div><span style="--space:48px"></span><code>48</code></div>
+            <div><span style="--space:90px"></span><code>90</code></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="guide-section" id="typography">
+        <div class="guide-section-heading">
+          <span>02</span>
+          <div><p class="eyebrow">TYPOGRAPHY</p><h2>Text hierarchy</h2></div>
+        </div>
+        <div class="type-table">
+          <div class="type-row"><code>Display / Hero</code><div class="type-display">Maritime Training.</div><small>50–86 / 0.99 · 700 · −5%</small></div>
+          <div class="type-row"><code>H2 / Section</code><div class="type-h2">Explore Training</div><small>34–54 / 1.04 · 700 · −3.5%</small></div>
+          <div class="type-row"><code>H3 / Card</code><div class="type-h3">For Training Providers</div><small>22 / 1.2 · 700</small></div>
+          <div class="type-row"><code>Lead / Intro</code><div class="type-lead">A future platform connecting the maritime training market.</div><small>20 / 1.55 · 400</small></div>
+          <div class="type-row"><code>Body</code><div class="type-body">Clear supporting copy for product and marketing contexts.</div><small>16–18 / 1.6–1.7 · 400</small></div>
+          <div class="type-row"><code>Eyebrow</code><div class="eyebrow">COURSE CATALOGUE · INTERNAL PAGE</div><small>12 / normal · 700 · 15%</small></div>
+          <div class="type-row"><code>Caption / Meta</code><div class="type-caption">PROVIDER · ENGLISH · ONLINE</div><small>10–12 / 1.4 · 400–700</small></div>
+          <div class="type-row"><code>Button / Label</code><div class="type-label">REQUEST TRAINING GUIDANCE →</div><small>12–16 · 700</small></div>
+        </div>
+        <div class="localisation-stress">
+          <span>LOCALISATION STRESS TEST</span>
+          <div><strong>EN</strong><p>Manage Crew Training in One Place</p></div>
+          <div><strong>RU</strong><p lang="ru">Управляйте обучением экипажа в одном месте</p></div>
+          <div><strong>UA</strong><p lang="uk">Керуйте навчанням екіпажу в одному місці</p></div>
+          <small>Components must grow vertically and preserve composition with longer RU/UA strings. Do not fix text containers to English line counts.</small>
+        </div>
+      </section>
+
+      <section class="guide-section" id="buttons">
+        <div class="guide-section-heading">
+          <span>03</span>
+          <div><p class="eyebrow">BUTTONS & LINKS</p><h2>Interactive actions</h2></div>
+        </div>
+        <div class="state-matrix">
+          <div class="state-matrix-head"><span>COMPONENT</span><span>DEFAULT</span><span>HOVER</span><span>FOCUS</span><span>DISABLED</span></div>
+          <div class="state-matrix-row"><strong>Primary</strong><button class="button button-dark" type="button">Explore Training →</button><button class="button button-dark guide-hover" type="button">Explore Training →</button><button class="button button-dark guide-focus" type="button">Explore Training →</button><button class="button button-dark" type="button" disabled>Explore Training →</button></div>
+          <div class="state-matrix-row"><strong>Secondary</strong><button class="button button-light" type="button">Become a Partner</button><button class="button button-light guide-hover" type="button">Become a Partner</button><button class="button button-light guide-focus" type="button">Become a Partner</button><button class="button button-light" type="button" disabled>Become a Partner</button></div>
+          <div class="state-matrix-row"><strong>Text link</strong><button class="text-link" type="button">View Courses →</button><button class="text-link guide-hover" type="button">View Courses →</button><button class="text-link guide-focus" type="button">View Courses →</button><button class="text-link" type="button" disabled>View Courses →</button></div>
+        </div>
+        <div class="component-note"><strong>Behaviour</strong><p>Use Primary for the main next step, Secondary for an alternative, and Text Link inside cards or compact navigation. Arrow follows the label and never substitutes the action text.</p></div>
+      </section>
+
+      <section class="guide-section" id="navigation">
+        <div class="guide-section-heading">
+          <span>04</span>
+          <div><p class="eyebrow">HEADER / NAVIGATION</p><h2>Global and internal navigation</h2></div>
+        </div>
+        <div class="guide-state-label">DESKTOP · DEFAULT / ACTIVE</div>
+        <div class="guide-header-demo">
+          <div class="logo"><span class="logo-mark">LOGO</span><span>Maritime Training Platform</span></div>
+          <nav class="desktop-nav" aria-label="Desktop navigation example">
+            <button class="active" type="button">Courses</button><button type="button">Providers</button><button type="button">For Companies</button><button type="button">About</button>
+          </nav>
+          <div class="header-actions"><div class="language-switcher"><button class="active" type="button">EN</button><button type="button">RU</button><button type="button">УКР</button></div><button class="button button-dark button-small" type="button">Contact</button></div>
+        </div>
+        <div class="navigation-specimens">
+          <div>
+            <div class="guide-state-label">LANGUAGE · DEFAULT / HOVER / SELECTED</div>
+            <div class="language-state-row"><button type="button">EN</button><button class="guide-hover" type="button">RU</button><button class="active" type="button">УКР</button></div>
+            <p class="spec-caption">Selection persists between pages and reloads. Exactly one option is active.</p>
+          </div>
+          <div>
+            <div class="guide-state-label">MOBILE · CLOSED / OPEN</div>
+            <div class="mobile-nav-states">
+              <div><span class="logo-mark">LOGO</span><button class="menu-button guide-menu-visible" type="button">Menu</button></div>
+              <div class="guide-mobile-open"><button class="active" type="button">Courses</button><button type="button">Providers</button><button type="button">For Companies</button><button type="button">About</button></div>
+            </div>
+          </div>
+        </div>
+        <div class="guide-state-label">BREADCRUMBS · INTERNAL PAGE</div>
+        <div class="catalogue-breadcrumbs guide-breadcrumbs"><button type="button">Home</button><span>→</span><button type="button">Training Directions</button><span>→</span><strong>Safety Training</strong></div>
+      </section>
+
+      <section class="guide-section" id="cards">
+        <div class="guide-section-heading">
+          <span>05</span>
+          <div><p class="eyebrow">CARDS & LISTS</p><h2>Confirmed content objects</h2></div>
+        </div>
+
+        <div class="guide-subsection">
+          <div class="guide-subheading"><h3>Audience cards</h3><p>Interactive entry points: default, hover and keyboard focus.</p></div>
+          <div class="audience-grid">
+            <article class="wire-card audience-card"><span class="guide-state-badge">DEFAULT</span><span class="card-number">01</span><h3>For Seafarers</h3><p>Find professional maritime training and plan your certification path.</p><button class="text-link" type="button">Find Training →</button></article>
+            <article class="wire-card audience-card guide-card-hover"><span class="guide-state-badge">HOVER</span><span class="card-number">02</span><h3>For Training Providers</h3><p>Publish courses and reach maritime professionals in new markets.</p><button class="text-link" type="button">Join Platform →</button></article>
+            <article class="wire-card audience-card guide-card-focus"><span class="guide-state-badge">FOCUS</span><span class="card-number">03</span><h3>For Shipping Companies</h3><p>Plan crew training and monitor completion and certification.</p><button class="text-link" type="button">Learn More →</button></article>
+          </div>
+        </div>
+
+        <div class="guide-subsection">
+          <div class="guide-subheading"><h3>Training direction items</h3><p>Loading, default, hover and selected catalogue filter.</p></div>
+          <div class="direction-state-grid">
+            <div><span class="guide-state-label">LOADING</span><div class="category-card category-skeleton"></div></div>
+            <div><span class="guide-state-label">DEFAULT</span><button class="category-card" type="button"><span>01</span><strong>Deck Officers</strong><small>24 courses</small></button></div>
+            <div><span class="guide-state-label">HOVER</span><button class="category-card guide-hover" type="button"><span>02</span><strong>Engineering</strong><small>18 courses</small></button></div>
+            <div><span class="guide-state-label">SELECTED FILTER</span><button class="catalogue-category-button active" type="button"><span>Safety Training</span><small>16</small></button></div>
+          </div>
+          <div class="status-state-row">
+            <div class="source-status"><span class="status-dot"></span><span>Connecting to source…</span></div>
+            <div class="source-status is-live"><span class="status-dot"></span><span>Live course catalogue connected</span></div>
+            <div class="source-status is-fallback"><span class="status-dot"></span><span>Showing prototype fallback data</span></div>
+          </div>
+        </div>
+
+        <div class="guide-subsection">
+          <div class="guide-subheading"><h3>Training provider card</h3><p>Information card with one explicit profile action.</p></div>
+          <div class="provider-directory-grid guide-provider-grid">
+            <article class="wire-card provider-directory-card">
+              <div class="provider-card-placeholder">PROVIDER PROFILE<br>PLACEHOLDER</div>
+              <span class="provider-type">ACADEMY · MULTI-DISCIPLINE</span>
+              <h3>Maritime Academy</h3>
+              <p>Safety, navigation and professional development programmes for seafarers.</p>
+              <div class="provider-card-meta"><span>Europe / International</span><span>Profile concept</span></div>
+              <button class="text-link" type="button">View Provider Concept →</button>
+            </article>
+            <div class="component-anatomy">
+              <span>COMPONENT ANATOMY</span>
+              <ol><li>Media / placeholder</li><li>Provider type label</li><li>Name and summary</li><li>Market / status metadata</li><li>Profile action</li></ol>
+              <p>No card-level hover is required if only the explicit link is interactive.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-subsection">
+          <div class="guide-subheading"><h3>Journey and principle lists</h3><p>Informational sequences have no interaction states.</p></div>
+          <div class="steps guide-steps"><div class="step"><span>01</span><strong>Find</strong><b>→</b></div><div class="step"><span>02</span><strong>Enroll</strong><b>→</b></div><div class="step"><span>03</span><strong>Learn</strong><b>→</b></div><div class="step"><span>04</span><strong>Assess</strong><b>→</b></div><div class="step"><span>05</span><strong>Certify</strong></div></div>
+          <div class="trust-grid guide-trust-grid"><div><span>01</span><strong>STCW-oriented Structure</strong></div><div><span>02</span><strong>Provider Verification</strong></div><div><span>03</span><strong>Secure Records</strong></div><div><span>04</span><strong>Digital Certification</strong></div><div><span>05</span><strong>Multi-language</strong></div></div>
+        </div>
+      </section>
+
+      <section class="guide-section" id="course-card">
+        <div class="guide-section-heading">
+          <span>06</span>
+          <div><p class="eyebrow">COURSE CARD</p><h2>Primary marketplace object</h2></div>
+        </div>
+        <div class="course-card-spec">
+          <article class="catalogue-course-card">
+            <div class="course-card-topline"><span>TCSAVANT.COM</span><span>SAFETY TRAINING</span></div>
+            <h3>Advanced Fire Fighting Training for Maritime Professionals</h3>
+            <p>Course information, delivery details and availability will be confirmed by the provider.</p>
+            <div class="catalogue-course-meta"><span>LANGUAGE<strong>English</strong></span><span>FORMAT<strong>Provider-led</strong></span><span>LOCATION<strong>To be confirmed</strong></span><span>DURATION / PRICE<strong>Placeholder</strong></span></div>
+            <div class="catalogue-course-actions"><a href="#course-card">View source ↗</a><button type="button">Request details →</button></div>
+          </article>
+          <div class="course-card-rules">
+            <span>CONTENT RULES</span>
+            <ol><li>Provider/source and training direction remain visible.</li><li>Title grows vertically; do not truncate critical course names.</li><li>Description is concise and may be omitted when unavailable.</li><li>Only confirmed metadata fields are shown.</li><li>Primary and secondary actions stay at the card bottom.</li></ol>
+            <div class="long-title-test"><small>LONG TITLE / UA TEST</small><strong lang="uk">Підготовка персоналу пасажирських суден, який забезпечує безпосереднє обслуговування пасажирів</strong></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="guide-section" id="forms">
+        <div class="guide-section-heading">
+          <span>07</span>
+          <div><p class="eyebrow">FORMS</p><h2>Controls and required states</h2></div>
+        </div>
+        <div class="guide-subsection">
+          <div class="guide-subheading"><h3>Audience tabs</h3><p>Default, hover, selected and focus.</p></div>
+          <div class="tab-state-grid">
+            <button type="button">Seafarer</button><button class="guide-hover" type="button">Training Provider</button><button class="active" type="button">Shipping Company</button><button class="guide-focus" type="button">Seafarer</button>
+          </div>
+        </div>
+        <div class="control-grid">
+          <label class="field"><span>Text input · Default</span><input type="text" placeholder="Full name"></label>
+          <label class="field"><span>Text input · Focus</span><input class="guide-input-focus" type="email" value="learner@example.com"></label>
+          <label class="field"><span>Text input · Filled</span><input type="text" value="Alex Morgan"></label>
+          <label class="field guide-field-error"><span>Text input · Error</span><input type="email" value="wrong-email" aria-invalid="true"><small>Enter a valid email address.</small></label>
+          <label class="field"><span>Text input · Disabled</span><input type="text" value="Unavailable" disabled></label>
+          <label class="field"><span>Select · Default</span><select><option>Select a course direction</option></select></label>
+          <label class="field"><span>Select · Selected</span><select><option>Safety Training</option></select></label>
+          <div class="field guide-select-open"><span>Select · Open</span><button type="button">Safety Training <b>⌃</b></button><div><span>Deck Officers</span><span class="selected">Safety Training <b>✓</b></span><span>Engineering</span></div></div>
+          <label class="field field-full"><span>Textarea · Default</span><textarea rows="4" placeholder="Tell us about your training requirements"></textarea><small class="helper-text">Add course, location or crew details if known.</small></label>
+        </div>
+        <div class="checkbox-state-grid">
+          <label class="consent"><input type="checkbox"><span>Unchecked consent</span></label>
+          <label class="consent"><input type="checkbox" checked><span>Checked consent</span></label>
+          <label class="consent"><input type="checkbox" disabled><span>Disabled consent</span></label>
+        </div>
+        <div class="guide-subsection">
+          <div class="guide-subheading"><h3>Complete form states</h3><p>Three audience variants share one component structure; success replaces the fields after submission.</p></div>
+          <div class="form-variant-grid">
+            <div class="form-panel">
+              <div class="form-heading"><span>SEAFARER ENQUIRY</span><strong>Find suitable training</strong></div>
+              <div class="form-grid"><label class="field"><span>Full Name</span><input type="text" placeholder="Full name"></label><label class="field"><span>Email</span><input type="email" placeholder="name@example.com"></label></div>
+              <label class="field field-full"><span>Course Interest</span><select><option>Select a direction</option></select></label>
+              <button class="button button-dark form-submit" type="button">Request Training Guidance →</button>
+            </div>
+            <div class="form-panel success-panel">
+              <div><div class="success-mark">✓</div><span class="eyebrow">PROTOTYPE SUBMISSION</span><h3>Thank you. Your request is ready.</h3><p>This concept form does not store or send personal data.</p><button class="text-link" type="button">Send another enquiry →</button></div>
+            </div>
+          </div>
+          <div class="variant-list"><span>FORM VARIANTS</span><strong>Seafarer</strong><strong>Training Provider</strong><strong>Shipping Company</strong><small>Change labels and scenario-specific fields; preserve grid, validation and submission behaviour.</small></div>
+        </div>
+      </section>
+
+      <section class="guide-section" id="feedback">
+        <div class="guide-section-heading">
+          <span>08</span>
+          <div><p class="eyebrow">SYSTEM FEEDBACK</p><h2>Loading, empty, dialog and toast</h2></div>
+        </div>
+        <div class="feedback-grid">
+          <div><span class="guide-state-label">CATALOGUE · LOADING</span><div class="catalogue-loading"><span>LOADING COURSE DATA…</span></div></div>
+          <div><span class="guide-state-label">CATALOGUE · EMPTY</span><div class="catalogue-empty"><div><strong>No courses found</strong><p>Try another training direction or return to all courses.</p><button class="text-link" type="button">View All Training →</button></div></div></div>
+        </div>
+        <div class="feedback-grid">
+          <div>
+            <span class="guide-state-label">DIALOG · OPEN</span>
+            <div class="guide-dialog">
+              <div class="dialog-heading"><span>PROVIDER PROFILE · CONCEPT PREVIEW</span><button type="button">Close</button></div>
+              <h2>Maritime Academy</h2><p>This placeholder demonstrates how a future provider profile may present specialisms, delivery formats and planned courses.</p><button class="button button-dark" type="button">Discuss Provider Partnership →</button>
+            </div>
+          </div>
+          <div>
+            <span class="guide-state-label">TOAST · VISIBLE</span>
+            <div class="guide-toast">Language preference saved.</div>
+            <span class="guide-state-label">PROTOTYPE CHIP</span>
+            <span class="prototype-chip guide-chip">PROTOTYPE DATA VIEW</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="guide-section" id="media">
+        <div class="guide-section-heading">
+          <span>09</span>
+          <div><p class="eyebrow">ICONS & MEDIA</p><h2>Functional visual language</h2></div>
+        </div>
+        <div class="icon-row"><div><span>→</span><small>Forward / action</small></div><div><span>←</span><small>Back</small></div><div><span>↓</span><small>Flow</small></div><div><span>↗</span><small>External source</small></div><div><span>✓</span><small>Success / selected</small></div><div><span>×</span><small>Close</small></div><div><span>□</span><small>Feature marker</small></div></div>
+        <p class="spec-caption">Use a consistent functional icon set in the final UI. Keep size, stroke/fill and optical weight coherent; do not add decorative icons without a UX role.</p>
+        <div class="media-grid">
+          <div><span class="guide-state-label">LANDSCAPE · HERO / CONTENT</span><div class="placeholder hero-placeholder"><span>IMAGE PLACEHOLDER · 4:3 / 3:2</span><strong>Use a consistent crop and subject-safe area</strong></div></div>
+          <div><span class="guide-state-label">CARD MEDIA</span><div class="provider-card-placeholder guide-media-card">PROVIDER / COURSE IMAGE<br>16:9 OR FIXED SYSTEM RATIO</div></div>
+        </div>
+      </section>
+
+      <section class="guide-section" id="footer">
+        <div class="guide-section-heading">
+          <span>10</span>
+          <div><p class="eyebrow">FOOTER</p><h2>Global closing navigation</h2></div>
+        </div>
+        <footer class="site-footer guide-footer-demo">
+          <div><div class="logo footer-logo"><span class="logo-mark">LOGO</span><span>Maritime Training Platform</span></div><p>European origin · Cross-border access · International maritime market</p></div>
+          <div class="footer-links"><a href="#course-card">Courses</a><a href="#cards">Providers</a><a href="#forms">For Companies</a><a href="#overview">Contact</a></div>
+          <p class="prototype-label">CLICKABLE LOW-FIDELITY PROTOTYPE</p>
+        </footer>
+      </section>
+
+      <section class="guide-section" id="application">
+        <div class="guide-section-heading">
+          <span>11</span>
+          <div><p class="eyebrow">APPLIED BLOCKS</p><h2>UI kit in composition</h2></div>
+        </div>
+        <p class="guide-intro">Four representative landing blocks for testing grid, whitespace, hierarchy, imagery and CTA relationships in the proposed visual direction.</p>
+        <div class="applied-list">
+          <div class="applied-item"><span>01 · HERO</span><div class="mini-hero"><div><p class="eyebrow">EUROPE · MARITIME TRAINING PLATFORM</p><h2>Maritime Training.<br>Connected.</h2><p>A future platform connecting seafarers, training providers and shipping companies.</p><button class="button button-dark" type="button">Explore Training →</button></div><div class="placeholder"><span>IMAGE PLACEHOLDER</span></div></div></div>
+          <div class="applied-item"><span>02 · AUDIENCE ENTRY</span><div class="audience-grid mini-audience"><article class="wire-card"><span>01</span><h3>For Seafarers</h3></article><article class="wire-card"><span>02</span><h3>For Training Providers</h3></article><article class="wire-card"><span>03</span><h3>For Shipping Companies</h3></article></div></div>
+          <div class="applied-item"><span>03 · PROVIDER VALUE</span><div class="mini-dark"><div><p class="eyebrow">FOR TRAINING PROVIDERS</p><h2>Bring Your Maritime Training Online</h2><button class="button button-inverse" type="button">Become a Training Partner →</button></div><ul class="benefit-list"><li><span>□</span>Publish courses</li><li><span>□</span>Manage students</li><li><span>□</span>Track progress</li><li><span>□</span>Issue certificates</li></ul></div></div>
+          <div class="applied-item"><span>04 · CONTACT / FORM</span><div class="mini-contact"><div><p class="eyebrow">START A CONVERSATION</p><h2>Find the right next step.</h2><div class="intent-links"><button type="button"><span>I Need Training</span><strong>Find Training →</strong></button><button type="button"><span>I Provide Training</span><strong>Join Platform →</strong></button></div></div><div class="form-panel"><div class="form-heading"><span>SEAFARER ENQUIRY</span><strong>Find suitable training</strong></div><label class="field"><span>Email</span><input type="email" placeholder="name@example.com"></label><button class="button button-dark form-submit" type="button">Request Guidance →</button></div></div></div>
+        </div>
+      </section>
+
+      <section class="guide-section" id="catalogue">
+        <div class="guide-section-heading">
+          <span>12</span>
+          <div><p class="eyebrow">CATALOGUE REFERENCE</p><h2>Internal page composition</h2></div>
+        </div>
+        <div class="catalogue-demo">
+          <div class="catalogue-breadcrumbs"><button type="button">Home</button><span>→</span><button type="button">Training Directions</button><span>→</span><strong>Safety Training</strong></div>
+          <div class="catalogue-hero"><div><p class="eyebrow">COURSE CATALOGUE · INTERNAL PAGE</p><h1>Safety Training</h1><p class="lead">Professional maritime safety and emergency response courses.</p></div><div class="catalogue-summary"><span>COURSES FOUND</span><strong>16</strong><small>Live source / prototype details</small></div></div>
+          <div class="catalogue-body">
+            <aside class="catalogue-sidebar"><div class="catalogue-sidebar-heading"><span>FILTER BY DIRECTION</span><button type="button">Back to landing</button></div><button class="catalogue-category-button" type="button"><span>All Training</span><small>128</small></button><button class="catalogue-category-button active" type="button"><span>Safety Training</span><small>16</small></button><button class="catalogue-category-button" type="button"><span>Engineering</span><small>18</small></button></aside>
+            <div><div class="catalogue-results-heading"><div><span>SELECTED DIRECTION</span><strong>Safety Training</strong></div><span class="prototype-chip">PROTOTYPE DATA VIEW</span></div><div class="course-results-grid"><article class="catalogue-course-card"><div class="course-card-topline"><span>TCSAVANT.COM</span><span>SAFETY</span></div><h3>Advanced Fire Fighting</h3><p>Course information and delivery details are placeholders.</p><div class="catalogue-course-meta"><span>LANGUAGE<strong>English</strong></span><span>FORMAT<strong>Provider-led</strong></span></div><div class="catalogue-course-actions"><a href="#catalogue">View source ↗</a><button type="button">Request details →</button></div></article><article class="catalogue-course-card"><div class="course-card-topline"><span>TCSAVANT.COM</span><span>SAFETY</span></div><h3>Personal Survival Techniques</h3><p>Course information and delivery details are placeholders.</p><div class="catalogue-course-meta"><span>LANGUAGE<strong>English</strong></span><span>FORMAT<strong>Provider-led</strong></span></div><div class="catalogue-course-actions"><a href="#catalogue">View source ↗</a><button type="button">Request details →</button></div></article></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="guide-section" id="responsive">
+        <div class="guide-section-heading">
+          <span>13</span>
+          <div><p class="eyebrow">RESPONSIVE DIRECTION</p><h2>Component reflow rules</h2></div>
+        </div>
+        <div class="responsive-table">
+          <div class="responsive-head"><strong>Range</strong><strong>Header</strong><strong>Cards / Catalogue</strong><strong>Forms</strong></div>
+          <div><strong>Desktop<br><small>&gt; 1100 px</small></strong><p>Full navigation, CTA and language switcher.</p><p>3-column category/provider grids; catalogue sidebar + 2-column results.</p><p>Two-column fields; form beside contact intro.</p></div>
+          <div><strong>Tablet<br><small>801–1100 px</small></strong><p>Menu trigger; navigation opens below sticky header.</p><p>2-column landing grids; catalogue sidebar remains until 800 px.</p><p>Two-column controls where space permits.</p></div>
+          <div><strong>Small tablet<br><small>601–800 px</small></strong><p>Compact header and open menu panel.</p><p>Catalogue sidebar moves above results; main layouts stack.</p><p>Form and contact content stack.</p></div>
+          <div><strong>Mobile<br><small>≤ 600 px</small></strong><p>Logo descriptor may hide; compact languages and Menu.</p><p>All card grids, directions and filters become one column.</p><p>Controls and segmented tabs become one column; CTA is full width.</p></div>
+        </div>
+      </section>
+
+      <section class="guide-section" id="handoff">
+        <div class="guide-section-heading">
+          <span>14</span>
+          <div><p class="eyebrow">FIGMA HANDOFF</p><h2>Expected component structure</h2></div>
+        </div>
+        <div class="handoff-grid">
+          <div><span>FOUNDATIONS</span><ul><li>Colour variables by semantic role</li><li>Typography styles</li><li>Spacing and grid rules</li><li>Border, radius and elevation rules</li></ul></div>
+          <div><span>COMPONENTS / VARIANTS</span><ul><li>Buttons, links, controls and navigation</li><li>Audience, direction, course and provider cards</li><li>Form field states and three form variants</li><li>Loading, empty, success, dialog and toast</li></ul></div>
+          <div><span>NAMING EXAMPLES</span><ul><li><code>Button / Primary / Default</code></li><li><code>Input / Text / Error</code></li><li><code>Card / Course / Default</code></li><li><code>Navigation / Language / Selected</code></li></ul></div>
+          <div><span>DELIVERY CHECK</span><ul><li>Auto Layout for reusable components</li><li>EN / RU / UA stress-tested</li><li>Desktop, tablet and mobile principles noted</li><li>Editable source ready for extension</li></ul></div>
+        </div>
+        <div class="guide-final-note"><strong>Scope guardrail</strong><p>Do not build a speculative enterprise design system. Finalise the foundations and confirmed components shown here, then extend the UI kit only when a real product scenario requires it.</p><a class="button button-dark" href="index.html">Review Clickable Prototype →</a></div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

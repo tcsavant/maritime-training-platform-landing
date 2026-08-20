@@ -213,6 +213,8 @@ body.catalogue-open main > section:not(#catalogue-page) { display: none; }
 .footer-links { gap: 22px; display: flex; }
 .footer-links button { cursor: pointer; background: transparent; border: 0; border-bottom: 1px solid transparent; padding: 3px 0; }
 .footer-links button:hover { border-color: var(--ink); }
+.footer-guide-link { color: inherit; border-bottom: 1px solid transparent; padding: 3px 0; text-decoration: none; }
+.footer-guide-link:hover { border-color: var(--ink); }
 .prototype-label { letter-spacing: .08em; justify-self: end; margin: 0; }
 
 .prototype-dialog { border: 1px solid var(--ink); border-radius: 0; width: min(620px, calc(100vw - 40px)); padding: 32px; }
