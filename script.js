@@ -1027,9 +1027,7 @@ async function setLanguage(language, showConfirmation = true, persist = true) {
     button.classList.toggle('active', active);
     button.setAttribute('aria-pressed', String(active));
   });
-  document.querySelectorAll('[data-language-select]').forEach(select => {
-    select.value = language;
-  });
+  document.querySelectorAll('.language-switcher').forEach(switcher => switcher.classList.remove('is-open'));
   if (page.dynamicFields.isConnected) renderForm(page.leadForm.dataset.formState || 'seafarer', true);
   translateStaticPage();
   page.categoryGrid.setAttribute('aria-busy', 'true');
@@ -1094,16 +1092,20 @@ document.addEventListener('click', event => {
     selectAudience(page.dialogAudience);
   }
   const languageControl = event.target.closest('[data-language]');
-  if (languageControl) setLanguage(languageControl.dataset.language);
+  if (languageControl) {
+    const switcher = languageControl.closest('.language-switcher');
+    if (window.matchMedia('(max-width: 800px)').matches && languageControl.classList.contains('active')) {
+      switcher.classList.toggle('is-open');
+    } else {
+      setLanguage(languageControl.dataset.language);
+    }
+  }
   if (event.target.closest('#catalogue-more')) {
     state.visibleCount += PAGE_SIZE;
     renderCatalogue();
   }
 });
 
-document.querySelectorAll('[data-language-select]').forEach(select => {
-  select.addEventListener('change', () => setLanguage(select.value));
-});
 
 document.querySelectorAll('.audience-card').forEach(card => {
   card.addEventListener('keydown', event => {
