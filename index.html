@@ -87,6 +87,39 @@
     navigation.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
       setMobileMenu(false);
     }));
+    const landingTranslations = { en: {} };
+    const originalTextNodes = new WeakMap();
+    function storedLanguage() {
+      try { return localStorage.getItem('maritime-platform-language') || 'en'; } catch { return 'en'; }
+    }
+    async function setLanguage(language) {
+      if (!landingTranslations[language]) {
+        const response = await fetch(`locales/${language}.json`);
+        landingTranslations[language] = response.ok ? await response.json() : {};
+      }
+      const dictionary = landingTranslations[language];
+      document.documentElement.lang = language;
+      try { localStorage.setItem('maritime-platform-language', language); } catch {}
+      document.querySelectorAll('.language-switcher button').forEach(item => {
+        const active = item.dataset.language === language;
+        item.classList.toggle('active', active); item.setAttribute('aria-pressed', String(active));
+      });
+      document.querySelectorAll('.language-switcher').forEach(item => item.classList.remove('is-open'));
+      const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+        acceptNode(node) {
+          return node.nodeValue.trim() && !node.parentElement.closest('script, style') ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+        }
+      });
+      const nodes = [];
+      while (walker.nextNode()) nodes.push(walker.currentNode);
+      nodes.forEach(node => {
+        if (!originalTextNodes.has(node)) originalTextNodes.set(node, node.nodeValue.trim());
+        const source = originalTextNodes.get(node);
+        const leading = node.nodeValue.match(/^\s*/)[0];
+        const trailing = node.nodeValue.match(/\s*$/)[0];
+        node.nodeValue = `${leading}${dictionary[source] || source}${trailing}`;
+      });
+    }
     document.querySelectorAll('.language-switcher button').forEach(button => button.addEventListener('click', () => {
       const switcher = button.closest('.language-switcher');
       if (window.matchMedia('(max-width: 800px)').matches && button.classList.contains('active')) {
@@ -94,12 +127,9 @@
         return;
       }
       const language = button.dataset.language;
-      document.querySelectorAll('.language-switcher button').forEach(item => {
-        const active = item.dataset.language === language;
-        item.classList.toggle('active', active); item.setAttribute('aria-pressed', String(active));
-      });
-      document.querySelectorAll('.language-switcher').forEach(item => item.classList.remove('is-open'));
+      setLanguage(language);
     }));
+    setLanguage(storedLanguage());
   </script>
 </body>
 </html>
