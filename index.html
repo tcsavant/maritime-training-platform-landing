@@ -16,9 +16,9 @@
       <span class="brand-descriptor">Maritime<br>Training Platform</span>
     </a>
     <nav aria-label="Main navigation">
-      <a href="courses.html">Training</a><a href="#providers">Providers</a><a href="#companies">For Companies</a><a href="#about">About</a>
+      <a href="courses.html">Courses</a><a href="#providers">Training Providers</a><a href="#companies">For Companies</a><a href="#about">About</a>
     </nav>
-    <div class="header-actions"><span class="language">EN</span><a class="button button-gold" href="#contact">Contact <span>→</span></a></div>
+    <div class="header-actions"><div class="language-switcher" aria-label="Language selector"><button class="active" type="button" aria-pressed="true">EN</button><button type="button" aria-pressed="false">RU</button><button type="button" aria-pressed="false">УКР</button></div><a class="button button-gold" href="#contact">Contact</a></div>
   </header>
 
   <main id="content">
@@ -63,5 +63,11 @@
     <section class="contact section-blue wave-faint" id="contact"><div class="container contact-grid"><div><p class="kicker">START A CONVERSATION</p><h2>How can we<br>help?</h2><p>Choose the path that best describes you. We will collect only the information needed for the next step.</p></div><form><label>I am a…<select><option>Seafarer</option><option>Training Provider</option><option>Shipping Company</option></select></label><div class="form-row"><label>Full name<input placeholder="Your full name"></label><label>Email<input type="email" placeholder="name@example.com"></label></div><label>Tell us about your needs<textarea rows="3" placeholder="Course, location or crew details"></textarea></label><button class="button button-gold" type="button">Start a conversation <span>→</span></button></form></div></section>
   </main>
   <footer><div class="container"><a class="brand" href="#top"><img class="brand-logo" src="assets/auvenida/logo.svg" alt="Auvenda"></a><span>European origin · Cross-border access · International maritime market</span><a href="courses.html">Explore courses →</a></div></footer>
+  <script>
+    document.querySelectorAll('.language-switcher button').forEach(button => button.addEventListener('click', () => {
+      document.querySelectorAll('.language-switcher button').forEach(item => { item.classList.remove('active'); item.setAttribute('aria-pressed', 'false'); });
+      button.classList.add('active'); button.setAttribute('aria-pressed', 'true');
+    }));
+  </script>
 </body>
 </html>
