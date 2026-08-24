@@ -512,22 +512,26 @@ const state = {
   cache: new Map()
 };
 
+const localeTranslations = { en: {}, ru: {}, uk: {} };
+
+async function loadLocale(language) {
+  if (Object.keys(localeTranslations[language]).length) return;
+  try {
+    const response = await fetch(`locales/${language}.json`);
+    if (!response.ok) throw new Error(`Locale ${language} is unavailable`);
+    localeTranslations[language] = await response.json();
+  } catch (error) {
+    console.warn(`Could not load ${language} translations.`, error);
+  }
+}
+
 const originalTextNodes = new WeakMap();
 const originalAttributes = new WeakMap();
 
 function t(value, language = state.currentLanguage) {
-  return translations[language] && translations[language][value]
-    ? translations[language][value]
+  return localeTranslations[language] && localeTranslations[language][value]
+    ? localeTranslations[language][value]
     : value;
-}
-
-function languageName(language = state.currentLanguage) {
-  const names = {
-    en: { en: 'English', ru: 'Английский', uk: 'Англійська' },
-    ru: { en: 'Russian', ru: 'Русский', uk: 'Російська' },
-    uk: { en: 'Ukrainian', ru: 'Украинский', uk: 'Українська' }
-  };
-  return names[language][state.currentLanguage];
 }
 
 function formatCourseCount(count) {
@@ -739,10 +743,8 @@ function directionBySlug(slug) {
   return directionDefinitions.find(direction => direction.slug === slug);
 }
 
-function directionLabel(direction, language = state.currentLanguage) {
-  return direction && direction.labels && direction.labels[language]
-    ? direction.labels[language]
-    : direction.label;
+function directionLabel(direction) {
+  return direction ? t(`direction.${direction.slug}`) : '';
 }
 
 function normalizeDirections(value) {
@@ -827,7 +829,7 @@ function renderSourceStatus() {
   page.sourceStatus.classList.toggle('is-live', live);
   page.sourceStatus.classList.toggle('is-fallback', !live);
   page.sourceStatus.innerHTML = `<span class="status-dot"></span><span>${live
-    ? `${t('Live catalogue source')} · ${formatCourseCount(state.courses.length)} · tcsavant.com · ${escapeHtml(languageName())}`
+    ? `${t('Live catalogue source')} · ${formatCourseCount(state.courses.length)} · tcsavant.com`
     : t('Catalogue source unavailable · fallback course data shown')}</span>`;
 }
 
@@ -916,13 +918,11 @@ function renderCatalogue() {
   const definition = catalogueDefinition();
   const results = filteredCourses();
   const visible = results.slice(0, state.visibleCount);
-  const liveLabel = state.sourceMode === 'live' ? t('LIVE SOURCE') : t('PLACEHOLDER DATA');
   page.catalogueTitle.textContent = definition.label;
   page.catalogueDescription.textContent = definition.description;
   page.catalogueCount.textContent = formatCourseCount(results.length);
-  if (page.catalogueSourceLabel) page.catalogueSourceLabel.textContent = `${liveLabel} · ${languageName()} · TCSAVANT.COM`;
   page.catalogueBreadcrumbCurrent.textContent = definition.label;
-  page.catalogueResultsKicker.textContent = `${definition.label.toUpperCase()} · ${languageName().toUpperCase()}`;
+  page.catalogueResultsKicker.textContent = definition.label.toUpperCase();
   page.catalogueResultsTitle.textContent = results.length ? t('Available course titles') : t('Courses are being mapped');
   page.catalogueCategoryNav.innerHTML = `
     <button type="button" data-catalogue-category="all" class="catalogue-category-button ${state.currentCategory === 'all' ? 'active' : ''}"><span>${t('All Training')}</span><small>${state.courses.length}</small></button>
@@ -937,7 +937,7 @@ function renderCatalogue() {
       <div class="course-card-topline"><span>${course.placeholder ? t('COURSE') : t('TCSAVANT.COM SOURCE')}</span><span>${String(index + 1).padStart(2, '0')}</span></div>
       <h3>${escapeHtml(course.placeholder ? t(course.title) : course.title)}</h3>
       <p>${t('Course details, delivery options and provider availability will be mapped into the future marketplace.')}</p>
-      <div class="catalogue-course-meta"><span>${t('Course direction')}<strong>${escapeHtml(direction ? directionLabel(direction) : t('Direction pending'))}</strong></span><span>${t('Source language')}<strong>${escapeHtml(languageName())}</strong></span></div>
+      <div class="catalogue-course-meta"><span>${t('Course direction')}<strong>${escapeHtml(direction ? directionLabel(direction) : t('Direction pending'))}</strong></span></div>
       <div class="catalogue-course-actions">
         <a href="${escapeHtml(course.link)}" target="_blank" rel="noopener">${t('Source details ↗')}</a>
         <button type="button" data-course-enquire="${escapeHtml(course.title)}" data-course-direction="${selectedDirection || ''}">${t('Request guidance')}</button>
@@ -1001,6 +1001,7 @@ function showToast(message) {
 
 async function setLanguage(language, showConfirmation = true, persist = true) {
   if (!languageNames[language]) return;
+  await loadLocale(language);
   state.currentLanguage = language;
   if (persist) storeLanguage(language);
   document.documentElement.lang = language;
@@ -1021,12 +1022,7 @@ async function setLanguage(language, showConfirmation = true, persist = true) {
   if (document.body.classList.contains('catalogue-open')) renderCatalogue();
   if (page.courseDialog.open && page.dialogProvider) renderProviderDialog(page.dialogProvider);
   if (showConfirmation) {
-    const loadedMessage = {
-      en: 'English course catalogue loaded.',
-      ru: 'Russian course catalogue loaded.',
-      uk: 'Ukrainian course catalogue loaded.'
-    };
-    showToast(t(loadedMessage[language]));
+    showToast(t('Course catalogue updated.'));
   }
 }
 

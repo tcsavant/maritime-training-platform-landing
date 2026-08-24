@@ -195,7 +195,7 @@ body.catalogue-open main > section:not(#catalogue-page) { display: none; }
 .course-card-topline { color: var(--muted); justify-content: space-between; gap: 18px; margin-bottom: 45px; font-size: 10px; display: flex; }
 .catalogue-course-card h3 { font-size: 23px; }
 .catalogue-course-card > p { color: var(--muted); margin-bottom: 26px; line-height: 1.6; }
-.catalogue-course-meta { border-top: 1px solid var(--line); grid-template-columns: 1fr 1fr; gap: 12px; margin-top: auto; padding-top: 14px; display: grid; }
+.catalogue-course-meta { border-top: 1px solid var(--line); grid-template-columns: 1fr; gap: 12px; margin-top: auto; padding-top: 14px; display: grid; }
 .catalogue-course-meta span { color: var(--muted); flex-direction: column; gap: 4px; font-size: 10px; display: flex; }
 .catalogue-course-meta strong { color: var(--ink); font-size: 12px; }
 .catalogue-course-actions { align-items: center; flex-wrap: wrap; gap: 18px; margin-top: 22px; display: flex; }
