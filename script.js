@@ -954,7 +954,9 @@ function renderCatalogue() {
 }
 
 function routeForCategory(slug) {
-  return `#courses/${encodeURIComponent(slug)}`;
+  return slug === 'all'
+    ? location.pathname
+    : `${location.pathname}?category=${encodeURIComponent(slug)}`;
 }
 
 function openCatalogue(slug = 'all', updateHistory = true) {
@@ -968,13 +970,15 @@ function openCatalogue(slug = 'all', updateHistory = true) {
 }
 
 function closeCatalogue(updateHistory = true, targetHash = 'courses') {
-  page.cataloguePage.hidden = true;
-  document.body.classList.remove('catalogue-open');
-  document.title = t(DEFAULT_TITLE);
-  if (updateHistory) history.pushState({ view: 'landing' }, '', `${location.pathname}${location.search}#${targetHash}`);
+  window.location.href = `index.html#${targetHash}`;
 }
 
 function scrollToSection(id) {
+  if (document.body.classList.contains('courses-page')) {
+    const landingSection = id === 'education-providers' ? 'providers' : id;
+    window.location.href = id === 'courses' ? routeForCategory('all') : `index.html#${landingSection}`;
+    return;
+  }
   if (document.body.classList.contains('catalogue-open')) closeCatalogue(true, id);
   const target = document.getElementById(id);
   if (!target) return;
@@ -1042,9 +1046,8 @@ function renderProviderDialog(provider) {
 }
 
 function applyLocationRoute() {
-  const match = location.hash.match(/^#courses\/([^/?#]+)/);
-  if (match) openCatalogue(decodeURIComponent(match[1]), false);
-  else if (document.body.classList.contains('catalogue-open')) closeCatalogue(false);
+  const slug = new URLSearchParams(location.search).get('category') || 'all';
+  openCatalogue(slug, false);
 }
 
 document.addEventListener('click', event => {
