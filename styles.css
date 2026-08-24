@@ -164,13 +164,14 @@ textarea { resize: vertical; line-height: 1.5; }
 body.catalogue-open main > section:not(#catalogue-page) { display: none; }
 .catalogue-page { min-height: calc(100vh - 74px); background: var(--paper); }
 .catalogue-page[hidden] { display: none; }
-.catalogue-breadcrumbs { color: var(--muted); align-items: center; flex-wrap: wrap; gap: 10px; padding: 28px max(4vw, calc(50vw - 620px)); font-size: 12px; display: flex; }
+.catalogue-breadcrumbs { grid-area: breadcrumbs; color: var(--muted); align-items: center; flex-wrap: wrap; gap: 10px; padding: 0; font-size: 12px; display: flex; }
 .catalogue-breadcrumbs button { border: 0; border-bottom: 1px solid var(--line-dark); cursor: pointer; background: transparent; padding: 0; }
 .catalogue-breadcrumbs strong { color: var(--ink); font-weight: 400; }
-.catalogue-hero { border-block: 1px solid var(--line); background: var(--soft); grid-template-columns: 1fr 210px; align-items: end; gap: 8vw; padding: 75px max(4vw, calc(50vw - 620px)); display: grid; }
+.catalogue-hero { border-block: 1px solid var(--line); background: var(--soft); grid-template-columns: 1fr 210px; grid-template-areas: "breadcrumbs breadcrumbs" "copy summary"; align-items: end; gap: 30px 8vw; padding: 38px max(4vw, calc(50vw - 620px)) 75px; display: grid; }
+.catalogue-hero > :nth-child(2) { grid-area: copy; }
 .catalogue-hero h1 { margin-bottom: 20px; font-size: clamp(48px, 6vw, 76px); }
 .catalogue-hero .lead { margin-bottom: 0; }
-.catalogue-summary { border: 1px solid var(--ink); flex-direction: column; gap: 10px; min-height: 165px; padding: 23px; display: flex; }
+.catalogue-summary { border: 1px solid var(--ink); align-items: center; justify-content: center; min-height: 165px; padding: 23px; display: flex; }
 .catalogue-summary span { color: var(--muted); letter-spacing: .12em; font-size: 10px; font-weight: 700; }
 .catalogue-summary strong { font-size: 52px; line-height: 1; }
 .catalogue-summary small { color: var(--muted); margin-top: auto; line-height: 1.45; }
@@ -254,7 +255,7 @@ body.catalogue-open main > section:not(#catalogue-page) { display: none; }
   .ecosystem-lines span { transform: rotate(90deg); }
   .trust-grid { grid-template-columns: 1fr 1fr; }
   .trust-grid div { border-bottom: 1px solid var(--ink); }
-  .catalogue-hero { grid-template-columns: 1fr; padding-inline: 28px; }
+  .catalogue-hero { grid-template-columns: 1fr; grid-template-areas: "breadcrumbs" "copy" "summary"; padding-inline: 28px; }
   .catalogue-summary { min-height: 135px; }
   .catalogue-body { grid-template-columns: 1fr; padding-inline: 28px; }
   .catalogue-sidebar { position: static; }

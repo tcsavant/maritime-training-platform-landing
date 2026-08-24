@@ -923,8 +923,8 @@ function renderCatalogue() {
   const liveLabel = state.sourceMode === 'live' ? t('LIVE SOURCE') : t('PLACEHOLDER DATA');
   page.catalogueTitle.textContent = definition.label;
   page.catalogueDescription.textContent = definition.description;
-  page.catalogueCount.textContent = formatCourseCount(results.length);
-  page.catalogueSourceLabel.textContent = `${liveLabel} · ${languageName()} · TCSAVANT.COM`;
+  page.catalogueCount.textContent = String(results.length);
+  if (page.catalogueSourceLabel) page.catalogueSourceLabel.textContent = `${liveLabel} · ${languageName()} · TCSAVANT.COM`;
   page.catalogueBreadcrumbCurrent.textContent = definition.label;
   page.catalogueResultsKicker.textContent = `${definition.label.toUpperCase()} · ${languageName().toUpperCase()}`;
   page.catalogueResultsTitle.textContent = results.length ? t('Available course titles') : t('Courses are being mapped');
