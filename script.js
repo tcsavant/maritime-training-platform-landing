@@ -178,18 +178,15 @@ const translations = {
     'Home': 'Главная',
     'Training Directions': 'Направления обучения',
     'All Training': 'Все курсы',
-    'COURSE CATALOGUE · INTERNAL PAGE PROTOTYPE': 'КАТАЛОГ КУРСОВ · ПРОТОТИП ВНУТРЕННЕЙ СТРАНИЦЫ',
     'Live course titles are loaded from tcsavant.com. Marketplace details remain placeholders.': 'Названия курсов загружаются с tcsavant.com. Остальные данные маркетплейса пока являются плейсхолдерами.',
     'COURSES FOUND': 'НАЙДЕНО КУРСОВ',
     'Connecting to source…': 'Подключаемся к источнику…',
     'FILTER BY DIRECTION': 'ФИЛЬТР ПО НАПРАВЛЕНИЮ',
     'Back to landing': 'Вернуться на лендинг',
     'SELECTED DIRECTION': 'ВЫБРАННОЕ НАПРАВЛЕНИЕ',
-    'PROTOTYPE DATA VIEW': 'ПРОТОТИП КАТАЛОГА',
     'Show More Courses →': 'Показать ещё →',
     'European origin · Cross-border access · International maritime market': 'Европейское происхождение · Доступ без границ · Международный морской рынок',
     'Providers': 'Учебные центры',
-    'CLICKABLE LOW-FIDELITY PROTOTYPE': 'КЛИКАБЕЛЬНЫЙ НИЗКОДЕТАЛИЗИРОВАННЫЙ ПРОТОТИП',
     'Design Guide': 'Дизайн-гайд',
     'PROVIDER PROFILE · CONCEPT PREVIEW': 'ПРОФИЛЬ УЧЕБНОГО ЦЕНТРА · КОНЦЕПТ',
     'Close': 'Закрыть',
@@ -220,16 +217,13 @@ const translations = {
     'Discuss Provider Partnership →': 'Обсудить партнёрство →',
     'This placeholder demonstrates how a future provider profile may present specialisms, delivery formats and planned courses. No provider partnership or course availability is implied.': 'Этот плейсхолдер показывает будущий профиль учебного центра: специализации, форматы и планируемые курсы. Он не подтверждает партнёрство или доступность курсов.',
     'I agree to be contacted about this enquiry.': 'Я согласен на связь по этому запросу.',
-    '(Prototype only — no data is stored.)': '(Только прототип — данные не сохраняются.)',
     'Live catalogue source': 'Живой источник каталога',
-    'Catalogue source unavailable · prototype placeholders shown': 'Источник каталога недоступен · показаны плейсхолдеры',
     'Loading course titles from tcsavant.com…': 'Загружаем курсы с tcsavant.com…',
     'LIVE SOURCE': 'ЖИВОЙ ИСТОЧНИК',
     'PLACEHOLDER DATA': 'ДАННЫЕ-ПЛЕЙСХОЛДЕРЫ',
     'Available course titles': 'Доступные курсы',
     'Courses are being mapped': 'Курсы добавляются',
     'TCSAVANT.COM SOURCE': 'ИСТОЧНИК TCSAVANT.COM',
-    'PROTOTYPE COURSE': 'КУРС-ПЛЕЙСХОЛДЕР',
     'Course details, delivery options and provider availability will be mapped into the future marketplace.': 'Описание, форматы обучения и доступность у учебных центров будут добавлены в будущий маркетплейс.',
     'Course direction': 'Направление курса',
     'Source language': 'Язык источника',
@@ -238,7 +232,6 @@ const translations = {
     'Request guidance': 'Получить консультацию',
     'No matched courses yet.': 'Подходящих курсов пока нет.',
     'This direction remains visible because it is part of the source catalogue structure. Titles will appear when the source data is updated.': 'Направление остаётся видимым как часть структуры исходного каталога. Курсы появятся после обновления данных источника.',
-    'Prototype enquiry complete': 'Запрос в прототипе завершён',
     'Start another enquiry': 'Создать новый запрос',
     'English course catalogue loaded.': 'Загружен каталог курсов на английском.',
     'Russian course catalogue loaded.': 'Загружен каталог курсов на русском.',
@@ -250,7 +243,6 @@ const translations = {
     'Safety, service and crisis-management training for passenger ship personnel.': 'Подготовка персонала пассажирских судов по безопасности, сервису и кризисному управлению.',
     'Long-form vocational preparation for maritime technical and service roles.': 'Профессионально-техническая подготовка для морских технических и сервисных специальностей.',
     'Short specialist courses for competence maintenance and professional development.': 'Краткосрочные специализированные курсы для повышения компетентности и профессионального развития.',
-    'Explore the complete prototype course catalogue sourced from tcsavant.com.': 'Ознакомьтесь с полным прототипом каталога курсов на основе данных tcsavant.com.'
   },
   uk: {
     'European Maritime Training Platform': 'Європейська платформа морського навчання',
@@ -372,18 +364,15 @@ const translations = {
     'Home': 'Головна',
     'Training Directions': 'Напрями навчання',
     'All Training': 'Усі курси',
-    'COURSE CATALOGUE · INTERNAL PAGE PROTOTYPE': 'КАТАЛОГ КУРСІВ · ПРОТОТИП ВНУТРІШНЬОЇ СТОРІНКИ',
     'Live course titles are loaded from tcsavant.com. Marketplace details remain placeholders.': 'Назви курсів завантажуються з tcsavant.com. Інші дані маркетплейсу поки є плейсхолдерами.',
     'COURSES FOUND': 'ЗНАЙДЕНО КУРСІВ',
     'Connecting to source…': 'Підключаємося до джерела…',
     'FILTER BY DIRECTION': 'ФІЛЬТР ЗА НАПРЯМОМ',
     'Back to landing': 'Повернутися на лендинг',
     'SELECTED DIRECTION': 'ОБРАНИЙ НАПРЯМ',
-    'PROTOTYPE DATA VIEW': 'ПРОТОТИП КАТАЛОГУ',
     'Show More Courses →': 'Показати ще →',
     'European origin · Cross-border access · International maritime market': 'Європейське походження · Доступ без кордонів · Міжнародний морський ринок',
     'Providers': 'Навчальні центри',
-    'CLICKABLE LOW-FIDELITY PROTOTYPE': 'КЛІКАБЕЛЬНИЙ НИЗЬКОДЕТАЛІЗОВАНИЙ ПРОТОТИП',
     'Design Guide': 'Дизайн-гайд',
     'PROVIDER PROFILE · CONCEPT PREVIEW': 'ПРОФІЛЬ НАВЧАЛЬНОГО ЦЕНТРУ · КОНЦЕПТ',
     'Close': 'Закрити',
@@ -414,16 +403,13 @@ const translations = {
     'Discuss Provider Partnership →': 'Обговорити партнерство →',
     'This placeholder demonstrates how a future provider profile may present specialisms, delivery formats and planned courses. No provider partnership or course availability is implied.': 'Цей плейсхолдер показує майбутній профіль навчального центру: спеціалізації, формати та заплановані курси. Він не підтверджує партнерство чи доступність курсів.',
     'I agree to be contacted about this enquiry.': 'Я погоджуюся на зв’язок щодо цього запиту.',
-    '(Prototype only — no data is stored.)': '(Лише прототип — дані не зберігаються.)',
     'Live catalogue source': 'Живе джерело каталогу',
-    'Catalogue source unavailable · prototype placeholders shown': 'Джерело каталогу недоступне · показано плейсхолдери',
     'Loading course titles from tcsavant.com…': 'Завантажуємо курси з tcsavant.com…',
     'LIVE SOURCE': 'ЖИВЕ ДЖЕРЕЛО',
     'PLACEHOLDER DATA': 'ДАНІ-ПЛЕЙСХОЛДЕРИ',
     'Available course titles': 'Доступні курси',
     'Courses are being mapped': 'Курси додаються',
     'TCSAVANT.COM SOURCE': 'ДЖЕРЕЛО TCSAVANT.COM',
-    'PROTOTYPE COURSE': 'КУРС-ПЛЕЙСХОЛДЕР',
     'Course details, delivery options and provider availability will be mapped into the future marketplace.': 'Опис, формати навчання та доступність у навчальних центрів буде додано до майбутнього маркетплейсу.',
     'Course direction': 'Напрям курсу',
     'Source language': 'Мова джерела',
@@ -432,7 +418,6 @@ const translations = {
     'Request guidance': 'Отримати консультацію',
     'No matched courses yet.': 'Відповідних курсів поки немає.',
     'This direction remains visible because it is part of the source catalogue structure. Titles will appear when the source data is updated.': 'Напрям залишається видимим як частина структури вихідного каталогу. Курси з’являться після оновлення даних джерела.',
-    'Prototype enquiry complete': 'Запит у прототипі завершено',
     'Start another enquiry': 'Створити новий запит',
     'English course catalogue loaded.': 'Завантажено каталог курсів англійською.',
     'Russian course catalogue loaded.': 'Завантажено каталог курсів російською.',
@@ -444,7 +429,6 @@ const translations = {
     'Safety, service and crisis-management training for passenger ship personnel.': 'Підготовка персоналу пасажирських суден з безпеки, сервісу та кризового управління.',
     'Long-form vocational preparation for maritime technical and service roles.': 'Професійно-технічна підготовка для морських технічних і сервісних спеціальностей.',
     'Short specialist courses for competence maintenance and professional development.': 'Короткострокові спеціалізовані курси для підвищення компетентності та професійного розвитку.',
-    'Explore the complete prototype course catalogue sourced from tcsavant.com.': 'Ознайомтеся з повним прототипом каталогу курсів на основі даних tcsavant.com.'
   }
 };
 
@@ -595,9 +579,9 @@ function translateStaticPage() {
   const description = document.querySelector('meta[name="description"]');
   if (description) {
     const descriptions = {
-      en: 'Clickable concept prototype for a European maritime training platform connecting international learners, providers and shipping companies.',
-      ru: 'Кликабельный прототип европейской платформы морского обучения для моряков, учебных центров и судоходных компаний.',
-      uk: 'Клікабельний прототип європейської платформи морського навчання для моряків, навчальних центрів і судноплавних компаній.'
+      en: 'A European maritime training platform connecting international learners, providers and shipping companies.',
+      ru: 'Европейская платформа морского обучения для моряков, учебных центров и судоходных компаний.',
+      uk: 'Європейська платформа морського навчання для моряків, навчальних центрів і судноплавних компаній.'
     };
     description.content = descriptions[state.currentLanguage];
   }
@@ -613,6 +597,12 @@ Object.assign(translations.ru, {
   'Platform journey': 'Путь на платформе',
   'Contact options': 'Варианты обращения',
   'Breadcrumb': 'Хлебные крошки',
+  'COURSE CATALOGUE': 'КАТАЛОГ КУРСОВ',
+  '(No data is stored.)': '(Данные не сохраняются.)',
+  'Catalogue source unavailable · fallback course data shown': 'Источник каталога недоступен · показаны резервные данные курсов',
+  'Explore the complete course catalogue sourced from tcsavant.com.': 'Ознакомьтесь с полным каталогом курсов на основе данных tcsavant.com.',
+  'COURSE': 'КУРС',
+  'Enquiry received': 'Запрос получен',
   'Course directions': 'Направления курсов',
   'Close course preview': 'Закрыть окно',
   'This catalogue is part of the future platform concept. Course availability, providers and certification conditions will be confirmed before launch.': 'Этот каталог является частью концепции будущей платформы. Доступность курсов, учебные центры и условия сертификации будут подтверждены перед запуском.',
@@ -651,6 +641,12 @@ Object.assign(translations.uk, {
   'Platform journey': 'Шлях на платформі',
   'Contact options': 'Варіанти звернення',
   'Breadcrumb': 'Навігаційний ланцюжок',
+  'COURSE CATALOGUE': 'КАТАЛОГ КУРСІВ',
+  '(No data is stored.)': '(Дані не зберігаються.)',
+  'Catalogue source unavailable · fallback course data shown': 'Джерело каталогу недоступне · показано резервні дані курсів',
+  'Explore the complete course catalogue sourced from tcsavant.com.': 'Ознайомтеся з повним каталогом курсів на основі даних tcsavant.com.',
+  'COURSE': 'КУРС',
+  'Enquiry received': 'Запит отримано',
   'Course directions': 'Напрями курсів',
   'Close course preview': 'Закрити вікно',
   'This catalogue is part of the future platform concept. Course availability, providers and certification conditions will be confirmed before launch.': 'Цей каталог є частиною концепції майбутньої платформи. Доступність курсів, навчальні центри й умови сертифікації буде підтверджено перед запуском.',
@@ -815,7 +811,7 @@ async function fetchCourses(language) {
     state.cache.set(language, result);
     return result;
   } catch (error) {
-    console.warn('The live course source is unavailable; prototype placeholders are being used.', error);
+    console.warn('The live course source is unavailable; fallback course data is being used.', error);
     return { courses: fallbackCourses, sourceMode: 'fallback' };
   } finally {
     clearTimeout(timeout);
@@ -832,7 +828,7 @@ function renderSourceStatus() {
   page.sourceStatus.classList.toggle('is-fallback', !live);
   page.sourceStatus.innerHTML = `<span class="status-dot"></span><span>${live
     ? `${t('Live catalogue source')} · ${formatCourseCount(state.courses.length)} · tcsavant.com · ${escapeHtml(languageName())}`
-    : t('Catalogue source unavailable · prototype placeholders shown')}</span>`;
+    : t('Catalogue source unavailable · fallback course data shown')}</span>`;
 }
 
 function renderLandingCategories() {
@@ -908,7 +904,7 @@ function filteredCourses() {
 
 function catalogueDefinition() {
   return state.currentCategory === 'all'
-    ? { label: t('All Training'), description: t('Explore the complete prototype course catalogue sourced from tcsavant.com.') }
+    ? { label: t('All Training'), description: t('Explore the complete course catalogue sourced from tcsavant.com.') }
     : {
         ...directionBySlug(state.currentCategory),
         label: directionLabel(directionBySlug(state.currentCategory)),
@@ -938,7 +934,7 @@ function renderCatalogue() {
     const selectedDirection = state.currentCategory === 'all' ? course.directions[0] : state.currentCategory;
     const direction = directionBySlug(selectedDirection);
     return `<article class="catalogue-course-card">
-      <div class="course-card-topline"><span>${course.placeholder ? t('PROTOTYPE COURSE') : t('TCSAVANT.COM SOURCE')}</span><span>${String(index + 1).padStart(2, '0')}</span></div>
+      <div class="course-card-topline"><span>${course.placeholder ? t('COURSE') : t('TCSAVANT.COM SOURCE')}</span><span>${String(index + 1).padStart(2, '0')}</span></div>
       <h3>${escapeHtml(course.placeholder ? t(course.title) : course.title)}</h3>
       <p>${t('Course details, delivery options and provider availability will be mapped into the future marketplace.')}</p>
       <div class="catalogue-course-meta"><span>${t('Course direction')}<strong>${escapeHtml(direction ? directionLabel(direction) : t('Direction pending'))}</strong></span><span>${t('Source language')}<strong>${escapeHtml(languageName())}</strong></span></div>
@@ -1112,7 +1108,7 @@ page.menuButton.addEventListener('click', () => {
 
 page.leadForm.addEventListener('submit', event => {
   event.preventDefault();
-  page.leadForm.innerHTML = `<div class="success-panel"><div class="success-mark">✓</div><h3>${t('Prototype enquiry complete')}</h3><p>${t('Your enquiry has been demonstrated successfully. No information has been sent or stored.')}</p><button class="button button-light" type="button" data-restart-form>${t('Start another enquiry')}</button></div>`;
+  page.leadForm.innerHTML = `<div class="success-panel"><div class="success-mark">✓</div><h3>${t('Enquiry received')}</h3><p>${t('Your enquiry has been demonstrated successfully. No information has been sent or stored.')}</p><button class="button button-light" type="button" data-restart-form>${t('Start another enquiry')}</button></div>`;
   page.leadForm.querySelector('[data-restart-form]').addEventListener('click', () => location.reload());
 });
 

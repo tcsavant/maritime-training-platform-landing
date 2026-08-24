@@ -189,7 +189,6 @@ body.catalogue-open main > section:not(#catalogue-page) { display: none; }
 .catalogue-results-heading > div { flex-direction: column; gap: 6px; display: flex; }
 .catalogue-results-heading span { color: var(--muted); letter-spacing: .1em; font-size: 10px; }
 .catalogue-results-heading strong { font-size: 24px; }
-.prototype-chip { border: 1px solid var(--line-dark); padding: 7px 9px; }
 .course-results-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; display: grid; }
 .catalogue-course-card { border: 1px solid var(--line); background: #fff; flex-direction: column; min-height: 310px; padding: 24px; display: flex; }
 .catalogue-course-card:hover { border-color: var(--ink); }
@@ -216,12 +215,11 @@ body.catalogue-open main > section:not(#catalogue-page) { display: none; }
 .footer-links button:hover { border-color: var(--ink); }
 .footer-guide-link { color: inherit; border-bottom: 1px solid transparent; padding: 3px 0; text-decoration: none; }
 .footer-guide-link:hover { border-color: var(--ink); }
-.prototype-label { letter-spacing: .08em; justify-self: end; margin: 0; }
 
-.prototype-dialog { border: 1px solid var(--ink); border-radius: 0; width: min(620px, calc(100vw - 40px)); padding: 32px; }
-.prototype-dialog::backdrop { background: rgba(25,25,25,.55); }
-.prototype-dialog h2 { margin: 32px 0 20px; font-size: 42px; }
-.prototype-dialog p { color: var(--muted); line-height: 1.7; margin-bottom: 30px; }
+.course-dialog { border: 1px solid var(--ink); border-radius: 0; width: min(620px, calc(100vw - 40px)); padding: 32px; }
+.course-dialog::backdrop { background: rgba(25,25,25,.55); }
+.course-dialog h2 { margin: 32px 0 20px; font-size: 42px; }
+.course-dialog p { color: var(--muted); line-height: 1.7; margin-bottom: 30px; }
 .dialog-heading { border-bottom: 1px solid var(--line); justify-content: space-between; gap: 20px; padding-bottom: 16px; font-size: 11px; font-weight: 700; display: flex; }
 .dialog-heading > span { letter-spacing: .1em; }
 .dialog-heading button { border: 0; border-bottom: 1px solid var(--ink); background: transparent; cursor: pointer; padding: 0; }
@@ -242,7 +240,6 @@ body.catalogue-open main > section:not(#catalogue-page) { display: none; }
   .catalogue-body { grid-template-columns: 230px 1fr; gap: 25px; }
   .course-results-grid { grid-template-columns: 1fr; }
   .site-footer { grid-template-columns: 1fr 1fr; }
-  .prototype-label { display: none; }
 }
 
 @media (max-width: 800px) {
@@ -288,7 +285,7 @@ body.catalogue-open main > section:not(#catalogue-page) { display: none; }
   .form-panel { padding: 22px; }
   .site-footer { grid-template-columns: 1fr; align-items: flex-start; gap: 28px; }
   .footer-links { flex-wrap: wrap; }
-  .prototype-dialog { padding: 22px; }
+  .course-dialog { padding: 22px; }
   .catalogue-breadcrumbs { padding: 22px 20px; }
   .catalogue-hero { padding: 55px 20px; }
   .catalogue-body { padding: 35px 20px 70px; }
@@ -305,7 +302,7 @@ body.catalogue-open main > section:not(#catalogue-page) { display: none; }
   .category-skeleton { animation: none; }
 }
 
-/* Auvenda brand layer — retains the working prototype behaviour. */
+/* Auvenda brand layer. */
 @font-face { font-family: Inter; src: url("assets/auvenida/fonts/Inter-Regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
 @font-face { font-family: Inter; src: url("assets/auvenida/fonts/Inter-Medium.ttf") format("truetype"); font-weight: 500; font-display: swap; }
 @font-face { font-family: Inter; src: url("assets/auvenida/fonts/Inter-SemiBold.ttf") format("truetype"); font-weight: 600 700; font-display: swap; }
@@ -322,14 +319,14 @@ body.courses-page .site-footer { margin-top: 0; }
 body.courses-page .site-header { position: relative; z-index: 1; min-height: 82px; padding: 0 max(40px, calc((100vw - 1240px)/2)); border: 0; background: var(--ink); color: #fff; grid-template-columns: minmax(280px,1fr) auto minmax(200px,1fr); }
 body.courses-page .logo { color: #fff; gap: 11px; } body.courses-page .auvenida-logo { width: 94px; } body.courses-page .logo > span:last-child { display: block; max-width: 66px; color: #fff; font: 600 9px/1.25 Inter,Arial,sans-serif; } body.courses-page .desktop-nav { height: 82px; } body.courses-page .desktop-nav button { color: #fff; font-size: 11px; } body.courses-page .desktop-nav button:hover { background: rgba(255,255,255,.08); } body.courses-page .desktop-nav button.active::after { bottom: 14px; background: var(--gold); } body.courses-page .header-actions { gap: 20px; } body.courses-page .language-switcher button { color: #fff; border-color: rgba(255,255,255,.3); } body.courses-page .button-dark { background: var(--gold); color: var(--ink); } body.courses-page .button-small { min-height: 48px; padding: 0 19px; font-size: 12px; }
 @media (max-width: 800px) { body.courses-page .site-header { min-height: 66px; padding: 0 20px; } body.courses-page .desktop-nav { top: 66px; height: auto; } body.courses-page .desktop-contact { display: none; } body.courses-page .menu-button { display: inline-flex; } }
-/* The course catalogue preserves the approved prototype composition. */
+/* The course catalogue preserves the approved composition. */
 .catalogue-hero { grid-template-columns: minmax(0,1fr) 270px; align-items: end; }
 .catalogue-hero h1 { max-width: none; font-family: Inter,Arial,sans-serif; font-size: clamp(48px,4.2vw,72px); font-weight: 600; letter-spacing: -.045em; line-height: 1; }
 .catalogue-hero .lead { max-width: 720px; font-family: Inter,Arial,sans-serif; font-size: 15px; line-height: 1.55; }
 .catalogue-course-card h3,.catalogue-results-heading strong { font-family: Inter,Arial,sans-serif; font-weight: 600; }
 @media (max-width: 800px) { .catalogue-hero { grid-template-columns: 1fr; } .catalogue-hero h1 { font-size: 48px; } }
 
-/* Keep the landing course block in the approved prototype layout. */
+/* Keep the landing course block in the approved layout. */
 body.courses-page #courses .section-heading { max-width: none; margin-bottom: 46px; }
 body.courses-page #courses .section-heading h2 {
   max-width: none;
