@@ -384,7 +384,7 @@ body.courses-page .site-header .header-container > .header-actions { justify-sel
 }
 
 /* Shared mobile header: contact remains visible; navigation and language selection live in the drawer. */
-.mobile-language-switcher { display:none; }
+.mobile-language-select { display:none; }
 @media (max-width:800px) {
   body.mobile-menu-open { position:fixed; width:100%; overflow:hidden; }
   body.courses-page .site-header .header-container { grid-template-columns:1fr auto; position:relative; }
@@ -393,7 +393,7 @@ body.courses-page .site-header .header-container > .header-actions { justify-sel
   body.courses-page .desktop-nav button { min-height:48px; padding:0; text-align:left; border-bottom:1px solid rgba(255,255,255,.2); font-size:15px; }
   body.courses-page .desktop-nav button.active::after { display:none; }
   body.courses-page .desktop-language-switcher { display:none; }
-  body.courses-page .mobile-language-switcher { display:flex; width:max-content; margin-top:22px; }
+  body.courses-page .mobile-language-select { display:block; width:52px; min-height:42px; padding:0 6px; border:1px solid rgba(255,255,255,.38); border-radius:0; outline:0; color:#fff; background:var(--ink); font:600 11px Inter,Arial,sans-serif; }
   body.courses-page .desktop-contact { display:inline-flex; }
   body.courses-page .header-actions { gap:10px; }
   body.courses-page .button-small { min-height:42px; padding-inline:15px; }

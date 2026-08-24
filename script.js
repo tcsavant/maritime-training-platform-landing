@@ -1027,6 +1027,9 @@ async function setLanguage(language, showConfirmation = true, persist = true) {
     button.classList.toggle('active', active);
     button.setAttribute('aria-pressed', String(active));
   });
+  document.querySelectorAll('[data-language-select]').forEach(select => {
+    select.value = language;
+  });
   if (page.dynamicFields.isConnected) renderForm(page.leadForm.dataset.formState || 'seafarer', true);
   translateStaticPage();
   page.categoryGrid.setAttribute('aria-busy', 'true');
@@ -1096,6 +1099,10 @@ document.addEventListener('click', event => {
     state.visibleCount += PAGE_SIZE;
     renderCatalogue();
   }
+});
+
+document.querySelectorAll('[data-language-select]').forEach(select => {
+  select.addEventListener('change', () => setLanguage(select.value));
 });
 
 document.querySelectorAll('.audience-card').forEach(card => {
