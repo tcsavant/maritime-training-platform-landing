@@ -992,6 +992,23 @@ function selectAudience(audience, shouldScroll = true, directionSlug = '') {
 }
 
 let toastTimer;
+let mobileMenuScrollPosition = 0;
+
+function setMobileMenu(open) {
+  const isOpen = page.navigation.classList.contains('mobile-open');
+  if (open === isOpen) return;
+  page.navigation.classList.toggle('mobile-open', open);
+  page.menuButton.setAttribute('aria-expanded', String(open));
+  document.body.classList.toggle('mobile-menu-open', open);
+  if (open) {
+    mobileMenuScrollPosition = window.scrollY;
+    document.body.style.top = `-${mobileMenuScrollPosition}px`;
+  } else {
+    document.body.style.top = '';
+    window.scrollTo(0, mobileMenuScrollPosition);
+  }
+}
+
 function showToast(message) {
   page.toast.textContent = message;
   page.toast.classList.add('visible');
@@ -1043,7 +1060,10 @@ function applyLocationRoute() {
 
 document.addEventListener('click', event => {
   const scrollControl = event.target.closest('[data-scroll]');
-  if (scrollControl) scrollToSection(scrollControl.dataset.scroll);
+  if (scrollControl) {
+    setMobileMenu(false);
+    scrollToSection(scrollControl.dataset.scroll);
+  }
   const audienceControl = event.target.closest('[data-audience]');
   if (audienceControl) selectAudience(audienceControl.dataset.audience);
   const formAudienceControl = event.target.closest('[data-form-audience]');
@@ -1097,9 +1117,7 @@ document.querySelectorAll('.provider-directory-card').forEach(card => {
 });
 
 page.menuButton.addEventListener('click', () => {
-  const open = !page.navigation.classList.contains('mobile-open');
-  page.navigation.classList.toggle('mobile-open', open);
-  page.menuButton.setAttribute('aria-expanded', String(open));
+  setMobileMenu(!page.navigation.classList.contains('mobile-open'));
 });
 
 page.leadForm.addEventListener('submit', event => {

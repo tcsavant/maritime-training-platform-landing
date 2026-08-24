@@ -71,13 +71,24 @@
   <script>
     const menuButton = document.querySelector('.menu-button');
     const navigation = document.querySelector('.brand-header nav');
-    menuButton.addEventListener('click', () => {
-      const open = navigation.classList.toggle('mobile-open');
+    let lockedScrollPosition = 0;
+    function setMobileMenu(open) {
+      const isOpen = navigation.classList.contains('mobile-open');
+      if (open === isOpen) return;
+      navigation.classList.toggle('mobile-open', open);
       menuButton.setAttribute('aria-expanded', String(open));
-    });
+      document.body.classList.toggle('mobile-menu-open', open);
+      if (open) {
+        lockedScrollPosition = window.scrollY;
+        document.body.style.top = `-${lockedScrollPosition}px`;
+      } else {
+        document.body.style.top = '';
+        window.scrollTo(0, lockedScrollPosition);
+      }
+    }
+    menuButton.addEventListener('click', () => setMobileMenu(!navigation.classList.contains('mobile-open')));
     navigation.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-      navigation.classList.remove('mobile-open');
-      menuButton.setAttribute('aria-expanded', 'false');
+      setMobileMenu(false);
     }));
     document.querySelectorAll('.language-switcher button').forEach(button => button.addEventListener('click', () => {
       const language = button.dataset.language;
