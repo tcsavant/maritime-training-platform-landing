@@ -58,6 +58,9 @@
 
 /* Language selection is communicated by contrast, not by an underline. */
 .language-switcher button.active { color:var(--navy); background:var(--gold); text-decoration:none; }
+@media (min-width:801px) {
+  .language-switcher button.active { color:#fff; background:transparent; text-decoration:underline; text-underline-offset:4px; }
+}
 @media (max-width:800px) {
   .brand-header .language-switcher button { align-items:center; justify-content:center; padding:0; text-align:center; }
   .brand-header .language-switcher button.active { position:relative; color:var(--navy); background:var(--gold); }

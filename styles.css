@@ -411,6 +411,9 @@ body.courses-page .site-header .header-container > .header-actions { justify-sel
 
 /* Language selection is communicated by contrast, not by an underline. */
 body.courses-page .language-switcher button.active { color:var(--ink); background:var(--gold); text-decoration:none; }
+@media (min-width:801px) {
+  body.courses-page .language-switcher button.active { color:#fff; background:transparent; text-decoration:underline; text-underline-offset:4px; }
+}
 @media (max-width:800px) {
   body.courses-page .language-switcher button { align-items:center; justify-content:center; padding:0; text-align:center; }
   body.courses-page .language-switcher button.active { position:relative; color:var(--ink); background:var(--gold); }
