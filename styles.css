@@ -382,3 +382,23 @@ body.courses-page .site-header .header-container > .header-actions { justify-sel
   .site-footer-inner { grid-template-columns:1fr; gap:24px; }
   .site-footer-inner > .footer-links { justify-self:start; }
 }
+
+/* Shared mobile header: contact remains visible; navigation and language selection live in the drawer. */
+.mobile-language-switcher { display:none; }
+@media (max-width:800px) {
+  body.courses-page .site-header .header-container { grid-template-columns:1fr auto; position:relative; }
+  body.courses-page .site-header .header-container > .desktop-nav { display:none; position:absolute; z-index:60; top:66px; left:50%; width:100vw; height:auto; padding:24px 20px 28px; background:var(--ink); border-top:1px solid rgba(255,255,255,.2); transform:translateX(-50%); }
+  body.courses-page .site-header .header-container > .desktop-nav.mobile-open { display:flex; flex-direction:column; align-items:stretch; gap:0; }
+  body.courses-page .desktop-nav button { min-height:48px; padding:0; text-align:left; border-bottom:1px solid rgba(255,255,255,.2); font-size:15px; }
+  body.courses-page .desktop-nav button.active::after { display:none; }
+  body.courses-page .desktop-language-switcher { display:none; }
+  body.courses-page .mobile-language-switcher { display:flex; width:max-content; margin-top:22px; }
+  body.courses-page .desktop-contact { display:inline-flex; }
+  body.courses-page .header-actions { gap:10px; }
+  body.courses-page .button-small { min-height:42px; padding-inline:15px; }
+  body.courses-page .menu-button { width:42px; min-height:42px; padding:0; border:0; background:transparent; color:#fff; flex-direction:column; align-items:center; justify-content:center; gap:5px; }
+  body.courses-page .menu-button span { display:block; width:20px; height:2px; background:currentColor; transition:transform .2s ease,opacity .2s ease; }
+  body.courses-page .menu-button[aria-expanded="true"] span:first-child { transform:translateY(7px) rotate(45deg); }
+  body.courses-page .menu-button[aria-expanded="true"] span:nth-child(2) { opacity:0; }
+  body.courses-page .menu-button[aria-expanded="true"] span:last-child { transform:translateY(-7px) rotate(-45deg); }
+}

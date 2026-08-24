@@ -25,16 +25,21 @@
           <button type="button" data-scroll="education-providers">Training Providers</button>
           <button type="button" data-scroll="companies">For Companies</button>
           <button type="button" data-scroll="about">About</button>
+          <div class="mobile-language-switcher language-switcher" aria-label="Language selector">
+            <button class="active" type="button" aria-pressed="true" data-language="en">EN</button>
+            <button type="button" aria-pressed="false" data-language="ru">RU</button>
+            <button type="button" aria-pressed="false" data-language="uk">УКР</button>
+          </div>
         </nav>
 
         <div class="header-actions">
-          <div class="language-switcher" aria-label="Language selector">
+          <div class="language-switcher desktop-language-switcher" aria-label="Language selector">
             <button class="active" type="button" aria-pressed="true" data-language="en">EN</button>
             <button type="button" aria-pressed="false" data-language="ru">RU</button>
             <button type="button" aria-pressed="false" data-language="uk">УКР</button>
           </div>
           <button class="button button-dark button-small desktop-contact" type="button" data-audience="provider">Contact</button>
-          <button class="menu-button" type="button" aria-expanded="false" aria-controls="main-navigation">Menu</button>
+          <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="main-navigation"><span></span><span></span><span></span></button>
         </div>
       </div>
     </header>
