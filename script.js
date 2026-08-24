@@ -954,9 +954,7 @@ function renderCatalogue() {
 }
 
 function routeForCategory(slug) {
-  return slug === 'all'
-    ? location.pathname
-    : `${location.pathname}?category=${encodeURIComponent(slug)}`;
+  return `#courses/${encodeURIComponent(slug)}`;
 }
 
 function openCatalogue(slug = 'all', updateHistory = true) {
@@ -1046,7 +1044,8 @@ function renderProviderDialog(provider) {
 }
 
 function applyLocationRoute() {
-  const slug = new URLSearchParams(location.search).get('category') || 'all';
+  const match = location.hash.match(/^#courses\/([^/?#]+)/);
+  const slug = match ? decodeURIComponent(match[1]) : (new URLSearchParams(location.search).get('category') || 'all');
   openCatalogue(slug, false);
 }
 
