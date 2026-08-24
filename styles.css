@@ -1,4 +1,5 @@
 :root {
+  --container-max: 1240px;
   --ink: #191919;
   --muted: #686868;
   --line: #c8c8c8;
@@ -356,4 +357,28 @@ body.courses-page .site-header {
 }
 @media (max-width: 800px) {
   body.courses-page .site-header { padding-inline: 20px; }
+}
+
+/* Shared page container: one width token for the header and all catalogue blocks. */
+.site-container { width: min(var(--container-max), calc(100% - 80px)); margin-inline: auto; }
+body.courses-page .site-header { display:block; padding:0; }
+body.courses-page .site-header .header-container { height:82px; display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:30px; }
+body.courses-page .site-header .header-container > .logo { justify-self:start; }
+body.courses-page .site-header .header-container > .desktop-nav { justify-self:center; }
+body.courses-page .site-header .header-container > .header-actions { justify-self:end; }
+.catalogue-hero { display:block; padding:0; }
+.catalogue-hero-inner { display:grid; grid-template-columns:minmax(0,1fr) 270px; grid-template-areas:"breadcrumbs breadcrumbs" "copy summary"; align-items:end; gap:30px 8vw; padding-block:38px 75px; }
+.catalogue-hero-inner > :nth-child(2) { grid-area:copy; }
+.catalogue-body { width:min(var(--container-max),calc(100% - 80px)); max-width:none; margin-inline:auto; padding:55px 0 100px; }
+.site-footer { display:block; padding:38px 0; }
+.site-footer-inner { display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:50px; font-size:12px; }
+.site-footer-inner > div:first-child { justify-self:start; }
+.site-footer-inner > .footer-links { justify-self:end; }
+@media (max-width:800px) {
+  .site-container,.catalogue-body { width:min(var(--container-max),calc(100% - 40px)); }
+  body.courses-page .site-header .header-container { height:66px; gap:16px; }
+  .catalogue-hero-inner { grid-template-columns:1fr; grid-template-areas:"breadcrumbs" "copy" "summary"; padding-block:28px 52px; }
+  .catalogue-body { padding-block:35px 70px; }
+  .site-footer-inner { grid-template-columns:1fr; gap:24px; }
+  .site-footer-inner > .footer-links { justify-self:start; }
 }
