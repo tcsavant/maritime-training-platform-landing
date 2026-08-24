@@ -3,343 +3,65 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Clickable concept prototype for a European maritime training platform connecting international learners, providers and shipping companies.">
-  <link rel="icon" href="data:,">
-  <title>European Maritime Training Platform</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="Auvenda — a connected maritime training platform.">
+  <title>Auvenda — Maritime Training. Connected.</title>
+  <link rel="stylesheet" href="brand-styles.css">
 </head>
 <body>
-  <div class="site-shell">
-    <a class="skip-link" href="#main-content">Skip to content</a>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <header class="brand-header">
+    <a class="brand" href="#top" aria-label="Auvenda home">
+      <img class="brand-logo" src="assets/auvenida/logo.svg" alt="Auvenda">
+      <span class="brand-divider" aria-hidden="true"></span>
+      <span class="brand-descriptor">Maritime<br>Training Platform</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="courses.html">Training</a><a href="#providers">Providers</a><a href="#companies">For Companies</a><a href="#about">About</a>
+    </nav>
+    <div class="header-actions"><span class="language">EN</span><a class="button button-gold" href="#contact">Contact <span>→</span></a></div>
+  </header>
 
-    <header class="site-header">
-      <button class="logo" type="button" data-scroll="hero" aria-label="Go to home page">
-        <img class="auvenida-logo" src="assets/auvenida/logo.svg" alt="Auvenda">
-        <span>Maritime Training Platform</span>
-      </button>
-
-      <nav class="desktop-nav" id="main-navigation" aria-label="Main navigation">
-        <button type="button" data-scroll="courses">Courses</button>
-        <button type="button" data-scroll="education-providers">Training Providers</button>
-        <button type="button" data-scroll="companies">For Companies</button>
-        <button type="button" data-scroll="about">About</button>
-      </nav>
-
-      <div class="header-actions">
-        <div class="language-switcher" aria-label="Language selector">
-          <button class="active" type="button" aria-pressed="true" data-language="en">EN</button>
-          <button type="button" aria-pressed="false" data-language="ru">RU</button>
-          <button type="button" aria-pressed="false" data-language="uk">УКР</button>
+  <main id="content">
+    <section class="hero dark-wave" id="top">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="kicker">EUROPE · MARITIME TRAINING PLATFORM</p>
+          <h1>Maritime Training.<br><em>Connected.</em></h1>
+          <p class="hero-lead">One platform connecting seafarers, maritime training providers and shipping companies across international markets.</p>
+          <div class="actions"><a class="button button-light" href="#training">Explore Training <span>→</span></a><a class="text-action" href="#providers">Become a Training Partner <span>↗</span></a></div>
         </div>
-        <button class="button button-dark button-small desktop-contact" type="button" data-audience="provider">Contact</button>
-        <button class="menu-button" type="button" aria-expanded="false" aria-controls="main-navigation">Menu</button>
+        <aside class="hero-note"><span>01</span><p>Professional training<br>for a connected<br>maritime industry.</p></aside>
       </div>
-    </header>
+    </section>
 
-    <main id="main-content">
-      <section class="hero section-grid" id="hero">
-        <div>
-          <p class="eyebrow">EUROPE · MARITIME TRAINING PLATFORM</p>
-          <h1>Maritime Training.<br>Connected.</h1>
-          <p class="lead">A future platform connecting seafarers, maritime training providers and shipping companies across international markets.</p>
-          <div class="button-row">
-            <button class="button button-dark" type="button" data-scroll="courses">Explore Training <span>→</span></button>
-            <button class="button button-light" type="button" data-audience="provider">Become a Training Partner</button>
-          </div>
-        </div>
-        <div class="placeholder hero-placeholder" aria-label="Image placeholder">
-          <span>CONNECTED MARITIME<br>TRAINING NETWORK</span>
-        </div>
-      </section>
-
-      <section class="section" id="about">
-        <div class="section-heading">
-          <p class="eyebrow">WHO THE PLATFORM WILL SERVE</p>
-          <h2>One Maritime Training Platform</h2>
-          <p>Choose a path to explore the planned training journey.</p>
-        </div>
+    <section class="audiences section-light" id="about">
+      <div class="container">
+        <div class="section-intro"><p class="kicker">WHO THE PLATFORM SERVES</p><h2>One journey.<br>Three perspectives.</h2><p>Find the path that reflects your role in the maritime ecosystem.</p></div>
         <div class="audience-grid">
-          <article class="wire-card audience-card" tabindex="0" data-audience="seafarer">
-            <span class="card-number">01</span>
-            <h3>For Seafarers</h3>
-            <p>Find professional maritime training, compare providers and plan your certification path.</p>
-            <button class="text-link" type="button" data-audience="seafarer">Find Training →</button>
-          </article>
-          <article class="wire-card audience-card" tabindex="0" data-audience="provider">
-            <span class="card-number">02</span>
-            <h3>For Training Providers</h3>
-            <p>Prepare to publish courses, manage learners and reach maritime professionals in new international markets.</p>
-            <button class="text-link" type="button" data-audience="provider">Join Platform →</button>
-          </article>
-          <article class="wire-card audience-card" tabindex="0" data-audience="company">
-            <span class="card-number">03</span>
-            <h3>For Shipping Companies</h3>
-            <p>Plan crew training, monitor completion and maintain visibility over certification.</p>
-            <button class="text-link" type="button" data-audience="company">Learn More →</button>
-          </article>
+          <a class="audience-card" href="#training"><span>01</span><h3>For<br>Seafarers</h3><p>Find professional training and plan your certification path.</p><b>Find training <i>→</i></b></a>
+          <a class="audience-card" href="#providers"><span>02</span><h3>For Training<br>Providers</h3><p>Reach new markets while keeping control of your learning experience.</p><b>Become a partner <i>→</i></b></a>
+          <a class="audience-card" href="#companies"><span>03</span><h3>For Shipping<br>Companies</h3><p>Coordinate crew development and see training status clearly.</p><b>Explore solutions <i>→</i></b></a>
         </div>
-      </section>
-
-      <section class="section section-muted" id="journey">
-        <div class="section-heading compact">
-          <p class="eyebrow">A CLEAR TRAINING JOURNEY</p>
-          <h2>How it works</h2>
-        </div>
-        <div class="steps" aria-label="Process steps">
-          <div class="step"><span>01</span><strong>Find</strong><b>→</b></div>
-          <div class="step"><span>02</span><strong>Enroll</strong><b>→</b></div>
-          <div class="step"><span>03</span><strong>Learn</strong><b>→</b></div>
-          <div class="step"><span>04</span><strong>Assess</strong><b>→</b></div>
-          <div class="step"><span>05</span><strong>Certify</strong></div>
-        </div>
-      </section>
-
-      <section class="section" id="courses">
-        <div class="section-heading split-heading">
-          <div>
-            <p class="eyebrow">PLANNED COURSE CATALOGUE</p>
-            <h2>Explore Training Directions</h2>
-          </div>
-          <button class="button button-light" type="button" data-category="all">View All Training →</button>
-        </div>
-        <div class="source-status" id="source-status" aria-live="polite">
-          <span class="status-dot"></span>
-          <span>Connecting to the tcsavant.com course catalogue…</span>
-        </div>
-        <div class="category-grid" id="category-grid" aria-busy="true">
-          <div class="category-card category-skeleton" aria-hidden="true"></div>
-          <div class="category-card category-skeleton" aria-hidden="true"></div>
-          <div class="category-card category-skeleton" aria-hidden="true"></div>
-          <div class="category-card category-skeleton" aria-hidden="true"></div>
-          <div class="category-card category-skeleton" aria-hidden="true"></div>
-          <div class="category-card category-skeleton" aria-hidden="true"></div>
-          <div class="category-card category-skeleton" aria-hidden="true"></div>
-        </div>
-      </section>
-
-      <section class="section section-muted" id="education-providers">
-        <div class="section-heading split-heading">
-          <div>
-            <p class="eyebrow">EDUCATIONAL SERVICE PROVIDERS</p>
-            <h2>Discover Training Providers</h2>
-            <p>Explore the types of maritime academies and specialist training centres planned for the future platform.</p>
-          </div>
-          <button class="button button-light" type="button" data-audience="provider">Join as a Provider →</button>
-        </div>
-        <div class="provider-directory-grid">
-          <article class="wire-card provider-directory-card" tabindex="0" data-provider="Maritime Academy">
-            <div class="provider-card-placeholder">PROVIDER PROFILE<br>PLACEHOLDER</div>
-            <span class="provider-type">ACADEMY · MULTI-DISCIPLINE</span>
-            <h3>Maritime Academy</h3>
-            <p>Safety, navigation and professional development programmes for seafarers.</p>
-            <div class="provider-card-meta"><span>Europe / International</span><span>Profile concept</span></div>
-            <button class="text-link" type="button" data-provider="Maritime Academy">View Provider Concept →</button>
-          </article>
-          <article class="wire-card provider-directory-card" tabindex="0" data-provider="Technical Training Centre">
-            <div class="provider-card-placeholder">PROVIDER PROFILE<br>PLACEHOLDER</div>
-            <span class="provider-type">TECHNICAL · ENGINEERING</span>
-            <h3>Technical Training Centre</h3>
-            <p>Engineering, machinery and operational training for maritime professionals.</p>
-            <div class="provider-card-meta"><span>Europe / International</span><span>Profile concept</span></div>
-            <button class="text-link" type="button" data-provider="Technical Training Centre">View Provider Concept →</button>
-          </article>
-          <article class="wire-card provider-directory-card" tabindex="0" data-provider="Safety Training Institute">
-            <div class="provider-card-placeholder">PROVIDER PROFILE<br>PLACEHOLDER</div>
-            <span class="provider-type">SAFETY · STCW-ORIENTED</span>
-            <h3>Safety Training Institute</h3>
-            <p>Planned access to practical safety, security and emergency response training.</p>
-            <div class="provider-card-meta"><span>Europe / International</span><span>Profile concept</span></div>
-            <button class="text-link" type="button" data-provider="Safety Training Institute">View Provider Concept →</button>
-          </article>
-        </div>
-      </section>
-
-      <section class="section section-grid regional-section" id="markets">
-        <div class="placeholder" aria-label="Image placeholder">
-          <span>IMAGE PLACEHOLDER</span>
-          <strong>Europe to international maritime markets</strong>
-        </div>
-        <div>
-          <p class="eyebrow">EUROPE · CROSS-BORDER · INTERNATIONAL</p>
-          <h2>European Expertise. Global Connections.</h2>
-          <p class="body-copy">The concept starts in Europe and is being shaped to connect maritime professionals, training providers and shipping companies across global maritime markets.</p>
-          <div class="metric-row">
-            <div><strong>Europe</strong><span>Platform origin</span></div>
-            <div><strong>Cross-border</strong><span>Market connection</span></div>
-            <div><strong>International</strong><span>Future network</span></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section section-dark" id="providers">
-        <div class="two-column-content">
-          <div>
-            <p class="eyebrow">FOR TRAINING PROVIDERS</p>
-            <h2>Bring Your Maritime Training Online</h2>
-            <p>Connect your centre to a wider market while keeping control of your courses and learners.</p>
-            <button class="button button-inverse" type="button" data-audience="provider">Become a Training Partner →</button>
-            <p class="supporting-note">Currently speaking with selected maritime training providers in Europe and international markets.</p>
-          </div>
-          <ul class="benefit-list">
-            <li><span>□</span>Publish courses</li>
-            <li><span>□</span>Manage students</li>
-            <li><span>□</span>Deliver learning materials</li>
-            <li><span>□</span>Track progress</li>
-            <li><span>□</span>Conduct assessments</li>
-            <li><span>□</span>Issue certificates</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="section" id="companies">
-        <div class="two-column-content company-section">
-          <div>
-            <p class="eyebrow">FOR SHIPPING COMPANIES</p>
-            <h2>Manage Crew Training in One Place</h2>
-            <p class="body-copy">Source suitable courses, coordinate group enrolments and maintain a clearer view of crew training status.</p>
-            <button class="button button-dark" type="button" data-audience="company">Discuss Corporate Training →</button>
-            <p class="supporting-note">Corporate training tools are being developed with future industry partners.</p>
-          </div>
-          <div class="steps steps-vertical" aria-label="Process steps">
-            <div class="step"><span>01</span><strong>Find Training</strong><b>↓</b></div>
-            <div class="step"><span>02</span><strong>Enroll Crew</strong><b>↓</b></div>
-            <div class="step"><span>03</span><strong>Track Training</strong><b>↓</b></div>
-            <div class="step"><span>04</span><strong>Manage Certificates</strong></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section section-muted" id="ecosystem">
-        <div class="section-heading">
-          <p class="eyebrow">PLATFORM ECOSYSTEM</p>
-          <h2>More Than a Course Marketplace</h2>
-          <p>One planned digital environment connecting training, learning, assessment and certification.</p>
-        </div>
-        <div class="ecosystem" aria-label="Platform ecosystem relationships">
-          <div class="ecosystem-side"><div>Seafarers</div><div>Crew Managers</div></div>
-          <div class="ecosystem-lines" aria-hidden="true"><span>→</span><span>←</span></div>
-          <div class="ecosystem-core">Maritime Training<br>Platform</div>
-          <div class="ecosystem-lines" aria-hidden="true"><span>←</span><span>→</span></div>
-          <div class="ecosystem-side"><div>Training Providers</div><div>Shipping Companies</div></div>
-        </div>
-        <div class="ecosystem-flow" aria-label="Platform journey">Courses <span>→</span> Enrollment <span>→</span> Learning <span>→</span> Assessment <span>→</span> Certification</div>
-      </section>
-
-      <section class="section trust-section" id="principles">
-        <div class="section-heading compact">
-          <p class="eyebrow">PLATFORM PRINCIPLES</p>
-          <h2>Designed for Professional Maritime Training</h2>
-        </div>
-        <div class="trust-grid">
-          <div><span>01</span><strong>STCW-oriented Structure</strong></div>
-          <div><span>02</span><strong>Provider Verification</strong></div>
-          <div><span>03</span><strong>Secure Training Records</strong></div>
-          <div><span>04</span><strong>Digital Certification</strong></div>
-          <div><span>05</span><strong>Multi-language Experience</strong></div>
-        </div>
-      </section>
-
-      <section class="section final-contact" id="contact">
-        <div class="contact-intro">
-          <p class="eyebrow">START A CONVERSATION</p>
-          <h2>Find the right next step.</h2>
-          <p class="body-copy">Tell us whether you need training, provide courses or manage crew development.</p>
-          <div class="intent-links" aria-label="Contact options">
-            <button type="button" data-audience="seafarer"><span>I Need Training</span><strong>Find Training →</strong></button>
-            <button type="button" data-audience="provider"><span>I Provide Training</span><strong>Join Platform →</strong></button>
-            <button type="button" data-audience="company"><span>I Manage Crews</span><strong>Contact Us →</strong></button>
-          </div>
-        </div>
-
-        <form class="form-panel compact-form" id="lead-form">
-          <fieldset class="audience-tabs">
-            <legend>I am a...</legend>
-            <div>
-              <button class="active" type="button" aria-pressed="true" data-form-audience="seafarer">Seafarer</button>
-              <button type="button" aria-pressed="false" data-form-audience="provider">Training Provider</button>
-              <button type="button" aria-pressed="false" data-form-audience="company">Shipping Company</button>
-            </div>
-          </fieldset>
-          <div class="form-heading"><span id="form-kicker">Seafarer enquiry</span><strong id="form-title">Find suitable training</strong></div>
-          <div id="dynamic-fields"></div>
-          <label class="consent"><input required type="checkbox"> <span>I agree to be contacted about this enquiry. <small>(Prototype only — no data is stored.)</small></span></label>
-          <button class="button button-dark form-submit" type="submit" id="form-submit">Request Training Guidance →</button>
-        </form>
-      </section>
-
-      <section class="catalogue-page" id="catalogue-page" hidden aria-labelledby="catalogue-title">
-        <div class="catalogue-breadcrumbs" aria-label="Breadcrumb">
-          <button type="button" data-catalogue-home>Home</button>
-          <span>→</span>
-          <button type="button" data-catalogue-all>Training Directions</button>
-          <span>→</span>
-          <strong id="catalogue-breadcrumb-current">All Training</strong>
-        </div>
-
-        <div class="catalogue-hero">
-          <div>
-            <p class="eyebrow">COURSE CATALOGUE · INTERNAL PAGE PROTOTYPE</p>
-            <h1 id="catalogue-title">All Training</h1>
-            <p class="lead" id="catalogue-description">Live course titles are loaded from tcsavant.com. Marketplace details remain placeholders.</p>
-          </div>
-          <div class="catalogue-summary">
-            <span>COURSES FOUND</span>
-            <strong id="catalogue-count">—</strong>
-            <small id="catalogue-source-label">Connecting to source…</small>
-          </div>
-        </div>
-
-        <div class="catalogue-body">
-          <aside class="catalogue-sidebar" aria-label="Course directions">
-            <div class="catalogue-sidebar-heading">
-              <span>FILTER BY DIRECTION</span>
-              <button type="button" data-catalogue-close>Back to landing</button>
-            </div>
-            <div id="catalogue-category-nav"></div>
-          </aside>
-
-          <div class="catalogue-results">
-            <div class="catalogue-results-heading">
-              <div>
-                <span id="catalogue-results-kicker">SELECTED DIRECTION</span>
-                <strong id="catalogue-results-title">All Training</strong>
-              </div>
-              <span class="prototype-chip">PROTOTYPE DATA VIEW</span>
-            </div>
-            <div class="course-results-grid" id="course-results-grid" aria-live="polite" aria-busy="true"></div>
-            <button class="button button-light catalogue-more" type="button" id="catalogue-more" hidden>Show More Courses →</button>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div>
-        <button class="logo footer-logo" type="button" data-scroll="hero"><img class="auvenida-logo" src="assets/auvenida/logo.svg" alt="Auvenda"><span>Maritime Training Platform</span></button>
-        <p>European origin · Cross-border access · International maritime market</p>
       </div>
-      <div class="footer-links">
-        <button type="button" data-scroll="courses">Courses</button>
-        <button type="button" data-scroll="education-providers">Providers</button>
-        <button type="button" data-scroll="companies">For Companies</button>
-        <button type="button" data-audience="seafarer">Contact</button>
-        <a class="footer-guide-link" href="design-guide.html">Design Guide</a>
+    </section>
+
+    <section class="journey section-blue wave-faint" id="training">
+      <div class="container"><div class="section-intro compact"><p class="kicker">A CLEAR TRAINING JOURNEY</p><h2>From course search<br>to certification.</h2></div>
+        <ol class="journey-list"><li><span>01</span><img src="assets/auvenida/icons/find.svg" alt=""><b>Find</b><small>Discover suitable training</small></li><li><span>02</span><img src="assets/auvenida/icons/enroll.svg" alt=""><b>Enroll</b><small>Choose a provider and format</small></li><li><span>03</span><img src="assets/auvenida/icons/learn.svg" alt=""><b>Learn</b><small>Build professional knowledge</small></li><li><span>04</span><img src="assets/auvenida/icons/assess.svg" alt=""><b>Assess</b><small>Confirm competence</small></li><li><span>05</span><img src="assets/auvenida/icons/certify.svg" alt=""><b>Certify</b><small>Keep records accessible</small></li></ol>
       </div>
-      <p class="prototype-label">CLICKABLE LOW-FIDELITY PROTOTYPE</p>
-    </footer>
-  </div>
+    </section>
 
-  <dialog class="prototype-dialog" id="course-dialog" aria-labelledby="dialog-title">
-    <div class="dialog-heading">
-      <span id="dialog-kicker">PROVIDER PROFILE · CONCEPT PREVIEW</span>
-      <button type="button" data-close-dialog aria-label="Close course preview">Close</button>
-    </div>
-    <h2 id="dialog-title">Training Provider</h2>
-    <p id="dialog-body">This catalogue is part of the future platform concept. Course availability, providers and certification conditions will be confirmed before launch.</p>
-    <button class="button button-dark" type="button" data-dialog-enquiry id="dialog-enquiry">Request Training Guidance →</button>
-  </dialog>
+    <section class="directions section-light">
+      <div class="container split-title"><div class="section-intro"><p class="kicker">PLANNED COURSE CATALOGUE</p><h2>Explore training<br>directions.</h2></div><a class="text-action dark-text" href="courses.html">View all training <span>→</span></a></div>
+      <div class="container direction-grid"><a href="courses.html">01 <strong>Deck Officers</strong><span>→</span></a><a href="courses.html">02 <strong>Engineering</strong><span>→</span></a><a href="courses.html">03 <strong>Safety Training</strong><span>→</span></a><a href="courses.html">04 <strong>Maritime English</strong><span>→</span></a><a href="courses.html">05 <strong>Passenger Ships</strong><span>→</span></a><a href="courses.html">06 <strong>Professional Development</strong><span>→</span></a></div>
+    </section>
 
-  <div class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
-  <script src="script.js"></script>
+    <section class="provider-section dark-wave" id="providers"><div class="container provider-grid"><div><p class="kicker">FOR TRAINING PROVIDERS</p><h2>Bring your maritime<br>training online.</h2><p class="body-copy">Connect your centre to a wider market while keeping control of courses, learners and training standards.</p><a class="button button-gold" href="#contact">Become a Training Partner <span>→</span></a></div><ul><li>Publish courses</li><li>Manage students</li><li>Deliver learning materials</li><li>Track progress</li><li>Conduct assessments</li><li>Issue certificates</li></ul></div></section>
+
+    <section class="companies section-light" id="companies"><div class="container company-grid"><div class="company-stamp"><span>FOR</span><strong>CREW<br>MANAGERS</strong><i>↗</i></div><div><p class="kicker">FOR SHIPPING COMPANIES</p><h2>Manage crew training<br>in one place.</h2><p class="body-copy">Source suitable courses, coordinate enrolment and retain a clear view of the crew's training status.</p><a class="text-action dark-text" href="#contact">Discuss corporate training <span>→</span></a></div></div></section>
+
+    <section class="contact section-blue wave-faint" id="contact"><div class="container contact-grid"><div><p class="kicker">START A CONVERSATION</p><h2>How can we<br>help?</h2><p>Choose the path that best describes you. We will collect only the information needed for the next step.</p></div><form><label>I am a…<select><option>Seafarer</option><option>Training Provider</option><option>Shipping Company</option></select></label><div class="form-row"><label>Full name<input placeholder="Your full name"></label><label>Email<input type="email" placeholder="name@example.com"></label></div><label>Tell us about your needs<textarea rows="3" placeholder="Course, location or crew details"></textarea></label><button class="button button-gold" type="button">Start a conversation <span>→</span></button></form></div></section>
+  </main>
+  <footer><div class="container"><a class="brand" href="#top"><img class="brand-logo" src="assets/auvenida/logo.svg" alt="Auvenda"></a><span>European origin · Cross-border access · International maritime market</span><a href="courses.html">Explore courses →</a></div></footer>
 </body>
 </html>
