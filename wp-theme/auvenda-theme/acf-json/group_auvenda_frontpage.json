@@ -1,1 +1,365 @@
-{"key":"group_auvenda_frontpage","title":"Auvenda front page","fields":[{"key":"f_hero_tab","label":"Hero","name":"","type":"tab"},{"key":"f_hero_off","label":"Disable section","name":"disable_hero_section","type":"true_false","ui":1},{"key":"f_hero_eyebrow","label":"Eyebrow","name":"hero_eyebrow","type":"text"},{"key":"f_hero_title","label":"Title","name":"hero_title","type":"wysiwyg","tabs":"text","media_upload":0},{"key":"f_hero_text","label":"Text","name":"hero_text","type":"textarea"},{"key":"f_hero_cta","label":"Primary CTA","name":"hero_cta","type":"link"},{"key":"f_hero_second_cta","label":"Secondary CTA","name":"hero_second_cta","type":"link"},{"key":"f_audiences_tab","label":"Audiences","name":"","type":"tab"},{"key":"f_audiences_off","label":"Disable section","name":"disable_audiences_section","type":"true_false","ui":1},{"key":"f_audiences_eyebrow","label":"Eyebrow","name":"audiences_eyebrow","type":"text"},{"key":"f_audiences_title","label":"Title","name":"audiences_title","type":"wysiwyg","tabs":"text","media_upload":0},{"key":"f_audiences_text","label":"Text","name":"audiences_text","type":"textarea"},{"key":"f_journey_tab","label":"Learning journey","name":"","type":"tab"},{"key":"f_journey_off","label":"Disable section","name":"disable_journey_section","type":"true_false","ui":1},{"key":"f_journey_eyebrow","label":"Eyebrow","name":"journey_eyebrow","type":"text"},{"key":"f_journey_title","label":"Title","name":"journey_title","type":"wysiwyg","tabs":"text","media_upload":0},{"key":"f_journey_steps","label":"Steps","name":"journey_steps","type":"repeater","layout":"table","button_label":"Add step","sub_fields":[{"key":"f_step_title","label":"Title","name":"title","type":"text"},{"key":"f_step_text","label":"Text","name":"text","type":"text"},{"key":"f_step_icon","label":"Icon","name":"icon","type":"image","return_format":"id"}]},{"key":"f_courses_tab","label":"Courses","name":"","type":"tab"},{"key":"f_courses_off","label":"Disable section","name":"disable_courses_section","type":"true_false","ui":1},{"key":"f_courses_eyebrow","label":"Eyebrow","name":"courses_eyebrow","type":"text"},{"key":"f_courses_title","label":"Title","name":"courses_title","type":"text"},{"key":"f_courses_cta","label":"All courses CTA","name":"courses_cta","type":"link"},{"key":"f_providers_tab","label":"Training providers","name":"","type":"tab"},{"key":"f_providers_off","label":"Disable section","name":"disable_providers_section","type":"true_false","ui":1},{"key":"f_providers_eyebrow","label":"Eyebrow","name":"providers_eyebrow","type":"text"},{"key":"f_providers_title","label":"Title","name":"providers_title","type":"wysiwyg","tabs":"text","media_upload":0},{"key":"f_providers_text","label":"Text","name":"providers_text","type":"textarea"},{"key":"f_providers_cta","label":"CTA","name":"providers_cta","type":"link"},{"key":"f_companies_tab","label":"Shipping companies","name":"","type":"tab"},{"key":"f_companies_off","label":"Disable section","name":"disable_companies_section","type":"true_false","ui":1},{"key":"f_companies_eyebrow","label":"Eyebrow","name":"companies_eyebrow","type":"text"},{"key":"f_companies_card","label":"Graphic card title","name":"companies_card_title","type":"text"},{"key":"f_companies_title","label":"Title","name":"companies_title","type":"wysiwyg","tabs":"text","media_upload":0},{"key":"f_companies_text","label":"Text","name":"companies_text","type":"textarea"},{"key":"f_companies_cta","label":"CTA","name":"companies_cta","type":"link"},{"key":"f_form_tab","label":"Contact form","name":"","type":"tab"},{"key":"f_form_off","label":"Disable section","name":"disable_form_section","type":"true_false","ui":1},{"key":"f_form_eyebrow","label":"Eyebrow","name":"form_eyebrow","type":"text"},{"key":"f_form_title","label":"Title","name":"form_title","type":"wysiwyg","tabs":"text","media_upload":0},{"key":"f_form_text","label":"Text","name":"form_text","type":"textarea"},{"key":"f_form_source","label":"Form source","name":"form_source","type":"button_group","choices":{"cf7":"Contact Form 7","embed":"HTML embed"},"default_value":"cf7"},{"key":"f_form_cf7","label":"Contact Form 7","name":"form_cf7","type":"post_object","post_type":["wpcf7_contact_form"],"conditional_logic":[[{"field":"f_form_source","operator":"==","value":"cf7"}]]},{"key":"f_form_embed","label":"Embed HTML","name":"form_embed","type":"textarea","conditional_logic":[[{"field":"f_form_source","operator":"==","value":"embed"}]]}],"location":[[{"param":"page_type","operator":"==","value":"front_page"}]],"active":true,"show_in_rest":0,"modified":1787643000}
+{
+    "key": "group_auvenda_frontpage",
+    "title": "Auvenda front page",
+    "fields": [
+        {
+            "key": "f_hero_tab",
+            "label": "Hero",
+            "name": "",
+            "type": "tab"
+        },
+        {
+            "key": "f_hero_off",
+            "label": "Disable section",
+            "name": "disable_hero_section",
+            "type": "true_false",
+            "ui": 1
+        },
+        {
+            "key": "f_hero_eyebrow",
+            "label": "Eyebrow",
+            "name": "hero_eyebrow",
+            "type": "text"
+        },
+        {
+            "key": "f_hero_title",
+            "label": "Title",
+            "name": "hero_title",
+            "type": "wysiwyg",
+            "tabs": "text",
+            "media_upload": 0
+        },
+        {
+            "key": "f_hero_text",
+            "label": "Text",
+            "name": "hero_text",
+            "type": "textarea"
+        },
+        {
+            "key": "f_hero_cta",
+            "label": "Primary CTA",
+            "name": "hero_cta",
+            "type": "link"
+        },
+        {
+            "key": "f_hero_second_cta",
+            "label": "Secondary CTA",
+            "name": "hero_second_cta",
+            "type": "link"
+        },
+        {
+            "key": "f_hero_background",
+            "label": "Background image",
+            "name": "hero_background",
+            "type": "image",
+            "return_format": "id",
+            "library": "all"
+        },
+        {
+            "key": "f_hero_note_label",
+            "label": "Hero note label",
+            "name": "hero_note_label",
+            "type": "text"
+        },
+        {
+            "key": "f_hero_note_text",
+            "label": "Hero note text",
+            "name": "hero_note_text",
+            "type": "textarea",
+            "rows": 3
+        },
+        {
+            "key": "f_audiences_tab",
+            "label": "Audiences",
+            "name": "",
+            "type": "tab"
+        },
+        {
+            "key": "f_audiences_off",
+            "label": "Disable section",
+            "name": "disable_audiences_section",
+            "type": "true_false",
+            "ui": 1
+        },
+        {
+            "key": "f_audiences_eyebrow",
+            "label": "Eyebrow",
+            "name": "audiences_eyebrow",
+            "type": "text"
+        },
+        {
+            "key": "f_audiences_title",
+            "label": "Title",
+            "name": "audiences_title",
+            "type": "wysiwyg",
+            "tabs": "text",
+            "media_upload": 0
+        },
+        {
+            "key": "f_audiences_text",
+            "label": "Text",
+            "name": "audiences_text",
+            "type": "textarea"
+        },
+        {
+            "key": "f_journey_tab",
+            "label": "Learning journey",
+            "name": "",
+            "type": "tab"
+        },
+        {
+            "key": "f_journey_off",
+            "label": "Disable section",
+            "name": "disable_journey_section",
+            "type": "true_false",
+            "ui": 1
+        },
+        {
+            "key": "f_journey_eyebrow",
+            "label": "Eyebrow",
+            "name": "journey_eyebrow",
+            "type": "text"
+        },
+        {
+            "key": "f_journey_title",
+            "label": "Title",
+            "name": "journey_title",
+            "type": "wysiwyg",
+            "tabs": "text",
+            "media_upload": 0
+        },
+        {
+            "key": "f_journey_steps",
+            "label": "Steps",
+            "name": "journey_steps",
+            "type": "repeater",
+            "layout": "table",
+            "button_label": "Add step",
+            "sub_fields": [
+                {
+                    "key": "f_step_title",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text"
+                },
+                {
+                    "key": "f_step_text",
+                    "label": "Text",
+                    "name": "text",
+                    "type": "text"
+                },
+                {
+                    "key": "f_step_icon",
+                    "label": "Icon",
+                    "name": "icon",
+                    "type": "image",
+                    "return_format": "id"
+                }
+            ]
+        },
+        {
+            "key": "f_courses_tab",
+            "label": "Courses",
+            "name": "",
+            "type": "tab"
+        },
+        {
+            "key": "f_courses_off",
+            "label": "Disable section",
+            "name": "disable_courses_section",
+            "type": "true_false",
+            "ui": 1
+        },
+        {
+            "key": "f_courses_eyebrow",
+            "label": "Eyebrow",
+            "name": "courses_eyebrow",
+            "type": "text"
+        },
+        {
+            "key": "f_courses_title",
+            "label": "Title",
+            "name": "courses_title",
+            "type": "text"
+        },
+        {
+            "key": "f_courses_cta",
+            "label": "All courses CTA",
+            "name": "courses_cta",
+            "type": "link"
+        },
+        {
+            "key": "f_providers_tab",
+            "label": "Training providers",
+            "name": "",
+            "type": "tab"
+        },
+        {
+            "key": "f_providers_off",
+            "label": "Disable section",
+            "name": "disable_providers_section",
+            "type": "true_false",
+            "ui": 1
+        },
+        {
+            "key": "f_providers_eyebrow",
+            "label": "Eyebrow",
+            "name": "providers_eyebrow",
+            "type": "text"
+        },
+        {
+            "key": "f_providers_title",
+            "label": "Title",
+            "name": "providers_title",
+            "type": "wysiwyg",
+            "tabs": "text",
+            "media_upload": 0
+        },
+        {
+            "key": "f_providers_text",
+            "label": "Text",
+            "name": "providers_text",
+            "type": "textarea"
+        },
+        {
+            "key": "f_providers_cta",
+            "label": "CTA",
+            "name": "providers_cta",
+            "type": "link"
+        },
+        {
+            "key": "f_companies_tab",
+            "label": "Shipping companies",
+            "name": "",
+            "type": "tab"
+        },
+        {
+            "key": "f_companies_off",
+            "label": "Disable section",
+            "name": "disable_companies_section",
+            "type": "true_false",
+            "ui": 1
+        },
+        {
+            "key": "f_companies_eyebrow",
+            "label": "Eyebrow",
+            "name": "companies_eyebrow",
+            "type": "text"
+        },
+        {
+            "key": "f_companies_card",
+            "label": "Graphic card title",
+            "name": "companies_card_title",
+            "type": "text"
+        },
+        {
+            "key": "f_companies_title",
+            "label": "Title",
+            "name": "companies_title",
+            "type": "wysiwyg",
+            "tabs": "text",
+            "media_upload": 0
+        },
+        {
+            "key": "f_companies_text",
+            "label": "Text",
+            "name": "companies_text",
+            "type": "textarea"
+        },
+        {
+            "key": "f_companies_cta",
+            "label": "CTA",
+            "name": "companies_cta",
+            "type": "link"
+        },
+        {
+            "key": "f_form_tab",
+            "label": "Contact form",
+            "name": "",
+            "type": "tab"
+        },
+        {
+            "key": "f_form_off",
+            "label": "Disable section",
+            "name": "disable_form_section",
+            "type": "true_false",
+            "ui": 1
+        },
+        {
+            "key": "f_form_eyebrow",
+            "label": "Eyebrow",
+            "name": "form_eyebrow",
+            "type": "text"
+        },
+        {
+            "key": "f_form_title",
+            "label": "Title",
+            "name": "form_title",
+            "type": "wysiwyg",
+            "tabs": "text",
+            "media_upload": 0
+        },
+        {
+            "key": "f_form_text",
+            "label": "Text",
+            "name": "form_text",
+            "type": "textarea"
+        },
+        {
+            "key": "f_form_source",
+            "label": "Form source",
+            "name": "form_source",
+            "type": "button_group",
+            "choices": {
+                "cf7": "Contact Form 7",
+                "embed": "HTML embed"
+            },
+            "default_value": "cf7"
+        },
+        {
+            "key": "f_form_cf7",
+            "label": "Contact Form 7",
+            "name": "form_cf7",
+            "type": "post_object",
+            "post_type": [
+                "wpcf7_contact_form"
+            ],
+            "conditional_logic": [
+                [
+                    {
+                        "field": "f_form_source",
+                        "operator": "==",
+                        "value": "cf7"
+                    }
+                ]
+            ]
+        },
+        {
+            "key": "f_form_embed",
+            "label": "Embed HTML",
+            "name": "form_embed",
+            "type": "textarea",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "f_form_source",
+                        "operator": "==",
+                        "value": "embed"
+                    }
+                ]
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_type",
+                "operator": "==",
+                "value": "front_page"
+            }
+        ]
+    ],
+    "active": true,
+    "show_in_rest": 0,
+    "modified": 1787643000
+}

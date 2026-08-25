@@ -57,10 +57,5 @@ add_filter('acf/settings/save_json', function($path) { return get_template_direc
 add_filter('acf/settings/load_json', function($paths) { $paths[] = get_template_directory() . '/acf-json'; return $paths; });
 add_action('acf/init', function() {
     if (!function_exists('acf_add_options_page')) return;
-    $parent = acf_add_options_page(array('page_title' => 'Auvenda settings', 'menu_title' => 'Auvenda settings', 'menu_slug' => 'auvenda-settings', 'redirect' => false));
-    if (function_exists('acf_add_local_field')) {
-        acf_add_local_field(array('key'=>'f_hero_background','label'=>'Background image','name'=>'hero_background','type'=>'image','return_format'=>'id','library'=>'all','parent'=>'group_auvenda_frontpage','menu_order'=>7));
-        acf_add_local_field(array('key'=>'f_hero_note_label','label'=>'Hero note label','name'=>'hero_note_label','type'=>'text','parent'=>'group_auvenda_frontpage','menu_order'=>8));
-        acf_add_local_field(array('key'=>'f_hero_note_text','label'=>'Hero note text','name'=>'hero_note_text','type'=>'textarea','rows'=>3,'parent'=>'group_auvenda_frontpage','menu_order'=>9));
-    }
+    acf_add_options_page(array('page_title' => 'Auvenda settings', 'menu_title' => 'Auvenda settings', 'menu_slug' => 'auvenda-settings', 'redirect' => false));
 });
