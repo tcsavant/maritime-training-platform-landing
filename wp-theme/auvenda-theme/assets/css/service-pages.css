@@ -1,1 +1,1 @@
-.service-page{background-color:var(--blue)}
+.service-page{min-height:calc(100vh - 82px);display:grid;align-items:center;padding:80px 0;background:var(--blue) url('../images/bg-dark.svg') center/cover;color:#fff}.service-page h1{margin:16px 0;font-size:clamp(62px,9vw,142px);line-height:.86;letter-spacing:-.06em}.service-page em{font-style:italic}.service-page .eyebrow{color:var(--gold)}.service-page .lead{color:#dce9f5}@media(max-width:800px){.service-page{min-height:calc(100vh - 66px);padding:64px 0}}
