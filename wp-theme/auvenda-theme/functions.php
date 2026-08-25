@@ -6,6 +6,27 @@ function auvenda_field($name, $fallback = '', $post_id = false) {
     $value = function_exists('get_field') ? get_field($name, $post_id) : null;
     return ($value === null || $value === '') ? $fallback : $value;
 }
+function auvenda_image_url($name, $fallback = '', $post_id = 'option') {
+    $image = auvenda_field($name, '', $post_id);
+    if (is_array($image) && !empty($image['url'])) return $image['url'];
+    if (is_numeric($image)) return wp_get_attachment_image_url((int) $image, 'full') ?: $fallback;
+    return is_string($image) && $image ? $image : $fallback;
+}
+function auvenda_home_url() { return function_exists('pll_home_url') ? pll_home_url() : home_url('/'); }
+function auvenda_language_switcher() {
+    if (!function_exists('pll_the_languages')) return;
+    $languages = pll_the_languages(array('raw' => 1));
+    if (!$languages) return;
+    echo '<div class="language-switcher" aria-label="' . esc_attr__('Language selector', 'auvenda-theme') . '">';
+    echo '<button class="language-toggle" type="button" aria-expanded="false">';
+    foreach ($languages as $language) if (!empty($language['current_lang'])) echo esc_html(strtoupper($language['slug'])) . '<span aria-hidden="true">⌄</span>';
+    echo '</button><div class="language-list">';
+    foreach ($languages as $language) {
+        $classes = !empty($language['current_lang']) ? 'active' : '';
+        printf('<a class="%1$s" href="%2$s" lang="%3$s">%4$s</a>', esc_attr($classes), esc_url($language['url']), esc_attr($language['slug']), esc_html(strtoupper($language['slug'])));
+    }
+    echo '</div></div>';
+}
 function auvenda_enqueue_assets() {
     $dir = get_template_directory(); $uri = get_template_directory_uri();
     foreach (array('tokens','typography','layout','base','header-footer') as $file) {
