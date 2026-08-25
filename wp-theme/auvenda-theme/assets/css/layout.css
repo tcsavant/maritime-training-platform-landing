@@ -1,0 +1,1 @@
+*{box-sizing:border-box}.container{width:min(var(--container-max),calc(100% - 80px));margin-inline:auto}@media(max-width:800px){.container{width:min(var(--container-max),calc(100% - 40px))}}

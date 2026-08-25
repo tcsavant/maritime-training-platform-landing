@@ -1,0 +1,1 @@
+document.addEventListener('DOMContentLoaded',()=>{const toggle=document.querySelector('.menu-toggle'),menu=document.querySelector('.primary-menu');if(!toggle||!menu)return;toggle.addEventListener('click',()=>{const open=menu.classList.toggle('is-open');toggle.setAttribute('aria-expanded',open);document.documentElement.classList.toggle('menu-open',open);});});

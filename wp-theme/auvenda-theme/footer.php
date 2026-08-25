@@ -1,0 +1,1 @@
+<?php defined('ABSPATH') || exit; ?><footer class="site-footer" id="contact"><div class="container"><p><?php echo esc_html(auvenda_field('footer_text', 'Auvenda — Maritime Training Platform', 'option')); ?></p><?php wp_nav_menu(array('theme_location'=>'footer','container'=>false,'fallback_cb'=>false)); ?></div></footer><?php wp_footer(); ?></body></html>
