@@ -9,7 +9,7 @@ function auvenda_enqueue_assets() {
     }
     if (is_front_page()) wp_enqueue_style('auvenda-front-page', $uri . '/assets/css/front-page.css', array('auvenda-base'), filemtime($dir . '/assets/css/front-page.css'));
     if (is_404()) wp_enqueue_style('auvenda-404', $uri . '/assets/css/service-pages.css', array('auvenda-base'), filemtime($dir . '/assets/css/service-pages.css'));
-    if (is_page_template('page-maintenance.php')) wp_enqueue_style('auvenda-maintenance', $uri . '/assets/css/service-pages.css', array('auvenda-base'), filemtime($dir . '/assets/css/service-pages.css'));
+    if (is_page_template('page-maintenance.php') || (function_exists('auvenda_should_show_maintenance') && auvenda_should_show_maintenance())) wp_enqueue_style('auvenda-maintenance', $uri . '/assets/css/service-pages.css', array('auvenda-base'), filemtime($dir . '/assets/css/service-pages.css'));
     if (is_page_template('page-catalogue.php')) wp_enqueue_style('auvenda-catalogue', $uri . '/assets/css/catalogue.css', array('auvenda-base'), filemtime($dir . '/assets/css/catalogue.css'));
     wp_enqueue_script('auvenda-main', $uri . '/assets/js/main.js', array(), filemtime($dir . '/assets/js/main.js'), true);
 }
