@@ -12,12 +12,14 @@
     .maintenance-page { min-height:100vh; color:#fff; background:var(--navy) url("assets/auvenida/bg-dark.svg") center/cover no-repeat; }
     .maintenance-header { height:82px; display:flex; align-items:center; }
     .maintenance-main { min-height:calc(100vh - 82px); display:grid; align-items:center; padding:80px 0; }
+    .maintenance-main > .container { width:min(var(--container-max),calc(100% - 80px)); margin-inline:auto; }
     .maintenance-copy { max-width:780px; }
     .maintenance-kicker { margin:0 0 24px; color:var(--gold); font-size:11px; font-weight:700; letter-spacing:.16em; }
     .maintenance-title { max-width:760px; margin:0; font:600 clamp(54px,8vw,112px)/.94 "IBM Plex Serif",Georgia,serif; letter-spacing:-.05em; }
     .maintenance-title em { font-style:italic; }
     .maintenance-lead { max-width:520px; margin:34px 0 0; color:#dce9f5; font-size:clamp(18px,2vw,23px); line-height:1.5; }
-    @media (max-width:800px) { .maintenance-header { height:66px; }.maintenance-main { min-height:calc(100vh - 66px); padding:64px 0; }.maintenance-title { font-size:clamp(52px,16vw,76px); } }
+    @media (min-width:801px) { .maintenance-page { height:100dvh; overflow:hidden; }.maintenance-main { height:calc(100dvh - 82px); min-height:0; } }
+    @media (max-width:800px) { .maintenance-header { height:66px; }.maintenance-main { min-height:calc(100vh - 66px); padding:64px 0; }.maintenance-main > .container { width:min(var(--container-max),calc(100% - 40px)); }.maintenance-title { font-size:clamp(52px,16vw,76px); } }
   </style>
 </head>
 <body class="maintenance-page">
