@@ -3,45 +3,6 @@
     "title": "Auvenda settings",
     "fields": [
         {
-            "key": "field_general_tab",
-            "label": "General",
-            "name": "",
-            "type": "tab"
-        },
-        {
-            "key": "field_maintenance_enabled",
-            "label": "Enable maintenance mode",
-            "name": "maintenance_enabled",
-            "type": "true_false",
-            "instructions": "Show the Maintenance page to public visitors. Administrators remain able to browse the site.",
-            "default_value": 0,
-            "ui": 1
-        },
-        {
-            "key": "field_tracking_code_head",
-            "label": "Code before </head>",
-            "name": "tracking_code_head",
-            "type": "textarea",
-            "instructions": "For analytics or verification code. It is output before the closing head tag.",
-            "new_lines": ""
-        },
-        {
-            "key": "field_tracking_code_body_open",
-            "label": "Code after <body>",
-            "name": "tracking_code_body_open",
-            "type": "textarea",
-            "instructions": "For analytics noscript code. It is output immediately after the opening body tag.",
-            "new_lines": ""
-        },
-        {
-            "key": "field_tracking_code_body_close",
-            "label": "Code before </body>",
-            "name": "tracking_code_body_close",
-            "type": "textarea",
-            "instructions": "For analytics code. It is output immediately before the closing body tag.",
-            "new_lines": ""
-        },
-        {
             "key": "field_header_tab",
             "label": "Header",
             "name": "",
@@ -103,10 +64,70 @@
             "default_value": "Back to home"
         },
         {
+            "key": "field_footer_tab",
+            "label": "Footer",
+            "name": "",
+            "type": "tab"
+        },
+        {
+            "key": "field_footer_logo",
+            "label": "Footer logo",
+            "name": "footer_logo",
+            "type": "image",
+            "return_format": "id",
+            "library": "all"
+        },
+        {
+            "key": "field_footer_text",
+            "label": "Footer text",
+            "name": "footer_text",
+            "type": "text",
+            "default_value": "Auvenda \u2014 Maritime Training Platform"
+        },
+        {
+            "key": "field_code_tab",
+            "label": "Code",
+            "name": "",
+            "type": "tab"
+        },
+        {
+            "key": "field_tracking_code_head",
+            "label": "Code before </head>",
+            "name": "tracking_code_head",
+            "type": "textarea",
+            "instructions": "For analytics or verification code. It is output before the closing head tag.",
+            "new_lines": ""
+        },
+        {
+            "key": "field_tracking_code_body_open",
+            "label": "Code after <body>",
+            "name": "tracking_code_body_open",
+            "type": "textarea",
+            "instructions": "For analytics noscript code. It is output immediately after the opening body tag.",
+            "new_lines": ""
+        },
+        {
+            "key": "field_tracking_code_body_close",
+            "label": "Code before </body>",
+            "name": "tracking_code_body_close",
+            "type": "textarea",
+            "instructions": "For analytics code. It is output immediately before the closing body tag.",
+            "new_lines": ""
+        },
+        {
             "key": "field_maintenance_tab",
             "label": "Maintenance",
             "name": "",
             "type": "tab"
+        },
+        {
+            "key": "field_maintenance_enabled",
+            "label": "Enable maintenance mode",
+            "name": "maintenance_enabled",
+            "type": "true_false",
+            "instructions": "Show the Maintenance page to public visitors. Administrators remain able to browse the site.",
+            "default_value": 0,
+            "ui": 1
         },
         {
             "key": "field_maintenance_eyebrow",
@@ -128,27 +149,6 @@
             "label": "Text",
             "name": "maintenance_text",
             "type": "textarea"
-        },
-        {
-            "key": "field_footer_tab",
-            "label": "Footer",
-            "name": "",
-            "type": "tab"
-        },
-        {
-            "key": "field_footer_logo",
-            "label": "Footer logo",
-            "name": "footer_logo",
-            "type": "image",
-            "return_format": "id",
-            "library": "all"
-        },
-        {
-            "key": "field_footer_text",
-            "label": "Footer text",
-            "name": "footer_text",
-            "type": "text",
-            "default_value": "Auvenda \u2014 Maritime Training Platform"
         }
     ],
     "location": [
@@ -162,5 +162,5 @@
     ],
     "active": true,
     "show_in_rest": 0,
-    "modified": 1787665900
+    "modified": 1787666400
 }
