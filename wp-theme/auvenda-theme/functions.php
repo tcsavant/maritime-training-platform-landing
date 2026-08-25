@@ -13,10 +13,10 @@ function auvenda_image_url($name, $fallback = '', $post_id = 'option') {
     return is_string($image) && $image ? $image : $fallback;
 }
 function auvenda_home_url() { return function_exists('pll_home_url') ? pll_home_url() : home_url('/'); }
-function auvenda_link($field, $label, $url) {
+function auvenda_link($field, $label, $url, $class = 'button button-light') {
     $link = auvenda_field($field, '');
     if (is_array($link) && !empty($link['url'])) { $url = $link['url']; $label = $link['title'] ?: $label; }
-    return '<a class="button" href="' . esc_url($url) . '">' . esc_html($label) . ' <b>→</b></a>';
+    return '<a class="' . esc_attr($class) . '" href="' . esc_url($url) . '">' . esc_html($label) . ' <b>→</b></a>';
 }
 function auvenda_language_switcher() {
     if (!function_exists('pll_the_languages')) return;
