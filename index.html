@@ -105,7 +105,13 @@
         const active = item.dataset.language === language;
         item.classList.toggle('active', active); item.setAttribute('aria-pressed', String(active));
       });
-      document.querySelectorAll('.language-switcher').forEach(item => item.classList.remove('is-open'));
+      document.querySelectorAll('.language-switcher').forEach(switcher => {
+        switcher.classList.remove('is-open');
+        if (window.matchMedia('(max-width: 800px)').matches) {
+          const active = switcher.querySelector('button.active');
+          if (active) switcher.prepend(active);
+        }
+      });
       const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
         acceptNode(node) {
           return node.nodeValue.trim() && !node.parentElement.closest('script, style') ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
@@ -124,6 +130,7 @@
     document.querySelectorAll('.language-switcher button').forEach(button => button.addEventListener('click', () => {
       const switcher = button.closest('.language-switcher');
       if (window.matchMedia('(max-width: 800px)').matches && button.classList.contains('active')) {
+        switcher.prepend(button);
         switcher.classList.toggle('is-open');
         return;
       }
