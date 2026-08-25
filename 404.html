@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <meta name="description" content="The requested Auvenda page could not be found.">
+  <title>Page not found — Auvenda</title>
+  <link rel="icon" href="assets/auvenida/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="brand-styles.css">
+  <style>
+    .not-found-page { min-height:100vh; color:#fff; background:var(--navy) url("assets/auvenida/bg-dark.svg") center/cover no-repeat; }
+    .not-found-header { height:82px; display:flex; align-items:center; }
+    .not-found-main { min-height:calc(100vh - 82px); display:grid; align-items:center; padding:80px 0; }
+    .not-found-main > .container { width:min(var(--container-max),calc(100% - 80px)); margin-inline:auto; }
+    .not-found-copy { max-width:780px; }
+    .not-found-kicker { margin:0 0 24px; color:var(--gold); font-size:11px; font-weight:700; letter-spacing:.16em; }
+    .not-found-title { margin:0; font:600 clamp(72px,12vw,180px)/.8 "IBM Plex Serif",Georgia,serif; letter-spacing:-.07em; }
+    .not-found-title span { display:block; margin-top:18px; font-size:clamp(46px,6vw,92px); line-height:.94; letter-spacing:-.05em; }
+    .not-found-lead { max-width:490px; margin:34px 0; color:#dce9f5; font-size:clamp(18px,2vw,23px); line-height:1.5; }
+    @media (min-width:801px) { .not-found-page { height:100dvh; overflow:hidden; }.not-found-main { height:calc(100dvh - 82px); min-height:0; } }
+    @media (max-width:800px) { .not-found-header { height:66px; }.not-found-main { min-height:calc(100vh - 66px); padding:64px 0; }.not-found-main > .container { width:min(var(--container-max),calc(100% - 40px)); }.not-found-title { font-size:112px; }.not-found-title span { font-size:54px; } }
+  </style>
+</head>
+<body class="not-found-page">
+  <header class="not-found-header">
+    <div class="container">
+      <a class="brand" href="index.html" aria-label="Auvenda home">
+        <img class="brand-logo" src="assets/auvenida/logo.svg" alt="Auvenda">
+        <span class="brand-divider" aria-hidden="true"></span>
+        <span class="brand-descriptor">Maritime<br>Training Platform</span>
+      </a>
+    </div>
+  </header>
+  <main class="not-found-main">
+    <div class="container not-found-copy">
+      <p class="not-found-kicker">PAGE NOT FOUND</p>
+      <h1 class="not-found-title">404<span>Lost at sea?</span></h1>
+      <p class="not-found-lead">The page you are looking for is not available. Return to Auvenda to continue exploring maritime training.</p>
+      <a class="button button-gold" href="index.html">Back to home <span>→</span></a>
+    </div>
+  </main>
+</body>
+</html>
