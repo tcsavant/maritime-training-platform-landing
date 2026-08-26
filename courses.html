@@ -12,22 +12,22 @@
   <div class="site-shell">
     <a class="skip-link" href="#main-content">Skip to content</a>
 
-    <header class="site-header">
-      <div class="site-container header-container">
-        <button class="logo" type="button" data-scroll="hero" aria-label="Go to home page">
+    <header class="brand-header site-header">
+      <div class="container site-container header-container header-inner">
+        <a class="brand logo" href="index.html#top" aria-label="Auvenda home">
           <picture class="brand-logo-picture">
             <source media="(max-width: 800px)" srcset="assets/auvenida/logo–.svg">
             <img class="brand-logo auvenda-logo" src="assets/auvenida/logo.svg" alt="Auvenda">
           </picture>
           <span class="brand-divider" aria-hidden="true"></span>
-          <span>Maritime<br>Training Platform</span>
-        </button>
+          <span class="brand-descriptor">Maritime<br>Training Platform</span>
+        </a>
 
-        <nav class="desktop-nav" id="main-navigation" aria-label="Main navigation">
-          <button type="button" data-scroll="courses">Courses</button>
-          <button type="button" data-scroll="education-providers">Training Providers</button>
-          <button type="button" data-scroll="companies">For Companies</button>
-          <button type="button" data-scroll="about">About</button>
+        <nav class="primary-menu desktop-nav" id="main-navigation" aria-label="Main navigation">
+          <a href="#courses/all">Courses</a>
+          <a href="index.html#providers">Training Providers</a>
+          <a href="index.html#companies">For Companies</a>
+          <a href="index.html#about">About</a>
         </nav>
 
         <div class="header-actions">
@@ -36,8 +36,8 @@
             <button type="button" aria-pressed="false" data-language="ru">RU</button>
             <button type="button" aria-pressed="false" data-language="uk">УКР</button>
           </div>
-          <button class="button button-dark button-small desktop-contact" type="button" data-audience="provider">Contact</button>
-          <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="main-navigation"><span></span><span></span><span></span></button>
+          <a class="button button-gold button-dark button-small header-contact desktop-contact" href="index.html#contact">Contact</a>
+          <button class="menu-button menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="main-navigation"><span></span><span></span><span></span></button>
         </div>
       </div>
     </header>
@@ -288,20 +288,23 @@
             <h1 id="catalogue-title">All Training</h1>
             <p class="lead" id="catalogue-description">Live course titles are loaded from tcsavant.com. Marketplace details remain placeholders.</p>
           </div>
-            <div class="catalogue-summary">
-              <strong id="catalogue-count">—</strong>
-            </div>
+            <div class="catalogue-summary"><div><span>COURSES SHOWN</span><strong id="catalogue-count">—</strong><small id="catalogue-source-label">All Training</small></div></div>
           </div>
         </div>
 
         <div class="site-container catalogue-body">
-          <aside class="catalogue-sidebar" aria-label="Course directions">
-            <div class="catalogue-sidebar-heading">
-              <span>FILTER BY DIRECTION</span>
-              <button type="button" data-catalogue-close>Back to landing</button>
-            </div>
-            <div id="catalogue-category-nav"></div>
-          </aside>
+          <div class="catalogue-filter">
+            <button class="catalogue-filter-toggle" type="button" aria-expanded="false" aria-controls="catalogue-category-panel">
+              <span>Training directions</span><strong id="catalogue-filter-current">All Training</strong><i aria-hidden="true"></i>
+            </button>
+            <aside class="catalogue-sidebar" id="catalogue-category-panel" aria-label="Course directions">
+              <div class="catalogue-sidebar-heading">
+                <span>TRAINING DIRECTIONS</span>
+                <button type="button" data-catalogue-close>Back to landing</button>
+              </div>
+              <div id="catalogue-category-nav"></div>
+            </aside>
+          </div>
 
           <div class="catalogue-results">
             <div class="catalogue-results-heading">

@@ -489,6 +489,9 @@ const page = {
   catalogueSourceLabel: document.querySelector('#catalogue-source-label'),
   catalogueBreadcrumbCurrent: document.querySelector('#catalogue-breadcrumb-current'),
   catalogueCategoryNav: document.querySelector('#catalogue-category-nav'),
+  catalogueFilter: document.querySelector('.catalogue-filter'),
+  catalogueFilterToggle: document.querySelector('.catalogue-filter-toggle'),
+  catalogueFilterCurrent: document.querySelector('#catalogue-filter-current'),
   catalogueResultsKicker: document.querySelector('#catalogue-results-kicker'),
   catalogueResultsTitle: document.querySelector('#catalogue-results-title'),
   courseResultsGrid: document.querySelector('#course-results-grid'),
@@ -920,7 +923,9 @@ function renderCatalogue() {
   const visible = results.slice(0, state.visibleCount);
   page.catalogueTitle.textContent = definition.label;
   page.catalogueDescription.textContent = definition.description;
-  page.catalogueCount.textContent = formatCourseCount(results.length);
+  page.catalogueCount.textContent = results.length;
+  page.catalogueSourceLabel.textContent = definition.label;
+  page.catalogueFilterCurrent.textContent = definition.label;
   page.catalogueBreadcrumbCurrent.textContent = definition.label;
   page.catalogueResultsKicker.textContent = definition.label.toUpperCase();
   page.catalogueResultsTitle.textContent = results.length ? t('Available course titles') : t('Courses are being mapped');
@@ -1060,6 +1065,11 @@ function applyLocationRoute() {
 }
 
 document.addEventListener('click', event => {
+  const filterToggle = event.target.closest('.catalogue-filter-toggle');
+  if (filterToggle && page.catalogueFilter) {
+    const open = page.catalogueFilter.classList.toggle('is-open');
+    filterToggle.setAttribute('aria-expanded', String(open));
+  }
   const scrollControl = event.target.closest('[data-scroll]');
   if (scrollControl) {
     setMobileMenu(false);
@@ -1072,7 +1082,11 @@ document.addEventListener('click', event => {
   const categoryControl = event.target.closest('[data-category]');
   if (categoryControl) openCatalogue(categoryControl.dataset.category);
   const catalogueCategory = event.target.closest('[data-catalogue-category]');
-  if (catalogueCategory) openCatalogue(catalogueCategory.dataset.catalogueCategory);
+  if (catalogueCategory) {
+    if (page.catalogueFilter) page.catalogueFilter.classList.remove('is-open');
+    if (page.catalogueFilterToggle) page.catalogueFilterToggle.setAttribute('aria-expanded', 'false');
+    openCatalogue(catalogueCategory.dataset.catalogueCategory);
+  }
   if (event.target.closest('[data-catalogue-home]')) {
     closeCatalogue(true, 'hero');
     window.scrollTo({ top: 0, behavior: 'smooth' });

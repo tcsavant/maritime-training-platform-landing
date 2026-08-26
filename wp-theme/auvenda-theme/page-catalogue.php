@@ -28,13 +28,16 @@ $result_label = $active_direction ? auvenda_direction_label($active_direction) :
       </div>
     </div>
     <div class="site-container catalogue-body">
-      <aside class="catalogue-sidebar" aria-label="<?php esc_attr_e('Course directions', 'auvenda-theme'); ?>">
-        <div class="catalogue-sidebar-heading"><span><?php esc_html_e('TRAINING DIRECTIONS', 'auvenda-theme'); ?></span><a href="<?php echo esc_url($catalogue_url); ?>"><?php esc_html_e('Reset filter', 'auvenda-theme'); ?></a></div>
-        <nav>
-          <a class="catalogue-category-button <?php echo $requested_direction === 'all' ? 'active' : ''; ?>" href="<?php echo esc_url($catalogue_url); ?>"><span><?php esc_html_e('All Training', 'auvenda-theme'); ?></span><small><?php echo esc_html(count($all_courses)); ?></small></a>
-          <?php foreach ($directions as $direction) : ?><a class="catalogue-category-button <?php echo $requested_direction === $direction['slug'] ? 'active' : ''; ?>" href="<?php echo esc_url(add_query_arg('direction', $direction['slug'], $catalogue_url)); ?>"><span><?php echo esc_html(auvenda_direction_label($direction)); ?></span><small><?php echo esc_html(count(auvenda_courses_for_direction($all_courses, $direction['slug']))); ?></small></a><?php endforeach; ?>
-        </nav>
-      </aside>
+      <div class="catalogue-filter">
+        <button class="catalogue-filter-toggle" type="button" aria-expanded="false" aria-controls="catalogue-category-panel"><span><?php esc_html_e('Training directions', 'auvenda-theme'); ?></span><strong><?php echo esc_html($result_label); ?></strong><i aria-hidden="true"></i></button>
+        <aside class="catalogue-sidebar" id="catalogue-category-panel" aria-label="<?php esc_attr_e('Course directions', 'auvenda-theme'); ?>">
+          <div class="catalogue-sidebar-heading"><span><?php esc_html_e('TRAINING DIRECTIONS', 'auvenda-theme'); ?></span><a href="<?php echo esc_url($catalogue_url); ?>"><?php esc_html_e('Reset filter', 'auvenda-theme'); ?></a></div>
+          <nav>
+            <a class="catalogue-category-button <?php echo $requested_direction === 'all' ? 'active' : ''; ?>" href="<?php echo esc_url($catalogue_url); ?>"><span><?php esc_html_e('All Training', 'auvenda-theme'); ?></span><small><?php echo esc_html(count($all_courses)); ?></small></a>
+            <?php foreach ($directions as $direction) : ?><a class="catalogue-category-button <?php echo $requested_direction === $direction['slug'] ? 'active' : ''; ?>" href="<?php echo esc_url(add_query_arg('direction', $direction['slug'], $catalogue_url)); ?>"><span><?php echo esc_html(auvenda_direction_label($direction)); ?></span><small><?php echo esc_html(count(auvenda_courses_for_direction($all_courses, $direction['slug']))); ?></small></a><?php endforeach; ?>
+          </nav>
+        </aside>
+      </div>
       <div class="catalogue-results">
         <div class="catalogue-results-heading"><div><span><?php echo esc_html(strtoupper($result_label)); ?></span><strong><?php esc_html_e('Available course titles', 'auvenda-theme'); ?></strong></div></div>
         <div class="course-results-grid">

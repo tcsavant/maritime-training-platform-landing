@@ -465,3 +465,66 @@ body.courses-page .language-switcher button.active { color:var(--ink); backgroun
 @media (max-width:800px) {
   body.courses-page .language-switcher > .language-toggle { display:flex; }
 }
+
+/* Unified header and responsive catalogue controls. */
+.brand-header.site-header { position:sticky; top:0; z-index:80; display:block; height:82px; min-height:82px; padding:0; background:#1e4a66; color:#fff; }
+.brand-header.site-header .header-container { display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:30px; height:82px; }
+.brand-header.site-header .brand { justify-self:start; display:inline-flex; align-items:center; gap:10px; color:#fff; text-decoration:none; }
+.brand-header.site-header .brand-logo { display:block; width:94px; height:auto; }
+.brand-header.site-header .brand-divider { width:1px; height:26px; background:rgba(255,255,255,.38); }
+.brand-header.site-header .brand-descriptor { color:#fff; font-size:8px; font-weight:600; line-height:1.25; }
+.brand-header.site-header .desktop-nav { justify-self:center; display:flex; align-items:stretch; height:82px; }
+.brand-header.site-header .desktop-nav a { display:flex; align-items:center; height:82px; padding:0 15px; color:#fff; font-size:14px; font-weight:500; text-decoration:none; }
+.brand-header.site-header .desktop-nav a:hover { color:var(--gold); background:transparent; }
+.brand-header.site-header .header-actions { justify-self:end; }
+.brand-header.site-header .header-contact { color:var(--ink); background:var(--gold); }
+.catalogue-summary > div { display:flex; width:100%; min-height:117px; flex-direction:column; align-items:flex-start; gap:8px; }
+.catalogue-summary strong { display:block; }
+.catalogue-summary small { display:block; }
+.catalogue-filter { position:sticky; top:105px; align-self:start; z-index:20; }
+.catalogue-filter-toggle { display:none; }
+.catalogue-sidebar { position:static; top:auto; background:#fff; }
+.catalogue-category-button { color:var(--ink); text-decoration:none; }
+
+body.admin-bar .brand-header.site-header { top:32px; }
+body.admin-bar .catalogue-filter { top:137px; }
+
+@media (max-width:800px) {
+  .site-container,.catalogue-body { width:min(var(--container-max),calc(100% - 32px)); }
+  .brand-header.site-header { top:0; height:66px; min-height:66px; background:#1e4a66; }
+  .brand-header.site-header .header-container { grid-template-columns:minmax(0,1fr) auto; gap:8px; height:66px; }
+  .brand-header.site-header .brand { min-width:0; }
+  .brand-header.site-header .brand-logo { width:82px; max-height:43px; }
+  .brand-header.site-header .brand-divider,.brand-header.site-header .brand-descriptor { display:none; }
+  .brand-header.site-header .desktop-nav { display:none; position:fixed; z-index:90; top:66px; right:0; bottom:0; left:0; width:100vw; height:calc(100dvh - 66px); padding:24px 20px; flex-direction:column; align-items:stretch; overflow-y:auto; background:#1e4a66; border-top:1px solid rgba(255,255,255,.22); }
+  .brand-header.site-header .desktop-nav.mobile-open,.brand-header.site-header .desktop-nav.is-open { display:flex; }
+  .brand-header.site-header .desktop-nav ul { display:flex; width:100%; height:auto; flex-direction:column; gap:0; }
+  .brand-header.site-header .desktop-nav a { width:100%; min-height:56px; height:auto; padding:0; border-bottom:1px solid rgba(255,255,255,.22); font-size:15px; }
+  .brand-header.site-header .header-actions { gap:8px; }
+  .brand-header.site-header .language-switcher { width:48px; min-height:40px; }
+  .brand-header.site-header .language-switcher button,.brand-header.site-header .language-switcher.is-open button { width:48px; min-height:40px; }
+  .brand-header.site-header .header-contact { min-height:40px; padding:0 14px; white-space:nowrap; }
+  .brand-header.site-header .menu-button { display:flex; width:40px; min-width:40px; height:40px; min-height:40px; }
+  .catalogue-hero-inner { padding-block:28px 48px; }
+  .catalogue-summary { min-height:132px; }
+  .catalogue-summary > div { min-height:84px; }
+  .catalogue-summary strong { font-size:48px; }
+  .catalogue-body { display:block; padding-block:24px 70px; }
+  .catalogue-filter { top:66px; z-index:70; margin-bottom:24px; background:#fff; box-shadow:0 10px 24px rgba(17,41,62,.1); }
+  .catalogue-filter-toggle { display:grid; grid-template-columns:1fr auto 18px; align-items:center; gap:12px; width:100%; min-height:64px; padding:12px 16px; border:1px solid var(--ink); background:var(--ink); color:#fff; text-align:left; }
+  .catalogue-filter-toggle span { font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
+  .catalogue-filter-toggle strong { overflow:hidden; font-size:12px; font-weight:600; text-overflow:ellipsis; white-space:nowrap; }
+  .catalogue-filter-toggle i { width:9px; height:9px; border-right:2px solid currentColor; border-bottom:2px solid currentColor; transform:rotate(45deg) translateY(-3px); transition:transform .2s ease; }
+  .catalogue-filter.is-open .catalogue-filter-toggle i { transform:rotate(225deg) translate(-2px,-2px); }
+  .catalogue-sidebar { display:none; max-height:calc(100dvh - 146px); overflow-y:auto; border-top:0; }
+  .catalogue-filter.is-open .catalogue-sidebar { display:block; }
+  .catalogue-results-heading { padding-top:8px; }
+  body.admin-bar .brand-header.site-header { top:46px; }
+  body.admin-bar .brand-header.site-header .desktop-nav { top:112px; height:calc(100dvh - 112px); }
+  body.admin-bar .catalogue-filter { top:112px; }
+}
+
+@media (max-width:380px) {
+  .brand-header.site-header .header-contact { padding-inline:10px; font-size:12px; }
+  .brand-header.site-header .brand-logo { width:74px; }
+}
