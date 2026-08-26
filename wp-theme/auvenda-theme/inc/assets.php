@@ -13,6 +13,7 @@ function auvenda_enqueue_assets() {
         wp_enqueue_style('auvenda-landing-design', $uri . '/brand-styles.css', array(), filemtime($dir . '/brand-styles.css'));
         if ($is_service) wp_enqueue_style('auvenda-service-page', $uri . '/assets/css/service-pages.css', array('auvenda-landing-design'), filemtime($dir . '/assets/css/service-pages.css'));
     }
+    wp_enqueue_style('auvenda-header', $uri . '/header.css', array(), filemtime($dir . '/header.css'));
     wp_enqueue_script('auvenda-main', $uri . '/assets/js/main.js', array(), filemtime($dir . '/assets/js/main.js'), true);
 }
 add_action('wp_enqueue_scripts', 'auvenda_enqueue_assets');
