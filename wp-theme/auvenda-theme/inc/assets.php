@@ -5,9 +5,14 @@ function auvenda_enqueue_assets() {
     $dir = get_template_directory();
     $uri = get_template_directory_uri();
     $is_catalogue = is_page_template('page-catalogue.php') || is_post_type_archive('course') || is_tax('course_direction');
-    $is_service = is_404() || is_page_template('page-maintenance.php') || (function_exists('auvenda_should_show_maintenance') && auvenda_should_show_maintenance());
+    $is_maintenance = is_page_template('page-maintenance.php') || (function_exists('auvenda_should_show_maintenance') && auvenda_should_show_maintenance());
+    $is_service = is_404() || $is_maintenance;
 
-    if ($is_service) {
+    if ($is_maintenance) {
+        $page_handle = 'auvenda-service-page';
+        wp_enqueue_style($page_handle, $uri . '/assets/css/service-pages.css', array(), filemtime($dir . '/assets/css/service-pages.css'));
+        return;
+    } elseif ($is_service) {
         $page_handle = 'auvenda-service-page';
         wp_enqueue_style($page_handle, $uri . '/assets/css/service-pages.css', array(), filemtime($dir . '/assets/css/service-pages.css'));
     } elseif ($is_catalogue) {
