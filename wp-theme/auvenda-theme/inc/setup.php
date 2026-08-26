@@ -10,3 +10,9 @@ function auvenda_register_content() {
     register_taxonomy('course_direction', 'course', array('labels' => array('name' => 'Course directions', 'singular_name' => 'Course direction'), 'public' => true, 'show_in_rest' => true, 'hierarchical' => true, 'rewrite' => array('slug' => 'course-direction')));
 }
 add_action('init', 'auvenda_register_content');
+
+function auvenda_body_classes($classes) {
+    if (is_page_template('page-catalogue.php') || is_post_type_archive('course') || is_tax('course_direction')) $classes[] = 'courses-page';
+    return $classes;
+}
+add_filter('body_class', 'auvenda_body_classes');

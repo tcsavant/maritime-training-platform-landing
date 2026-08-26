@@ -82,7 +82,7 @@
             "label": "Footer text",
             "name": "footer_text",
             "type": "text",
-            "default_value": "Auvenda \u2014 Maritime Training Platform"
+            "default_value": "European origin \u00b7 Cross-border access \u00b7 International maritime market"
         },
         {
             "key": "field_social_label",
@@ -102,7 +102,8 @@
             "key": "field_footer_email",
             "label": "Email",
             "name": "footer_email",
-            "type": "email"
+            "type": "email",
+            "default_value": "hello@auvenda.com"
         },
         {
             "key": "field_footer_phone",
