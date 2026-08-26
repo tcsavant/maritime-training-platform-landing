@@ -634,12 +634,6 @@ h3 {
   font: 600 clamp(35px, 4vw, 58px)/.95 "IBM Plex Serif", Georgia, serif;
 }
 
-.company-stamp i {
-  font-size: 26px;
-  font-style: normal;
-  text-align: right;
-}
-
 .companies .body-copy {
   color: var(--muted);
 }
