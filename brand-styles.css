@@ -858,8 +858,6 @@ footer .footer-main>a:last-child {
 
 /* Shared centered sticky header. */
 .brand-header {
-  position: sticky;
-  top: 0;
   z-index: 50;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -1125,10 +1123,6 @@ footer .footer-main>a:last-child {
 
   html {
     scroll-padding-top: calc(var(--mobile-header-offset) + 16px);
-  }
-
-  body {
-    margin-top: -1px;
   }
 
   section[id] {
