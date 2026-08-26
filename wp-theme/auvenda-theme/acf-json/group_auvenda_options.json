@@ -10,11 +10,20 @@
         },
         {
             "key": "field_header_logo",
-            "label": "Header logo",
+            "label": "Header logo (desktop)",
             "name": "header_logo",
             "type": "image",
             "return_format": "id",
             "library": "all"
+        },
+        {
+            "key": "field_mobile_logo",
+            "label": "Mobile logo (header and footer)",
+            "name": "mobile_logo",
+            "type": "image",
+            "return_format": "id",
+            "library": "all",
+            "instructions": "Used below 800px. Falls back to assets/auvenida/logo–.svg."
         },
         {
             "key": "field_header_descriptor",
@@ -71,7 +80,7 @@
         },
         {
             "key": "field_footer_logo",
-            "label": "Footer logo",
+            "label": "Footer logo (desktop)",
             "name": "footer_logo",
             "type": "image",
             "return_format": "id",
@@ -207,5 +216,5 @@
     ],
     "active": true,
     "show_in_rest": 0,
-    "modified": 1787666400
+    "modified": 1787772861
 }

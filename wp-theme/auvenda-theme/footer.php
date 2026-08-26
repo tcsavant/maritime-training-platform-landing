@@ -8,10 +8,12 @@ $socials = array(
 $socials = array_filter($socials, static function ($social) { return !empty($social['url']); });
 $footer_email = auvenda_field('footer_email', 'hello@auvenda.com', 'option');
 $footer_phone = auvenda_field('footer_phone', '', 'option');
+$footer_logo = auvenda_image_url('footer_logo', auvenda_asset('auvenida/logo.svg'));
+$mobile_logo = auvenda_image_url('mobile_logo', auvenda_asset('auvenida/logo–.svg'));
 ?>
 <footer class="site-footer" id="contact">
   <div class="container site-container footer-main">
-    <a class="brand footer-brand footer-logo" href="<?php echo esc_url(auvenda_home_url()); ?>"><img class="brand-logo auvenda-logo" src="<?php echo esc_url(auvenda_image_url('footer_logo', auvenda_asset('auvenida/logo.svg'))); ?>" alt="Auvenda"></a>
+    <a class="brand footer-brand footer-logo" href="<?php echo esc_url(auvenda_home_url()); ?>"><picture class="brand-logo-picture"><source media="(max-width: 800px)" srcset="<?php echo esc_url($mobile_logo); ?>"><img class="brand-logo auvenda-logo" src="<?php echo esc_url($footer_logo); ?>" alt="Auvenda"></picture></a>
     <span><?php echo esc_html(auvenda_field('footer_text', 'European origin · Cross-border access · International maritime market', 'option')); ?></span>
     <a href="<?php echo esc_url(get_post_type_archive_link('course') ?: home_url('/courses/')); ?>"><?php esc_html_e('Explore courses →', 'auvenda-theme'); ?></a>
   </div>

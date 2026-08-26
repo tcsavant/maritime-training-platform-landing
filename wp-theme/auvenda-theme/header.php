@@ -2,11 +2,16 @@
 defined('ABSPATH') || exit;
 $header_descriptor = auvenda_field('header_descriptor', 'Maritime Training Platform', 'option');
 if ($header_descriptor === 'Maritime Training Platform') $header_descriptor = 'Maritime<br>Training Platform';
+$header_logo = auvenda_image_url('header_logo', auvenda_asset('auvenida/logo.svg'));
+$mobile_logo = auvenda_image_url('mobile_logo', auvenda_asset('auvenida/logo–.svg'));
 ?><!doctype html><html <?php language_attributes(); ?>><head><meta charset="<?php bloginfo('charset'); ?>"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="<?php echo esc_url(auvenda_asset('images/favicon.svg')); ?>" type="image/svg+xml"><?php wp_head(); ?></head><body <?php body_class(); ?>><?php wp_body_open(); ?>
 <header class="brand-header site-header">
   <div class="container site-container header-container header-inner">
     <a class="brand logo" href="<?php echo esc_url(auvenda_home_url()); ?>" aria-label="<?php esc_attr_e('Auvenda home', 'auvenda-theme'); ?>">
-      <img class="brand-logo auvenda-logo" src="<?php echo esc_url(auvenda_image_url('header_logo', auvenda_asset('auvenida/logo.svg'))); ?>" alt="Auvenda">
+      <picture class="brand-logo-picture">
+        <source media="(max-width: 800px)" srcset="<?php echo esc_url($mobile_logo); ?>">
+        <img class="brand-logo auvenda-logo" src="<?php echo esc_url($header_logo); ?>" alt="Auvenda">
+      </picture>
       <span class="brand-divider" aria-hidden="true"></span>
       <span class="brand-descriptor"><?php echo wp_kses($header_descriptor, array('br' => array())); ?></span>
     </a>
