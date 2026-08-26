@@ -268,7 +268,7 @@ a {
 
 .dark-wave {
   color: #fff;
-  background: var(--navy) url("assets/auvenida/bg-dark.svg") center/cover no-repeat;
+  background: var(--blue) url("assets/auvenida/bg-dark.svg") center/cover no-repeat;
 }
 
 .hero {
@@ -605,6 +605,9 @@ h3 {
   display: flex;
   flex-direction: column;
   background: var(--sky);
+  background-image: url("assets/auvenida/bg-light-invert.svg");
+  background-position: center;
+  background-size: cover;
 }
 
 .company-stamp span {
