@@ -4,7 +4,7 @@ defined('ABSPATH') || exit;
 function auvenda_enqueue_assets() {
     $dir = get_template_directory();
     $uri = get_template_directory_uri();
-    foreach (array('tokens', 'typography', 'layout', 'base', 'header-footer') as $file) {
+    foreach (array('tokens', 'typography', 'layout', 'base', 'header-footer', 'footer-social') as $file) {
         wp_enqueue_style('auvenda-' . $file, $uri . '/assets/css/' . $file . '.css', array(), filemtime($dir . '/assets/css/' . $file . '.css'));
     }
     if (is_front_page()) wp_enqueue_style('auvenda-front-page', $uri . '/assets/css/front-page.css', array('auvenda-base'), filemtime($dir . '/assets/css/front-page.css'));

@@ -85,6 +85,50 @@
             "default_value": "Auvenda \u2014 Maritime Training Platform"
         },
         {
+            "key": "field_social_label",
+            "label": "Social label",
+            "name": "social_label",
+            "type": "text",
+            "default_value": "Follow our journey"
+        },
+        {
+            "key": "field_contact_label_footer",
+            "label": "Contact section label",
+            "name": "contact_label_footer",
+            "type": "text",
+            "default_value": "Get in touch"
+        },
+        {
+            "key": "field_footer_email",
+            "label": "Email",
+            "name": "footer_email",
+            "type": "email"
+        },
+        {
+            "key": "field_footer_phone",
+            "label": "Phone",
+            "name": "footer_phone",
+            "type": "text"
+        },
+        {
+            "key": "field_linkedin_url",
+            "label": "LinkedIn URL",
+            "name": "linkedin_url",
+            "type": "url"
+        },
+        {
+            "key": "field_instagram_url",
+            "label": "Instagram URL",
+            "name": "instagram_url",
+            "type": "url"
+        },
+        {
+            "key": "field_facebook_url",
+            "label": "Facebook URL",
+            "name": "facebook_url",
+            "type": "url"
+        },
+        {
             "key": "field_code_tab",
             "label": "Code",
             "name": "",

@@ -693,7 +693,26 @@ footer .container>span {
   margin-right: auto;
 }
 
-footer a:last-child {
+footer .footer-contact-row,
+footer .footer-social-row {
+  justify-content: flex-end;
+  margin-top: 26px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(207, 224, 244, .22);
+}
+
+.footer-row-label { margin: 0 auto 0 0; color: #b7c6d2; font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+.footer-contacts { display: flex; gap: clamp(28px, 5vw, 72px); }
+.footer-contacts a { display: grid; gap: 7px; color: #fff; font-size: 15px; text-decoration: none; }
+.footer-contacts a:hover { color: var(--gold); }
+.footer-contacts span { color: #b7c6d2; font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+.social-links { display: flex; gap: 10px; }
+.social-links a { display: grid; width: 42px; height: 42px; place-items: center; border: 1px solid rgba(207, 224, 244, .5); border-radius: 50%; color: #fff; transition: color .2s ease, background-color .2s ease, border-color .2s ease, transform .2s ease; }
+.social-links a:hover { border-color: var(--gold); background: var(--gold); color: var(--navy); transform: translateY(-2px); }
+.social-links a:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.social-links svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+footer .footer-main>a:last-child {
   color: var(--gold);
 }
 
@@ -831,6 +850,10 @@ footer a:last-child {
     order: 3;
     flex-basis: 100%;
   }
+
+  footer .footer-contact-row,
+  footer .footer-social-row { align-items: flex-start; flex-direction: column; gap: 16px; }
+  .footer-contacts { align-items: flex-start; flex-direction: column; gap: 18px; }
 }
 
 /* Shared centered sticky header. */
