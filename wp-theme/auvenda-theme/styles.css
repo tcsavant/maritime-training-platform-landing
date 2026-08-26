@@ -236,7 +236,6 @@ body.catalogue-open main > section:not(#catalogue-page) { display: none; }
   .desktop-nav button { text-align: left; min-height: 50px; }
   .desktop-nav button.active::after { width: 3px; height: auto; inset: 10px auto 10px 0; }
   .menu-button { align-items: center; display: inline-flex; }
-  .desktop-contact { display: none; }
   .section-grid { grid-template-columns: 1fr; padding-top: 70px; }
   .hero-placeholder { min-height: 300px; }
   .audience-grid, .category-grid, .provider-directory-grid { grid-template-columns: 1fr 1fr; }

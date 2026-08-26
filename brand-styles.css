@@ -211,63 +211,6 @@ a {
   background: var(--blue);
 }
 
-.courses-page .site-header {
-  position: relative;
-  z-index: 1;
-  min-height: 82px;
-  padding: 0 max(40px, calc((100vw - 1240px)/2));
-  border: 0;
-  background: var(--navy);
-  color: #fff;
-  grid-template-columns: minmax(280px, 1fr) auto minmax(200px, 1fr);
-}
-
-.courses-page .logo {
-  color: #fff;
-  gap: 14px;
-}
-
-.courses-page .auvenida-logo {
-  width: 94px;
-}
-
-.courses-page .logo>span:last-child {
-  display: block;
-  max-width: 66px;
-  color: #fff;
-  font: 600 9px/1.25 Inter, Arial, sans-serif;
-}
-
-.courses-page .desktop-nav {
-  height: 82px;
-}
-
-.courses-page .desktop-nav button {
-  color: #fff;
-  font-size: 14px;
-}
-
-.courses-page .desktop-nav button:hover {
-  background: rgba(255, 255, 255, .08);
-}
-
-.courses-page .desktop-nav button.active::after {
-  bottom: 14px;
-  background: var(--gold);
-}
-
-.courses-page .header-actions {
-  gap: 20px;
-}
-
-.courses-page .language-switcher button {
-  color: #fff;
-  border-color: rgba(255, 255, 255, .3);
-}
-
-.courses-page .language-switcher button:not(.active) {
-  display: none;
-}
 
 .courses-page .button-dark {
   background: var(--gold);
@@ -729,8 +672,7 @@ footer .footer-main>a:last-child {
     width: min(100% - 40px, 1240px);
   }
 
-  .brand-header,
-  .courses-page .site-header {
+  .brand-header {
     height: 66px;
     min-height: 66px;
     padding: 0 20px;
@@ -740,19 +682,6 @@ footer .footer-main>a:last-child {
   .brand-divider,
   .brand-descriptor {
     display: none;
-  }
-
-  .courses-page .desktop-nav {
-    top: 66px;
-    height: auto;
-  }
-
-  .courses-page .desktop-contact {
-    display: none;
-  }
-
-  .courses-page .menu-button {
-    display: inline-flex;
   }
 
   .header-actions {
