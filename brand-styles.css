@@ -182,3 +182,13 @@
   .brand-header .header-actions { gap:6px; }
   .brand-header .header-actions .button { padding:0 8px; font-size:10px; }
 }
+
+.brand-logo-picture { display:block; line-height:0; }
+@media (max-width:800px) {
+  .brand-header .brand-logo { width:119px; max-height:37px; }
+  footer .brand-logo { width:119px; max-height:37px; }
+}
+@media (max-width:360px) {
+  .brand-header .brand-logo { width:96px; max-height:30px; }
+  footer .brand-logo { width:96px; max-height:30px; }
+}
