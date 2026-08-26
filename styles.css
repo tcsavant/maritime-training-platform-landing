@@ -383,6 +383,33 @@ body.courses-page .site-header .header-container > .header-actions { justify-sel
   .site-footer-inner > .footer-links { justify-self:start; }
 }
 
+/* Catalogue footer mirrors the landing page footer. */
+body.courses-page .site-footer { padding: 34px 0; }
+body.courses-page .site-footer-inner { display: block; font-size: 14px; }
+body.courses-page .footer-main { display: flex; align-items: center; gap: 25px; }
+body.courses-page .footer-main > span { margin-right: auto; color: #b7c6d2; }
+body.courses-page .footer-main > a { color: var(--gold); text-decoration: none; }
+body.courses-page .footer-contact-row,
+body.courses-page .footer-social-row { display: flex; align-items: center; justify-content: flex-end; gap: 25px; margin-top: 26px; padding-top: 24px; border-top: 1px solid rgba(207, 224, 244, .22); }
+body.courses-page .footer-row-label { margin: 0 auto 0 0; color: #b7c6d2; font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+body.courses-page .footer-contacts { display: flex; gap: clamp(28px, 5vw, 72px); }
+body.courses-page .footer-contacts a { display: grid; gap: 7px; color: #fff; font-size: 15px; text-decoration: none; }
+body.courses-page .footer-contacts a:hover { color: var(--gold); }
+body.courses-page .footer-contacts span { color: #b7c6d2; font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+body.courses-page .social-links { display: flex; gap: 10px; }
+body.courses-page .social-links a { display: grid; width: 42px; height: 42px; place-items: center; border: 1px solid rgba(207, 224, 244, .5); border-radius: 50%; color: #fff; transition: color .2s ease, background-color .2s ease, border-color .2s ease, transform .2s ease; }
+body.courses-page .social-links a:hover { border-color: var(--gold); background: var(--gold); color: var(--ink); transform: translateY(-2px); }
+body.courses-page .social-links a:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+body.courses-page .social-links svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+@media (max-width: 800px) {
+  body.courses-page .footer-main { align-items: flex-start; flex-wrap: wrap; }
+  body.courses-page .footer-main > span { order: 3; flex-basis: 100%; }
+  body.courses-page .footer-contact-row,
+  body.courses-page .footer-social-row { align-items: flex-start; flex-direction: column; gap: 16px; }
+  body.courses-page .footer-contacts { align-items: flex-start; flex-direction: column; gap: 18px; }
+}
+
 /* Shared mobile header: contact remains visible; navigation and language selection live in the drawer. */
 @media (max-width:800px) {
   body.mobile-menu-open { position:fixed; width:100%; overflow:hidden; }
