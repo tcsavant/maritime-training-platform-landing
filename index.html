@@ -247,7 +247,7 @@
       const nodes = [];
       while (walker.nextNode()) nodes.push(walker.currentNode);
       nodes.forEach(node => {
-        if (!originalTextNodes.has(node)) originalTextNodes.set(node, node.nodeValue.trim());
+        if (!originalTextNodes.has(node)) originalTextNodes.set(node, node.nodeValue.trim().replace(/\s+/g, ' '));
         const source = originalTextNodes.get(node);
         const leading = node.nodeValue.match(/^\s*/)[0];
         const trailing = node.nodeValue.match(/\s*$/)[0];
