@@ -240,6 +240,7 @@ a {
   grid-template-columns: 1fr 240px;
   align-items: end;
   gap: 60px;
+  padding-block: 80px;
 }
 
 .kicker {
@@ -691,6 +692,10 @@ footer .footer-main>a:last-child {
   .hero {
     min-height: fit-content;
     padding: 40px 0;
+  }
+
+  .hero-grid {
+    padding-block: 40px;
   }
 
   .hero-grid,
