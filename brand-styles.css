@@ -1351,3 +1351,7 @@ footer .footer-main>a:last-child {
   .contact select,
   .contact textarea { font-size:12px; }
 }
+
+@media (min-width:415px) and (max-width:480px) {
+  .hero h1 { font-size:44px; }
+}
