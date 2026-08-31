@@ -261,7 +261,7 @@ h3 {
 .hero h1 {
   max-width: 750px;
   margin: 0;
-  font-size: clamp(58px, 7vw, 96px);
+  font-size: clamp(42px, 7vw, 96px);
   line-height: .95;
   letter-spacing: -.05em;
 }
