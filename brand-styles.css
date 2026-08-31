@@ -261,7 +261,7 @@ h3 {
 .hero h1 {
   max-width: 750px;
   margin: 0;
-  font-size: clamp(42px, 7vw, 96px);
+  font-size: clamp(32px, 7vw, 96px);
   line-height: .95;
   letter-spacing: -.05em;
 }
@@ -282,6 +282,7 @@ h3 {
   display: flex;
   gap: 26px;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .text-action {
