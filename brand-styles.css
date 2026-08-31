@@ -1266,3 +1266,88 @@ footer .footer-main>a:last-child {
     max-height: 30px;
   }
 }
+
+/* Compact mobile layout: Russian and Ukrainian copy stays readable below 414px. */
+@media (max-width:414px) {
+  .container { width:calc(100% - 32px); }
+
+  .kicker { margin-bottom:12px; font-size:9px; letter-spacing:.11em; }
+
+  .hero { min-height:0; padding:68px 0 54px; }
+  .hero h1 {
+    max-width:100%;
+    font-size:clamp(38px,11vw,46px);
+    line-height:.98;
+    letter-spacing:-.04em;
+    overflow-wrap:anywhere;
+  }
+  .hero-lead { margin:24px 0; font-size:15px; line-height:1.55; }
+
+  .actions { align-items:stretch; flex-wrap:wrap; gap:10px; }
+  .actions .button,
+  .actions .text-action { width:100%; min-height:44px; justify-content:space-between; }
+  .actions .text-action { padding:12px 0 7px; }
+
+  .section-light,
+  .section-blue,
+  .provider-section,
+  .companies,
+  .contact { padding:64px 0; }
+
+  .section-intro h2,
+  .provider-section h2,
+  .companies h2,
+  .contact h2 {
+    margin-bottom:14px;
+    font-size:clamp(30px,9vw,37px);
+    line-height:1.02;
+    overflow-wrap:anywhere;
+  }
+  .section-intro > p:last-child,
+  .companies .body-copy,
+  .provider-section .body-copy,
+  .contact p { font-size:14px; line-height:1.5; }
+
+  .audience-grid { margin-top:36px; }
+  .audience-card { min-height:0; padding:20px; }
+  .audience-card h3 { margin:24px 0 12px; font-size:25px; }
+  .audience-card p { font-size:12px; line-height:1.45; }
+
+  .journey-list { grid-template-columns:repeat(2,minmax(0,1fr)); border-left:1px solid rgba(17,41,62,.4); }
+  .journey-list li,
+  .journey-list li + li {
+    display:grid;
+    grid-template-columns:24px 1fr;
+    grid-template-rows:auto auto 1fr;
+    gap:8px 10px;
+    min-height:138px;
+    padding:14px;
+    border-right:1px solid rgba(17,41,62,.4);
+  }
+  .journey-list li:last-child { grid-column:1 / -1; min-height:112px; }
+  .journey-list span { grid-column:1; grid-row:1; font-size:10px; }
+  .journey-list img { grid-column:1; grid-row:2; width:16px; height:16px; }
+  .journey-list b { grid-column:2; grid-row:1 / span 2; align-self:end; font-size:18px; line-height:1.05; }
+  .journey-list small { grid-column:1 / -1; grid-row:3; font-size:10px; line-height:1.35; }
+
+  .direction-grid a {
+    min-height:88px;
+    padding:15px;
+    grid-template-columns:24px minmax(0,1fr) auto;
+    font-size:10px;
+  }
+  .direction-grid strong { font-size:15px; line-height:1.2; }
+
+  .provider-grid { gap:40px; }
+  .provider-grid ul { grid-template-columns:1fr; }
+  .provider-grid li { min-height:54px; padding:15px; font-size:11px; }
+
+  .company-stamp { min-height:170px; padding:20px; }
+  .company-stamp strong { font-size:30px; }
+
+  .contact form { padding:18px; }
+  .contact label { font-size:10px; }
+  .contact input,
+  .contact select,
+  .contact textarea { font-size:12px; }
+}
