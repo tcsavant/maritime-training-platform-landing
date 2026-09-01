@@ -23,6 +23,9 @@ function auvenda_enqueue_assets() {
         wp_enqueue_style($page_handle, $uri . '/assets/css/pages/landing.css', array(), filemtime($dir . '/assets/css/pages/landing.css'));
     }
     wp_enqueue_style('auvenda-common', $uri . '/assets/css/common.css', array($page_handle), filemtime($dir . '/assets/css/common.css'));
+    if (is_front_page()) {
+        wp_enqueue_style('auvenda-landing-sync', $uri . '/assets/css/pages/landing-sync.css', array('auvenda-common'), filemtime($dir . '/assets/css/pages/landing-sync.css'));
+    }
     wp_enqueue_script('auvenda-main', $uri . '/assets/js/main.js', array(), filemtime($dir . '/assets/js/main.js'), true);
 }
 add_action('wp_enqueue_scripts', 'auvenda_enqueue_assets');
