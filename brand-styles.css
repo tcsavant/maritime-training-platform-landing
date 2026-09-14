@@ -257,6 +257,10 @@ a {
   padding-block: 80px;
 }
 
+.hero-grid-single {
+  grid-template-columns: minmax(0, 1fr);
+}
+
 .kicker {
   margin: 0 0 24px;
   color: var(--gold);
@@ -618,11 +622,40 @@ h3 {
 }
 
 .global-grid,
-.ecosystem-grid {
+.ecosystem-grid,
+.production-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 10%;
   align-items: center;
+}
+
+.production-flow,
+.company-benefits {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.production-flow {
+  counter-reset: production-step;
+  border-top: 1px solid rgba(17, 41, 62, .5);
+}
+
+.production-flow li {
+  counter-increment: production-step;
+  min-height: 62px;
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  align-items: center;
+  border-bottom: 1px solid rgba(17, 41, 62, .5);
+  font-weight: 600;
+}
+
+.production-flow li::before {
+  content: counter(production-step, decimal-leading-zero);
+  color: var(--blue);
+  font-size: 12px;
 }
 
 .global-facts {
@@ -735,6 +768,22 @@ h3 {
 
 .companies .body-copy {
   color: var(--muted);
+}
+
+.company-benefits {
+  border-top: 1px solid var(--navy);
+  border-left: 1px solid var(--navy);
+}
+
+.company-benefits li {
+  min-height: 64px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  border-right: 1px solid var(--navy);
+  border-bottom: 1px solid var(--navy);
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .contact {
@@ -868,12 +917,14 @@ footer .footer-main>a:last-child {
   .company-grid,
   .contact-grid,
   .global-grid,
-  .ecosystem-grid {
+  .ecosystem-grid,
+  .production-grid {
     grid-template-columns: 1fr;
   }
 
   .global-grid,
-  .ecosystem-grid {
+  .ecosystem-grid,
+  .production-grid {
     gap: 40px;
   }
 
