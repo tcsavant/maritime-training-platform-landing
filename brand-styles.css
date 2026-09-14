@@ -223,18 +223,23 @@ a {
   font-size: 14px;
 }
 
-.dark-wave {
+.dark-wave,
+.pattern-background {
   color: #fff;
-  background: var(--blue) url("assets/auvenida/bg-dark.svg") center/cover no-repeat;
-}
-
-.hero.dark-wave {
-  background-image:
-    linear-gradient(rgba(30, 74, 102, .7), rgba(30, 74, 102, .7)),
-    url("assets/auvenida/pattern.svg");
+  background-color: var(--blue);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.dark-wave {
+  background-image: url("assets/auvenida/bg-dark.svg");
+}
+
+.pattern-background {
+  background-image:
+    linear-gradient(rgba(30, 74, 102, .7), rgba(30, 74, 102, .7)),
+    url("assets/auvenida/pattern.svg");
 }
 
 .hero {
