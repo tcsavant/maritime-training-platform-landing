@@ -229,7 +229,9 @@ a {
 }
 
 .hero.dark-wave {
-  background-image: url("assets/auvenida/pattern.svg");
+  background-image:
+    linear-gradient(rgba(30, 74, 102, .7), rgba(30, 74, 102, .7)),
+    url("assets/auvenida/pattern.svg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
