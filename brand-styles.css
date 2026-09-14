@@ -744,9 +744,9 @@ h3 {
 }
 
 .kommo-form-panel {
-  padding: 32px;
-  background: #fff;
-  box-shadow: 0 20px 50px rgba(17, 41, 62, .09);
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .auvenda-kommo-form {
@@ -964,10 +964,6 @@ footer .footer-main>a:last-child {
 
   .direction-grid {
     margin-top: 38px;
-  }
-
-  .kommo-form-panel {
-    padding: 22px;
   }
 
   .form-row {
@@ -1534,7 +1530,6 @@ footer .footer-main>a:last-child {
   .company-stamp { min-height:170px; padding:20px; }
   .company-stamp strong { font-size:30px; }
 
-  .kommo-form-panel { padding:18px; }
   .contact label { font-size:10px; }
   .contact input,
   .contact select,
