@@ -229,22 +229,10 @@ a {
 }
 
 .hero.dark-wave {
-  position: relative;
-  background-image: none;
-}
-
-.hero.dark-wave::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url("assets/auvenida/pattern.svg") center/cover no-repeat;
-  opacity: .28;
-  pointer-events: none;
-}
-
-.hero.dark-wave .hero-grid {
-  position: relative;
-  z-index: 1;
+  background-image: url("assets/auvenida/pattern.svg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .hero {
