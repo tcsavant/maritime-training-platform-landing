@@ -1,6 +1,6 @@
 .brand-header {
-  position: sticky;
-  top: 0;
+  position: relative;
+  top: auto;
   z-index: 80;
   display: block;
   height: 82px;
@@ -39,11 +39,11 @@
 .brand-header .language-list a:last-child { border-right: 0; }
 .brand-header .language-list a.active { font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
 .brand-header .menu-button { display: none; }
-body.admin-bar .brand-header { top: 32px; }
+body.admin-bar .brand-header { top: auto; }
 
 @media (max-width: 800px) {
   body.mobile-menu-open { position: fixed; width: 100%; overflow: hidden; }
-  .brand-header { top: 0; height: 66px; min-height: 66px; }
+  .brand-header { top: auto; height: 66px; min-height: 66px; }
   .brand-header .header-container { grid-template-columns: minmax(0,1fr) auto; gap: 8px; width: min(1240px, calc(100% - 32px)); height: 66px; }
   .brand-header .brand { min-width: 0; }
   .brand-header .brand-logo { width: 82px; max-height: 43px; }
@@ -69,7 +69,7 @@ body.admin-bar .brand-header { top: 32px; }
   .brand-header .menu-button[aria-expanded="true"] span:first-child { transform: translateY(7px) rotate(45deg); }
   .brand-header .menu-button[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
   .brand-header .menu-button[aria-expanded="true"] span:last-child { transform: translateY(-7px) rotate(-45deg); }
-  body.admin-bar .brand-header { top: 46px; }
+  body.admin-bar .brand-header { top: auto; }
   body.admin-bar .brand-header nav { top: 112px; height: calc(100dvh - 112px); }
 }
 

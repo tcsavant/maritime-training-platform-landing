@@ -991,7 +991,7 @@ footer .footer-main>a:last-child {
   .footer-contacts { align-items: flex-start; flex-direction: column; gap: 18px; }
 }
 
-/* Shared centered sticky header. */
+/* Shared centered header. */
 .brand-header {
   z-index: 50;
   display: grid;
@@ -1264,11 +1264,11 @@ footer .footer-main>a:last-child {
   }
 
   html {
-    scroll-padding-top: calc(var(--mobile-header-offset) + 16px);
+    scroll-padding-top: 16px;
   }
 
   section[id] {
-    scroll-margin-top: calc(var(--mobile-header-offset) + 16px);
+    scroll-margin-top: 16px;
   }
 
   .brand-header {

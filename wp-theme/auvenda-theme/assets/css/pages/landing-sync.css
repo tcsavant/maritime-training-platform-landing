@@ -7,14 +7,14 @@
     --mobile-header-offset:calc(var(--mobile-header-height) + env(safe-area-inset-top, 0px));
   }
 
-  html { scroll-padding-top:calc(var(--mobile-header-offset) + 16px); }
-  body:not(.admin-bar) { padding-top:var(--mobile-header-offset); }
+  html { scroll-padding-top:16px; }
+  body:not(.admin-bar) { padding-top:0; }
   body.mobile-menu-open { position:fixed; width:100%; overflow:hidden; }
-  section[id] { scroll-margin-top:calc(var(--mobile-header-offset) + 16px); }
+  section[id] { scroll-margin-top:16px; }
 
   .brand-header {
-    position:fixed;
-    inset:0 0 auto;
+    position:relative;
+    inset:auto;
     z-index:80;
     height:var(--mobile-header-offset);
     min-height:0;
