@@ -554,6 +554,146 @@ h3 {
   margin-right: 14px;
 }
 
+.education-providers {
+  border-top: 1px solid var(--line);
+}
+
+.providers-intro {
+  max-width: 760px;
+}
+
+.provider-types,
+.principles-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 60px 0 30px;
+  padding: 0;
+  border-top: 1px solid var(--navy);
+  border-left: 1px solid var(--navy);
+}
+
+.provider-types article {
+  min-height: 260px;
+  padding: 24px;
+  border-right: 1px solid var(--navy);
+  border-bottom: 1px solid var(--navy);
+}
+
+.provider-types span,
+.principles-list span {
+  color: var(--blue);
+  font-size: 14px;
+}
+
+.provider-types h3 {
+  margin: 54px 0 16px;
+  font-size: 27px;
+  line-height: 1.08;
+}
+
+.provider-types p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.section-cta {
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.global-grid,
+.ecosystem-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 10%;
+  align-items: center;
+}
+
+.global-facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0;
+  border-top: 1px solid rgba(17, 41, 62, .5);
+  border-left: 1px solid rgba(17, 41, 62, .5);
+}
+
+.global-facts div {
+  min-height: 190px;
+  padding: 22px;
+  border-right: 1px solid rgba(17, 41, 62, .5);
+  border-bottom: 1px solid rgba(17, 41, 62, .5);
+}
+
+.global-facts dt {
+  font: 600 22px/1.1 "IBM Plex Serif", Georgia, serif;
+}
+
+.global-facts dd {
+  margin: 64px 0 0;
+  color: var(--blue);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.platform-ecosystem {
+  padding: 132px 0;
+}
+
+.platform-ecosystem .section-intro>p:last-child {
+  color: #dce9f5;
+}
+
+.ecosystem-map {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid rgba(255, 255, 255, .45);
+  border-left: 1px solid rgba(255, 255, 255, .45);
+}
+
+.ecosystem-map strong,
+.ecosystem-map span {
+  min-height: 92px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  border-right: 1px solid rgba(255, 255, 255, .45);
+  border-bottom: 1px solid rgba(255, 255, 255, .45);
+}
+
+.ecosystem-map strong {
+  grid-column: 1 / -1;
+  min-height: 120px;
+  color: var(--gold);
+  font: 600 28px/1.1 "IBM Plex Serif", Georgia, serif;
+}
+
+.ecosystem-map span {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.principles-list {
+  grid-template-columns: repeat(5, 1fr);
+  list-style: none;
+}
+
+.principles-list li {
+  min-height: 180px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--navy);
+  border-bottom: 1px solid var(--navy);
+}
+
+.principles-list strong {
+  margin-top: auto;
+  font-size: 16px;
+  line-height: 1.35;
+}
+
 .companies {
   padding: 132px 0;
 }
@@ -702,8 +842,40 @@ footer .footer-main>a:last-child {
   .hero-grid,
   .provider-grid,
   .company-grid,
-  .contact-grid {
+  .contact-grid,
+  .global-grid,
+  .ecosystem-grid {
     grid-template-columns: 1fr;
+  }
+
+  .global-grid,
+  .ecosystem-grid {
+    gap: 40px;
+  }
+
+  .provider-types,
+  .global-facts,
+  .principles-list {
+    grid-template-columns: 1fr;
+  }
+
+  .provider-types article,
+  .global-facts div,
+  .principles-list li {
+    min-height: auto;
+  }
+
+  .provider-types h3,
+  .global-facts dd {
+    margin-top: 24px;
+  }
+
+  .principles-list strong {
+    margin-top: 22px;
+  }
+
+  .platform-ecosystem {
+    padding: 84px 0;
   }
 
   .hero-note {
