@@ -239,16 +239,9 @@
           <h2>How can we<br>help?</h2>
           <p>Choose the path that best describes you. We will collect only the information needed for the next step.</p>
         </div>
-        <form><label>I am a…<select>
-              <option>Seafarer</option>
-              <option>Training Provider</option>
-              <option>Shipping Company</option>
-            </select></label>
-          <div class="form-row"><label>Full name<input placeholder="Your full name"></label><label>Email<input
-                type="email" placeholder="name@example.com"></label></div><label>Tell us about your needs<textarea
-              rows="3" placeholder="Course, location or crew details"></textarea></label><button
-            class="button button-gold" type="button">Start a conversation <span>→</span></button>
-        </form>
+        <div class="kommo-form-panel">
+          <div id="auvenda-kommo-form" class="auvenda-kommo-form" aria-live="polite"></div>
+        </div>
       </div>
     </section>
   </main>
@@ -309,6 +302,47 @@
     }));
     const landingTranslations = { en: {} };
     const originalTextNodes = new WeakMap();
+    const kommoForms = {
+      ru: { id: '1726228', hash: 'f0a011db99ae4c851a42b33bbda168d8', locale: 'ru' },
+      en: { id: '1726240', hash: '3b7a0e766e9cc6b13ad27e08a605d8c0', locale: 'en' },
+      uk: { id: '1726244', hash: '21ff01186076a09554001e857340e63b', locale: 'uk' }
+    };
+    let activeKommoLanguage = '';
+
+    function loadKommoForm(language) {
+      const normalizedLanguage = language === 'ua' ? 'uk' : language;
+      const form = kommoForms[normalizedLanguage] || kommoForms.en;
+      const root = document.getElementById('auvenda-kommo-form');
+      if (!root || activeKommoLanguage === form.locale) return;
+
+      if (activeKommoLanguage) {
+        window.location.reload();
+        return;
+      }
+
+      activeKommoLanguage = form.locale;
+      window.AUVENDA_FORM_LANG = form.locale;
+      window.amo_forms_params = window.amo_forms_params || {
+        setMeta(params) {
+          this.params = (this.params || []).concat([params]);
+        }
+      };
+      window.amo_forms_load = window.amo_forms_load || function (loadedForm) {
+        window.amo_forms_load.f = (window.amo_forms_load.f || []).concat([loadedForm]);
+      };
+      window.amo_forms_loaded = window.amo_forms_loaded || function (loadedForm, key) {
+        window.amo_forms_loaded.f = (window.amo_forms_loaded.f || []).concat([[loadedForm, key]]);
+      };
+      window.amo_forms_load({ id: form.id, hash: form.hash, locale: form.locale });
+
+      const script = document.createElement('script');
+      script.id = `amoforms_script_${form.id}`;
+      script.async = true;
+      script.charset = 'utf-8';
+      script.src = 'https://forms.kommo.com/forms/assets/js/amoforms.js';
+      root.appendChild(script);
+    }
+
     function storedLanguage() {
       try { return localStorage.getItem('maritime-platform-language') || 'en'; } catch { return 'en'; }
     }
@@ -345,6 +379,7 @@
         const trailing = node.nodeValue.match(/\s*$/)[0];
         node.nodeValue = `${leading}${dictionary[source] || source}${trailing}`;
       });
+      loadKommoForm(language);
     }
     document.querySelectorAll('.language-switcher button').forEach(button => button.addEventListener('click', () => {
       const switcher = button.closest('.language-switcher');
