@@ -858,7 +858,7 @@ h3 {
 
 .auvenda-kommo-form {
   width: 100%;
-  min-height: 420px;
+  min-height: 1130px;
 }
 
 .auvenda-kommo-form iframe {
@@ -991,6 +991,10 @@ footer .footer-main>a:last-child {
 
   .form-type-switcher button {
     min-height: 44px;
+  }
+
+  .auvenda-kommo-form {
+    min-height: 1200px;
   }
 
   .provider-types article,
@@ -1572,6 +1576,8 @@ footer .footer-main>a:last-child {
 /* Compact mobile layout: Russian and Ukrainian copy stays readable below 414px. */
 @media (max-width:414px) {
   .container { width:calc(100% - 32px); }
+
+  .auvenda-kommo-form { min-height:1320px; }
 
   .kicker { margin-bottom:12px; font-size:9px; letter-spacing:.11em; }
 
