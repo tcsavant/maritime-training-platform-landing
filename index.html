@@ -400,7 +400,12 @@
         if (button.dataset.formType === currentFormType()) return;
         window.AUVENDA_FORM_TYPE = button.dataset.formType;
         try { sessionStorage.setItem('auvenda-form-type', button.dataset.formType); } catch { }
-        window.location.reload();
+        document.querySelectorAll('[data-form-type]').forEach(item => {
+          const active = item.dataset.formType === button.dataset.formType;
+          item.classList.toggle('active', active);
+          item.setAttribute('aria-pressed', String(active));
+        });
+        window.auvendaMountKommoForm();
       });
     });
 
@@ -441,10 +446,6 @@
         node.nodeValue = `${leading}${dictionary[source] || source}${trailing}`;
       });
       window.AUVENDA_FORM_LANG = language;
-      if (activeKommoForm && activeKommoForm !== `${currentFormType()}:${currentFormLanguage()}`) {
-        window.location.reload();
-        return;
-      }
       window.auvendaMountKommoForm();
     }
     document.querySelectorAll('.language-switcher button').forEach(button => button.addEventListener('click', () => {
