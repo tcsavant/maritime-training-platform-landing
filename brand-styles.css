@@ -502,7 +502,6 @@ h3 {
 }
 
 .direction-grid a {
-  min-height: 210px;
   padding: 20px;
   border-right: 1px solid var(--navy);
   border-bottom: 1px solid var(--navy);
