@@ -260,6 +260,11 @@
           <p>Choose the option that best reflects how you plan to use the platform:</p>
         </div>
         <div class="kommo-form-panel">
+          <div class="form-type-switcher" role="group" aria-label="Select form type">
+            <button type="button" class="active" data-form-type="learner" aria-pressed="true">I’m a Learner</button>
+            <button type="button" data-form-type="provider" aria-pressed="false">I’m a Training Provider</button>
+            <button type="button" data-form-type="company" aria-pressed="false">I’m a Company Representative</button>
+          </div>
           <div id="auvenda-kommo-form" class="auvenda-kommo-form" aria-live="polite"></div>
         </div>
       </div>
@@ -323,45 +328,81 @@
     const landingTranslations = { en: {} };
     const originalTextNodes = new WeakMap();
     const kommoForms = {
-      ru: { id: '1726228', hash: 'f0a011db99ae4c851a42b33bbda168d8', locale: 'ru' },
-      en: { id: '1726240', hash: '3b7a0e766e9cc6b13ad27e08a605d8c0', locale: 'en' },
-      uk: { id: '1726244', hash: '21ff01186076a09554001e857340e63b', locale: 'uk' }
-    };
-    let activeKommoLanguage = '';
-
-    function loadKommoForm(language) {
-      const normalizedLanguage = language === 'ua' ? 'uk' : language;
-      const form = kommoForms[normalizedLanguage] || kommoForms.en;
-      const root = document.getElementById('auvenda-kommo-form');
-      if (!root || activeKommoLanguage === form.locale) return;
-
-      if (activeKommoLanguage) {
-        window.location.reload();
-        return;
+      learner: {
+        ru: { id: '1726228', hash: 'f0a011db99ae4c851a42b33bbda168d8', locale: 'ru' },
+        en: { id: '1726240', hash: '3b7a0e766e9cc6b13ad27e08a605d8c0', locale: 'en' },
+        uk: { id: '1726244', hash: '21ff01186076a09554001e857340e63b', locale: 'uk' }
+      },
+      provider: {
+        ru: { id: '1729280', hash: '0ca1f6fe0d997f3ec875980296a796b5', locale: 'ru' },
+        en: { id: '1729276', hash: 'a620a7d13a68ad194cb8b47751459dbb', locale: 'en' },
+        uk: { id: '1729284', hash: '53c3f978f7f50f457d6a13bc409cd0f5', locale: 'uk' }
+      },
+      company: {
+        ru: { id: '1729292', hash: '322c9534db058b685652d68424d4c424', locale: 'ru' },
+        en: { id: '1729288', hash: 'a28db59100b745a265f5dadddfce0de1', locale: 'en' },
+        uk: { id: '1729296', hash: '1a166200bdb272ab9e08204b465a53e9', locale: 'uk' }
       }
+    };
+    let activeKommoForm = '';
 
-      activeKommoLanguage = form.locale;
-      window.AUVENDA_FORM_LANG = form.locale;
-      window.amo_forms_params = window.amo_forms_params || {
-        setMeta(params) {
-          this.params = (this.params || []).concat([params]);
-        }
+    function currentFormLanguage() {
+      let language = String(window.AUVENDA_FORM_LANG || document.documentElement.lang || 'en').slice(0, 2).toLowerCase();
+      if (language === 'ua') language = 'uk';
+      return kommoForms.learner[language] ? language : 'en';
+    }
+
+    function currentFormType() {
+      let type = String(window.AUVENDA_FORM_TYPE || 'learner').toLowerCase();
+      if (type === 'training_provider' || type === 'school') type = 'provider';
+      if (type === 'company_representative' || type === 'crewing') type = 'company';
+      if (type === 'seafarer') type = 'learner';
+      return kommoForms[type] ? type : 'learner';
+    }
+
+    window.auvendaMountKommoForm = function () {
+      const root = document.getElementById('auvenda-kommo-form');
+      if (!root) return;
+      const type = currentFormType();
+      const language = currentFormLanguage();
+      const formKey = `${type}:${language}`;
+      if (activeKommoForm === formKey) return;
+      activeKommoForm = formKey;
+      root.innerHTML = '';
+      const form = kommoForms[type][language];
+      window.amo_forms_params = {
+        setMeta(params) { this.params = (this.params || []).concat([params]); }
       };
-      window.amo_forms_load = window.amo_forms_load || function (loadedForm) {
+      window.amo_forms_load = function (loadedForm) {
         window.amo_forms_load.f = (window.amo_forms_load.f || []).concat([loadedForm]);
       };
       window.amo_forms_loaded = window.amo_forms_loaded || function (loadedForm, key) {
         window.amo_forms_loaded.f = (window.amo_forms_loaded.f || []).concat([[loadedForm, key]]);
       };
       window.amo_forms_load({ id: form.id, hash: form.hash, locale: form.locale });
-
       const script = document.createElement('script');
       script.id = `amoforms_script_${form.id}`;
       script.async = true;
       script.charset = 'utf-8';
-      script.src = 'https://forms.kommo.com/forms/assets/js/amoforms.js';
+      script.src = `https://forms.kommo.com/forms/assets/js/amoforms.js?t=${Date.now()}`;
       root.appendChild(script);
+    };
+
+    function storedFormType() {
+      try { return sessionStorage.getItem('auvenda-form-type') || 'learner'; } catch { return 'learner'; }
     }
+    window.AUVENDA_FORM_TYPE = window.AUVENDA_FORM_TYPE || storedFormType();
+    document.querySelectorAll('[data-form-type]').forEach(button => {
+      const active = button.dataset.formType === currentFormType();
+      button.classList.toggle('active', active);
+      button.setAttribute('aria-pressed', String(active));
+      button.addEventListener('click', () => {
+        if (button.dataset.formType === currentFormType()) return;
+        window.AUVENDA_FORM_TYPE = button.dataset.formType;
+        try { sessionStorage.setItem('auvenda-form-type', button.dataset.formType); } catch { }
+        window.location.reload();
+      });
+    });
 
     function storedLanguage() {
       try { return localStorage.getItem('maritime-platform-language') || 'en'; } catch { return 'en'; }
@@ -399,7 +440,12 @@
         const trailing = node.nodeValue.match(/\s*$/)[0];
         node.nodeValue = `${leading}${dictionary[source] || source}${trailing}`;
       });
-      loadKommoForm(language);
+      window.AUVENDA_FORM_LANG = language;
+      if (activeKommoForm && activeKommoForm !== `${currentFormType()}:${currentFormLanguage()}`) {
+        window.location.reload();
+        return;
+      }
+      window.auvendaMountKommoForm();
     }
     document.querySelectorAll('.language-switcher button').forEach(button => button.addEventListener('click', () => {
       const switcher = button.closest('.language-switcher');

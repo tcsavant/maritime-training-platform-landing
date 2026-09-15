@@ -823,6 +823,37 @@ h3 {
   box-shadow: none;
 }
 
+.form-type-switcher {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-bottom: 18px;
+  border-top: 1px solid var(--navy);
+  border-left: 1px solid var(--navy);
+}
+
+.form-type-switcher button {
+  min-height: 64px;
+  padding: 10px 12px;
+  border: 0;
+  border-right: 1px solid var(--navy);
+  border-bottom: 1px solid var(--navy);
+  background: transparent;
+  color: var(--navy);
+  font: 600 13px/1.3 Inter, Arial, sans-serif;
+  cursor: pointer;
+}
+
+.form-type-switcher button.active,
+.form-type-switcher button:hover {
+  background: var(--blue);
+  color: #fff;
+}
+
+.form-type-switcher button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
 .auvenda-kommo-form {
   width: 100%;
   min-height: 420px;
@@ -950,6 +981,14 @@ footer .footer-main>a:last-child {
   .global-facts,
   .principles-list {
     grid-template-columns: 1fr;
+  }
+
+  .form-type-switcher {
+    grid-template-columns: 1fr;
+  }
+
+  .form-type-switcher button {
+    min-height: 44px;
   }
 
   .provider-types article,
