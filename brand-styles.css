@@ -251,18 +251,11 @@ a {
 
 .pattern-background::before {
   z-index: -2;
-  inset: -12%;
-  background-image:
-    radial-gradient(circle, rgba(0, 102, 129, .95) 0 18%, rgba(0, 102, 129, 0) 68%),
-    radial-gradient(circle, rgba(8, 69, 105, .95) 0 20%, rgba(8, 69, 105, 0) 70%),
-    radial-gradient(circle, rgba(16, 43, 62, .75) 0 16%, rgba(16, 43, 62, 0) 66%);
-  background-repeat: no-repeat;
-  background-size: 62% 74%, 72% 82%, 66% 78%;
-  background-position: -12% 18%, 112% 8%, 48% 116%;
-  filter: blur(42px) saturate(1.08);
-  transform: scale(1.08) translate3d(0, 0, 0);
-  will-change: transform, background-position, background-size;
-  animation: auvenda-mesh-wave 22s cubic-bezier(.45, 0, .55, 1) infinite alternate;
+  inset: 0;
+  background: linear-gradient(-45deg, #102b3e, #084569, #1e4a66, #006681, #0d6f73);
+  background-size: 300% 300%;
+  will-change: background-position;
+  animation: auvenda-ocean-shift 10s ease-in-out infinite;
 }
 
 .pattern-background::after {
@@ -283,25 +276,10 @@ a {
   z-index: 1;
 }
 
-@keyframes auvenda-mesh-wave {
-  0% {
-    background-position: -12% 18%, 112% 8%, 48% 116%;
-    background-size: 62% 74%, 72% 82%, 66% 78%;
-    transform: scale(1.08) translate3d(-1.5%, -1%, 0);
-  }
-  35% {
-    background-position: 2% 5%, 94% 30%, 38% 98%;
-    background-size: 72% 82%, 64% 76%, 76% 86%;
-  }
-  70% {
-    background-position: 12% 30%, 106% 2%, 64% 90%;
-    background-size: 66% 78%, 78% 88%, 62% 74%;
-  }
-  100% {
-    background-position: -4% 8%, 88% 22%, 52% 106%;
-    background-size: 78% 88%, 68% 80%, 72% 82%;
-    transform: scale(1.12) translate3d(1.5%, 1%, 0);
-  }
+@keyframes auvenda-ocean-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 @keyframes auvenda-film-grain {
