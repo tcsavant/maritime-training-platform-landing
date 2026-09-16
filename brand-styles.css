@@ -237,9 +237,7 @@ a {
 }
 
 .pattern-background {
-  background-image:
-    linear-gradient(rgba(30, 74, 102, .7), rgba(30, 74, 102, .7)),
-    url("assets/auvenida/pattern.svg");
+  background-image: url("assets/auvenida/pattern.svg");
 }
 
 .hero {
