@@ -14,7 +14,6 @@
   const VIEW_W = 842;
   const VIEW_H = 596;
   const STROKE = "rgba(143, 194, 234, 0.58)";
-  const SHADOW = "rgba(143, 194, 234, 0.14)";
   const STATE = {
     scale: 1,
     flow: 0.82,
@@ -27,9 +26,9 @@
     sea: 0.24
   };
   const TIERS = [
-    { nx: 36, ny: 24, density: 5, fps: 16, stroke: 1.35, shadow: false },
-    { nx: 52, ny: 36, density: 6, fps: 22, stroke: 1.5, shadow: false },
-    { nx: 68, ny: 46, density: 7, fps: 28, stroke: 1.6, shadow: true }
+    { nx: 36, ny: 24, density: 5, fps: 16, stroke: 1.35 },
+    { nx: 52, ny: 36, density: 6, fps: 22, stroke: 1.5 },
+    { nx: 68, ny: 46, density: 7, fps: 28, stroke: 1.6 }
   ];
   const SELECTOR = ".hero.pattern-background, .hero.dark-wave, .pattern-background, .dark-wave";
 
@@ -171,6 +170,8 @@
   }
 
   function strokePaths(ctx, paths, color, width) {
+    ctx.shadowBlur = 0;
+    ctx.shadowColor = "transparent";
     ctx.strokeStyle = color;
     ctx.lineWidth = width;
     ctx.lineCap = "round";
@@ -297,7 +298,6 @@
     this.ctx.setTransform(1, 0, 0, 1, 0, 0);
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.ctx.restore();
-    if (spec.shadow) strokePaths(this.ctx, paths, SHADOW, spec.stroke + 4.5);
     strokePaths(this.ctx, paths, STROKE, spec.stroke);
   };
 
