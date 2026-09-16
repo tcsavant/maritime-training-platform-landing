@@ -237,7 +237,22 @@ a {
 }
 
 .pattern-background {
-  background-image: url("assets/auvenida/pattern.svg");
+  background-image:
+    url("assets/auvenida/pattern.svg"),
+    radial-gradient(51.24% 51.24% at 37.15% 48.76%, #084569 64.42%, #006681 100%);
+  background-size: cover, 160% 160%;
+  background-position: center, 0% 45%;
+  animation: auvenda-gradient-wave 16s ease-in-out infinite alternate;
+}
+
+@keyframes auvenda-gradient-wave {
+  0% { background-position: center, 0% 42%; }
+  50% { background-position: center, 55% 58%; }
+  100% { background-position: center, 100% 46%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pattern-background { animation: none; }
 }
 
 .hero {
