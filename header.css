@@ -9,7 +9,7 @@
   min-height: 82px;
   padding: 0;
   color: #fff;
-  background: transparent;
+  background: #102B3E;
 }
 
 .brand-header .header-container {
@@ -26,7 +26,7 @@
 .brand-header .brand-logo-picture { display: block; line-height: 0; }
 .brand-header .brand-logo { display: block; width: 94px; height: auto; }
 .brand-header .brand-divider { width: 1px; height: 26px; background: rgba(255,255,255,.38); }
-.brand-header .brand-descriptor { color: #fff; font-size: 8px; font-weight: 600; line-height: 1.25; }
+.brand-header .brand-descriptor { color: #fff; font-size: 14px; font-weight: 600; line-height: 1.25; }
 .brand-header nav { display: flex; justify-self: center; align-items: stretch; height: 82px; margin: 0; }
 .brand-header nav ul { display: flex; align-items: stretch; gap: 0; height: 82px; margin: 0; padding: 0; list-style: none; }
 .brand-header nav a { display: flex; align-items: center; height: 82px; padding: 0 15px; color: #fff; font-size: 14px; font-weight: 500; text-decoration: none; }
@@ -45,7 +45,7 @@ body.admin-bar .brand-header { top: 0; }
 
 @media (max-width: 800px) {
   body.mobile-menu-open { position: fixed; width: 100%; overflow: hidden; }
-  .brand-header { top: 0; height: 66px; min-height: 66px; background: transparent; }
+  .brand-header { top: 0; height: 66px; min-height: 66px; background: #102B3E; }
   .brand-header .header-container { grid-template-columns: minmax(0,1fr) auto; gap: 8px; width: min(1240px, calc(100% - 32px)); height: 66px; }
   .brand-header .brand { min-width: 0; }
   .brand-header .brand-logo { width: 82px; max-height: 43px; }
