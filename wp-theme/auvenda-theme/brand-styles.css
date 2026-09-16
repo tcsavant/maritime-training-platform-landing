@@ -223,9 +223,110 @@ a {
   font-size: 14px;
 }
 
-.dark-wave {
+.dark-wave,
+.pattern-background {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   color: #fff;
-  background: var(--blue) url("assets/auvenida/bg-dark.svg") center/cover no-repeat;
+  background-color: var(--blue);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.dark-wave {
+  background-image: url("assets/auvenida/bg-dark.svg");
+}
+
+.pattern-background {
+  background: #1e4a66;
+}
+
+.pattern-background::before,
+.pattern-background::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.pattern-background::before {
+  z-index: 0;
+  inset: 0;
+  background: linear-gradient(
+    -45deg,
+    #11293e 0%,
+    #143148 25%,
+    #183a52 50%,
+    #1b425c 75%,
+    #1e4a66 100%
+  );
+  background-size: 300% 300%;
+  will-change: background-position;
+  animation: auvenda-ocean-shift 4s ease-in-out infinite;
+}
+
+.pattern-background::after {
+  z-index: 1;
+  inset: -3%;
+  background-image:
+    url("assets/auvenida/pattern.svg"),
+    url("assets/auvenida/noise.svg");
+  background-position: center, 0 0;
+  background-size: cover, 180px 180px;
+  background-repeat: no-repeat, repeat;
+  opacity: .7;
+  transform: translate3d(-1%, -.6%, 0) scale(1.025);
+  will-change: transform;
+  animation: auvenda-pattern-drift 28s ease-in-out infinite alternate;
+}
+
+.sea-flow-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.pattern-background > *:not(.sea-flow-canvas),
+.dark-wave > *:not(.sea-flow-canvas) {
+  position: relative;
+  z-index: 2;
+}
+
+.pattern-background.is-sea-flowing::after {
+  background-image: url("assets/auvenida/noise.svg");
+  background-position: 0 0;
+  background-size: 180px 180px;
+  background-repeat: repeat;
+  opacity: .28;
+  inset: 0;
+  transform: none;
+  animation: none;
+}
+
+.dark-wave.is-sea-flowing {
+  background-image: none;
+}
+
+@keyframes auvenda-ocean-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes auvenda-pattern-drift {
+  0% { transform: translate3d(-1%, -.6%, 0) scale(1.025); }
+  50% { transform: translate3d(.8%, .5%, 0) scale(1.04); }
+  100% { transform: translate3d(1.2%, -.4%, 0) scale(1.03); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pattern-background::before,
+  .pattern-background::after { animation: none; }
+  .sea-flow-canvas { display: none; }
 }
 
 .hero {

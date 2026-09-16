@@ -1,5 +1,5 @@
 /* Latest static-landing refinements, loaded after the shared theme bundle. */
-.hero.dark-wave { background-image: var(--hero-background, none); }
+.hero.dark-wave[style*="--hero-background"] { background-image: var(--hero-background); }
 
 @media (max-width:800px) {
   :root {

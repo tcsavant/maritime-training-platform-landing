@@ -27,5 +27,8 @@ function auvenda_enqueue_assets() {
         wp_enqueue_style('auvenda-landing-sync', $uri . '/assets/css/pages/landing-sync.css', array('auvenda-common'), filemtime($dir . '/assets/css/pages/landing-sync.css'));
     }
     wp_enqueue_script('auvenda-main', $uri . '/assets/js/main.js', array(), filemtime($dir . '/assets/js/main.js'), true);
+    if (is_front_page() || !$is_catalogue && !$is_service) {
+        wp_enqueue_script('auvenda-sea-flow', $uri . '/assets/js/sea-flow.js', array(), filemtime($dir . '/assets/js/sea-flow.js'), true);
+    }
 }
 add_action('wp_enqueue_scripts', 'auvenda_enqueue_assets');
