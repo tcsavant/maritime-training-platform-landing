@@ -9,7 +9,7 @@
   min-height: 82px;
   padding: 0;
   color: #fff;
-  background: #102B3E;
+  background: #11293e;
 }
 
 .brand-header .header-container {
@@ -45,7 +45,7 @@ body.admin-bar .brand-header { top: 0; }
 
 @media (max-width: 800px) {
   body.mobile-menu-open { position: fixed; width: 100%; overflow: hidden; }
-  .brand-header { top: 0; height: 66px; min-height: 66px; background: #102B3E; }
+  .brand-header { top: 0; height: 66px; min-height: 66px; background: #11293e; }
   .brand-header .header-container { grid-template-columns: minmax(0,1fr) auto; gap: 8px; width: min(1240px, calc(100% - 32px)); height: 66px; }
   .brand-header .brand { min-width: 0; }
   .brand-header .brand-logo { width: 82px; max-height: 43px; }
