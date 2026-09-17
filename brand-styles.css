@@ -237,19 +237,7 @@ a {
 }
 
 .pattern-background {
-  background-image:
-    url("assets/auvenida/pattern.svg"),
-    linear-gradient(
-      -45deg,
-      #11293e 0%,
-      #143148 25%,
-      #183a52 50%,
-      #1b425c 75%,
-      #1e4a66 100%
-    );
-  background-position: center, 50% 50%;
-  background-size: cover, 300% 300%;
-  background-repeat: no-repeat;
+  background: #1e4a66 url("assets/auvenida/pattern.svg") center / cover no-repeat;
 }
 
 .hero {
