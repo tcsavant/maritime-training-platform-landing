@@ -262,12 +262,12 @@ a {
   );
   background-size: 300% 300%;
   will-change: background-position;
-  animation: auvenda-ocean-shift 4s ease-in-out infinite;
+  animation: auvenda-ocean-shift 10s ease-in-out infinite;
 }
 
 .pattern-background::after {
   z-index: -1;
-  inset: -3%;
+  inset: 0;
   background-image:
     url("assets/auvenida/pattern.svg"),
     url("assets/auvenida/noise.svg");
@@ -275,9 +275,7 @@ a {
   background-size: cover, 180px 180px;
   background-repeat: no-repeat, repeat;
   opacity: .7;
-  transform: translate3d(-1%, -.6%, 0) scale(1.025);
-  will-change: transform;
-  animation: auvenda-pattern-drift 28s ease-in-out infinite alternate;
+  animation: auvenda-film-grain .8s steps(2, end) infinite;
 }
 
 .pattern-background > * {
@@ -291,10 +289,12 @@ a {
   100% { background-position: 0% 50%; }
 }
 
-@keyframes auvenda-pattern-drift {
-  0% { transform: translate3d(-1%, -.6%, 0) scale(1.025); }
-  50% { transform: translate3d(.8%, .5%, 0) scale(1.04); }
-  100% { transform: translate3d(1.2%, -.4%, 0) scale(1.03); }
+@keyframes auvenda-film-grain {
+  0% { background-position: center, 0 0; }
+  25% { background-position: center, -18px 11px; }
+  50% { background-position: center, 14px -16px; }
+  75% { background-position: center, -9px -7px; }
+  100% { background-position: center, 17px 13px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
