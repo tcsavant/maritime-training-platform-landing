@@ -486,6 +486,77 @@ h3 {
   background-size: cover;
 }
 
+.section-dark-base {
+  color: #fff;
+  background: var(--blue);
+}
+
+.orbit-pattern {
+  --orbit-color: #1f3d86;
+  --orbit-opacity: .14;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.orbit-pattern::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  display: block;
+  background: var(--orbit-color);
+  opacity: var(--orbit-opacity);
+  pointer-events: none;
+  -webkit-mask-image: var(--orbit-image);
+  mask-image: var(--orbit-image);
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+.orbit-pattern > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.orbit-pattern--one { --orbit-image: url("assets/auvenida/orbit-1.svg"); }
+.orbit-pattern--two { --orbit-image: url("assets/auvenida/orbit-2.svg"); }
+.orbit-pattern--three { --orbit-image: url("assets/auvenida/orbit-3.svg"); }
+
+.orbit-pattern--full { --orbit-opacity: .06; }
+.orbit-pattern--full::before {
+  inset: -18%;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
+
+.orbit-pattern--half-right::before,
+.orbit-pattern--half-left::before {
+  top: 0;
+  bottom: 0;
+  width: 52%;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+.orbit-pattern--half-right::before { right: -2%; }
+.orbit-pattern--half-left::before { left: -2%; }
+
+.orbit-pattern--object-right::before {
+  right: 2%;
+  bottom: -18%;
+  width: min(44vw, 620px);
+  aspect-ratio: 1;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+.section-dark-base.orbit-pattern {
+  --orbit-color: #a9d1ff;
+  --orbit-opacity: .2;
+}
+.section-dark-base.orbit-pattern.orbit-pattern--full { --orbit-opacity: .1; }
+
 .compact {
   margin-bottom: 52px;
 }
@@ -1722,4 +1793,25 @@ footer .footer-main>a:last-child {
 
 @media (min-width:415px) and (max-width:480px) {
   .hero h1 { font-size:44px; }
+}
+
+@media (max-width:800px) {
+  .orbit-pattern--half-right::before,
+  .orbit-pattern--half-left::before {
+    width: 82%;
+    opacity: .1;
+  }
+  .orbit-pattern--half-right::before { right: -28%; }
+  .orbit-pattern--half-left::before { left: -28%; }
+
+  .orbit-pattern--object-right::before {
+    right: -32%;
+    bottom: -8%;
+    width: 96vw;
+    opacity: .12;
+  }
+
+  .section-dark-base.orbit-pattern--half-right::before,
+  .section-dark-base.orbit-pattern--half-left::before,
+  .section-dark-base.orbit-pattern--object-right::before { opacity: .16; }
 }
