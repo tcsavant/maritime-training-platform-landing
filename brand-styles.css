@@ -261,8 +261,7 @@ a {
     #1e4a66 100%
   );
   background-size: 300% 300%;
-  will-change: background-position;
-  animation: auvenda-ocean-shift 10s ease-in-out infinite;
+  background-position: 50% 50%;
 }
 
 .pattern-background::after {
@@ -281,12 +280,6 @@ a {
 .pattern-background > * {
   position: relative;
   z-index: 1;
-}
-
-@keyframes auvenda-ocean-shift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
 }
 
 @keyframes auvenda-film-grain {
