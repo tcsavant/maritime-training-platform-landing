@@ -237,62 +237,19 @@ a {
 }
 
 .pattern-background {
-  position: relative;
-  isolation: isolate;
-  background: #1e4a66;
-}
-
-.pattern-background::before,
-.pattern-background::after {
-  content: "";
-  position: absolute;
-  pointer-events: none;
-}
-
-.pattern-background::before {
-  z-index: -2;
-  inset: 0;
-  background: linear-gradient(
-    -45deg,
-    #11293e 0%,
-    #143148 25%,
-    #183a52 50%,
-    #1b425c 75%,
-    #1e4a66 100%
-  );
-  background-size: 300% 300%;
-  background-position: 50% 50%;
-}
-
-.pattern-background::after {
-  z-index: -1;
-  inset: 0;
   background-image:
     url("assets/auvenida/pattern.svg"),
-    url("assets/auvenida/noise.svg");
-  background-position: center, 0 0;
-  background-size: cover, 180px 180px;
-  background-repeat: no-repeat, repeat;
-  opacity: .7;
-  animation: auvenda-film-grain .8s steps(2, end) infinite;
-}
-
-.pattern-background > * {
-  position: relative;
-  z-index: 1;
-}
-
-@keyframes auvenda-film-grain {
-  0% { background-position: center, 0 0; }
-  25% { background-position: center, -18px 11px; }
-  50% { background-position: center, 14px -16px; }
-  75% { background-position: center, -9px -7px; }
-  100% { background-position: center, 17px 13px; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .pattern-background::before,
-  .pattern-background::after { animation: none; }
+    linear-gradient(
+      -45deg,
+      #11293e 0%,
+      #143148 25%,
+      #183a52 50%,
+      #1b425c 75%,
+      #1e4a66 100%
+    );
+  background-position: center, 50% 50%;
+  background-size: cover, 300% 300%;
+  background-repeat: no-repeat;
 }
 
 .hero {
