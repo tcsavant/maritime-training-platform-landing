@@ -246,9 +246,65 @@ a {
   display: flex;
   align-items: center;
   overflow: hidden;
+  position: relative;
+  isolation: isolate;
+}
+
+.hero-pattern-light {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  -webkit-mask-image: url("assets/auvenida/pattern.svg");
+  mask-image: url("assets/auvenida/pattern.svg");
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 1) 0 1.4%, rgba(229, 195, 99, .98) 2.2%, rgba(169, 209, 255, .88) 4%, rgba(169, 209, 255, .34) 8%, transparent 15%);
+  filter: drop-shadow(0 0 5px rgba(229, 195, 99, .8)) drop-shadow(0 0 12px rgba(169, 209, 255, .7));
+  animation: hero-pattern-signal-a 8s cubic-bezier(.42, 0, .58, 1) infinite;
+}
+
+.hero-pattern-light--b {
+  animation: hero-pattern-signal-b 10.5s cubic-bezier(.42, 0, .58, 1) -4.2s infinite;
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, .75)) drop-shadow(0 0 11px rgba(169, 209, 255, .62));
+}
+
+.hero-pattern-light--c {
+  animation: hero-pattern-signal-c 12s cubic-bezier(.42, 0, .58, 1) -7.5s infinite;
+}
+
+@keyframes hero-pattern-signal-a {
+  0%, 7% { background-position: -25vw 18vh; opacity: 0; }
+  12% { opacity: .9; }
+  47% { background-position: 47vw 43vh; opacity: .9; }
+  82% { background-position: 115vw 70vh; opacity: .72; }
+  90%, 100% { background-position: 125vw 75vh; opacity: 0; }
+}
+
+@keyframes hero-pattern-signal-b {
+  0%, 10% { background-position: 108vw -8vh; opacity: 0; }
+  16% { opacity: .72; }
+  50% { background-position: 65vw 38vh; opacity: .72; }
+  82% { background-position: 12vw 82vh; opacity: .58; }
+  92%, 100% { background-position: -18vw 100vh; opacity: 0; }
+}
+
+@keyframes hero-pattern-signal-c {
+  0%, 12% { background-position: 20vw 105vh; opacity: 0; }
+  18% { opacity: .55; }
+  52% { background-position: 54vw 55vh; opacity: .55; }
+  82% { background-position: 86vw 6vh; opacity: .45; }
+  92%, 100% { background-position: 100vw -20vh; opacity: 0; }
 }
 
 .hero-grid {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 1fr 240px;
   align-items: end;
@@ -1752,4 +1808,8 @@ footer .footer-main>a:last-child {
   .section-dark-base.orbit-pattern--half-right::before,
   .section-dark-base.orbit-pattern--half-left::before,
   .section-dark-base.orbit-pattern--object-right::before { opacity: .16; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-pattern-light { display: none; }
 }
