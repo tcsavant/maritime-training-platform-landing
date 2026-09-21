@@ -9,6 +9,7 @@
   <link rel="icon" href="assets/auvenida/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="brand-styles.css">
   <link rel="stylesheet" href="header.css">
+  <script src="assets/js/hero-line-flow.js" defer></script>
 </head>
 
 <body>
@@ -459,37 +460,6 @@
       setLanguage(language);
     }));
 
-    function deferHeroEffects() {
-      const hero = document.querySelector('.hero.pattern-background');
-      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-      if (!hero || reduceMotion.matches) return;
-
-      let started = false;
-      const start = () => {
-        if (started || reduceMotion.matches) return;
-        started = true;
-        const wrap = document.createElement('div');
-        wrap.className = 'hero-pattern-lights';
-        wrap.setAttribute('aria-hidden', 'true');
-        ['', 'hero-pattern-light--b', 'hero-pattern-light--c'].forEach((mod) => {
-          const layer = document.createElement('span');
-          layer.className = mod ? `hero-pattern-light ${mod}` : 'hero-pattern-light';
-          wrap.appendChild(layer);
-        });
-        hero.prepend(wrap);
-        window.requestAnimationFrame(() => {
-          window.requestAnimationFrame(() => hero.classList.add('hero-effects-ready'));
-        });
-      };
-      const arm = () => {
-        window.setTimeout(start, 2500);
-      };
-
-      if (document.readyState === 'complete') arm();
-      else window.addEventListener('load', arm, { once: true });
-    }
-
-    deferHeroEffects();
     setLanguage(storedLanguage());
   </script>
 </body>

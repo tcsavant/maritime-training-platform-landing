@@ -250,71 +250,63 @@ a {
   isolation: isolate;
 }
 
-.hero-pattern-lights {
+.hero-pattern-flow {
   position: absolute;
   inset: 0;
   z-index: 0;
   pointer-events: none;
   overflow: hidden;
-  -webkit-mask-image: url("assets/auvenida/pattern.svg");
-  mask-image: url("assets/auvenida/pattern.svg");
-  -webkit-mask-position: center;
-  mask-position: center;
-  -webkit-mask-size: cover;
-  mask-size: cover;
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
 }
-.hero-pattern-light {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: min(46vmin, 420px);
-  height: min(46vmin, 420px);
-  border-radius: 50%;
-  opacity: 0;
-  background: radial-gradient(circle at center,
-    rgba(255, 255, 255, .95) 0 8%,
-    rgba(229, 195, 99, .92) 18%,
-    rgba(169, 209, 255, .72) 38%,
-    rgba(169, 209, 255, .24) 62%,
-    transparent 74%);
-  transform: translate(-50%, -50%) translate3d(-25vw, 18vh, 0);
-  animation: none;
+
+.hero-pattern-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
-.hero-effects-ready .hero-pattern-light {
-  animation: hero-pattern-signal-a 8s cubic-bezier(.42, 0, .58, 1) infinite;
+
+.hero-pattern-flow path:not([class^="hero-flow-"]) {
+  fill: none !important;
 }
-.hero-effects-ready .hero-pattern-light--b {
-  animation-name: hero-pattern-signal-b;
-  animation-duration: 10.5s;
-  animation-delay: -4.2s;
+
+.hero-flow-glow,
+.hero-flow-core {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  mix-blend-mode: screen;
+  mix-blend-mode: plus-lighter;
+  animation: hero-flow-run 16s linear infinite;
 }
-.hero-effects-ready .hero-pattern-light--c {
-  animation-name: hero-pattern-signal-c;
-  animation-duration: 12s;
-  animation-delay: -7.5s;
+
+.hero-flow-glow {
+  stroke: rgba(229, 195, 99, .9);
+  stroke-width: 5px;
+  stroke-dasharray: 36 86;
+  filter: drop-shadow(0 0 6px rgba(229, 195, 99, .95)) drop-shadow(0 0 16px rgba(169, 209, 255, .85));
+  opacity: .85;
 }
-@keyframes hero-pattern-signal-a {
-  0%, 7% { transform: translate(-50%, -50%) translate3d(-25vw, 18vh, 0); opacity: 0; }
-  12% { opacity: .9; }
-  47% { transform: translate(-50%, -50%) translate3d(47vw, 43vh, 0); opacity: .9; }
-  82% { transform: translate(-50%, -50%) translate3d(115vw, 70vh, 0); opacity: .72; }
-  90%, 100% { transform: translate(-50%, -50%) translate3d(125vw, 75vh, 0); opacity: 0; }
+
+.hero-flow-core {
+  stroke: #fff;
+  stroke-width: 1.7px;
+  stroke-dasharray: 22 100;
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, .95));
+  opacity: .95;
 }
-@keyframes hero-pattern-signal-b {
-  0%, 10% { transform: translate(-50%, -50%) translate3d(108vw, -8vh, 0); opacity: 0; }
-  16% { opacity: .72; }
-  50% { transform: translate(-50%, -50%) translate3d(65vw, 38vh, 0); opacity: .72; }
-  82% { transform: translate(-50%, -50%) translate3d(12vw, 82vh, 0); opacity: .58; }
-  92%, 100% { transform: translate(-50%, -50%) translate3d(-18vw, 100vh, 0); opacity: 0; }
+
+.hero-flow-line--1 {
+  animation-duration: 11s;
+  animation-direction: reverse;
 }
-@keyframes hero-pattern-signal-c {
-  0%, 12% { transform: translate(-50%, -50%) translate3d(20vw, 105vh, 0); opacity: 0; }
-  18% { opacity: .55; }
-  52% { transform: translate(-50%, -50%) translate3d(54vw, 55vh, 0); opacity: .55; }
-  82% { transform: translate(-50%, -50%) translate3d(86vw, 6vh, 0); opacity: .45; }
-  92%, 100% { transform: translate(-50%, -50%) translate3d(100vw, -20vh, 0); opacity: 0; }
+
+.hero-flow-line--2 {
+  animation-duration: 19s;
+  animation-delay: -7s;
+}
+
+@keyframes hero-flow-run {
+  to { stroke-dashoffset: -244px; }
 }
 
 
@@ -1838,38 +1830,31 @@ footer .footer-main>a:last-child {
 
 
 @media (max-width:900px) {
-  .hero.pattern-background { background-size: 140% 100%; background-position: 42% center; }
-  .hero-pattern-lights {
-    -webkit-mask-size: 140% 100%; mask-size: 140% 100%;
-    -webkit-mask-position: 42% center; mask-position: 42% center;
+  .hero.pattern-background {
+    background-size: 100% 100%;
+    background-position: center;
   }
-  .hero-pattern-light { width: min(78vw, 460px); height: min(78vw, 460px); }
-  .hero-effects-ready .hero-pattern-light { animation-name: hero-pattern-signal-a-narrow; }
-  .hero-effects-ready .hero-pattern-light--b { animation-name: hero-pattern-signal-b-narrow; }
-  .hero-effects-ready .hero-pattern-light--c { animation-name: hero-pattern-signal-c-narrow; }
-}
-@keyframes hero-pattern-signal-a-narrow {
-  0%, 6% { transform: translate(-50%, -50%) translate3d(-28vw, -6vh, 0); opacity: 0; }
-  12% { opacity: .95; }
-  48% { transform: translate(-50%, -50%) translate3d(4vw, 8vh, 0); opacity: .95; }
-  84% { transform: translate(-50%, -50%) translate3d(32vw, 22vh, 0); opacity: .75; }
-  94%, 100% { transform: translate(-50%, -50%) translate3d(40vw, 28vh, 0); opacity: 0; }
-}
-@keyframes hero-pattern-signal-b-narrow {
-  0%, 8% { transform: translate(-50%, -50%) translate3d(36vw, 30vh, 0); opacity: 0; }
-  16% { opacity: .8; }
-  50% { transform: translate(-50%, -50%) translate3d(6vw, 4vh, 0); opacity: .8; }
-  84% { transform: translate(-50%, -50%) translate3d(-24vw, -12vh, 0); opacity: .6; }
-  94%, 100% { transform: translate(-50%, -50%) translate3d(-32vw, -18vh, 0); opacity: 0; }
-}
-@keyframes hero-pattern-signal-c-narrow {
-  0%, 10% { transform: translate(-50%, -50%) translate3d(-10vw, 26vh, 0); opacity: 0; }
-  18% { opacity: .7; }
-  52% { transform: translate(-50%, -50%) translate3d(10vw, -4vh, 0); opacity: .7; }
-  84% { transform: translate(-50%, -50%) translate3d(28vw, -20vh, 0); opacity: .5; }
-  94%, 100% { transform: translate(-50%, -50%) translate3d(34vw, -26vh, 0); opacity: 0; }
+  .hero-flow-glow {
+    stroke: #ffe08a;
+    stroke-width: 8px;
+    stroke-dasharray: 42 64;
+    filter: drop-shadow(0 0 8px rgba(255, 224, 138, 1)) drop-shadow(0 0 18px rgba(169, 209, 255, 1));
+    opacity: 1;
+  }
+  .hero-flow-core {
+    stroke: #fff;
+    stroke-width: 2.6px;
+    stroke-dasharray: 28 78;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 1)) drop-shadow(0 0 12px rgba(229, 195, 99, .95));
+  }
+  .hero-flow-glow,
+  .hero-flow-core {
+    animation-duration: 12s;
+  }
+  .hero-flow-line--1 { animation-duration: 8s; }
+  .hero-flow-line--2 { animation-duration: 15s; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-pattern-lights { display: none; }
+  .hero-pattern-flow { display: none; }
 }
