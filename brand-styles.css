@@ -252,29 +252,34 @@ a {
 
 .hero-pattern-light {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: min(72vw, 980px);
-  aspect-ratio: 1;
-  border-radius: 50%;
+  inset: 0;
   z-index: 0;
   pointer-events: none;
-  opacity: .16;
-  background: radial-gradient(circle, rgba(229, 195, 99, .55) 0, rgba(169, 209, 255, .28) 28%, transparent 68%);
-  mix-blend-mode: screen;
-  transform: translate3d(-125%, -72%, 0) scale(.72);
-  will-change: transform, opacity;
-  contain: strict;
-  animation: hero-light-sweep 14s ease-in-out infinite;
+  opacity: 0;
+  -webkit-mask-image: url("assets/auvenida/pattern.svg");
+  mask-image: url("assets/auvenida/pattern.svg");
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 1) 0 1.4%, rgba(229, 195, 99, .98) 2.2%, rgba(169, 209, 255, .88) 4%, rgba(169, 209, 255, .34) 8%, transparent 15%);
+  animation: none;
 }
 
-@keyframes hero-light-sweep {
-  0%, 8% { transform: translate3d(-125%, -72%, 0) scale(.72); opacity: 0; }
-  18% { opacity: .14; }
-  50% { transform: translate3d(-52%, -48%, 0) scale(1); opacity: .2; }
-  82% { opacity: .12; }
-  92%, 100% { transform: translate3d(28%, -26%, 0) scale(.82); opacity: 0; }
+.hero-effects-ready .hero-pattern-light {
+  animation: hero-pattern-signal-a 8s cubic-bezier(.42, 0, .58, 1) infinite;
 }
+
+@keyframes hero-pattern-signal-a {
+  0%, 7% { background-position: -25vw 18vh; opacity: 0; }
+  12% { opacity: .9; }
+  47% { background-position: 47vw 43vh; opacity: .9; }
+  82% { background-position: 115vw 70vh; opacity: .72; }
+  90%, 100% { background-position: 125vw 75vh; opacity: 0; }
+}
+
 
 .hero-grid {
   position: relative;

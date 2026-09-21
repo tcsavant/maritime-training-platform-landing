@@ -40,7 +40,6 @@
 
   <main id="content">
     <section class="hero pattern-background" id="top">
-      <div class="hero-pattern-light" aria-hidden="true"></div>
       <div class="container hero-grid hero-grid-single">
         <div class="hero-copy">
           <p class="kicker">PLATFORM FOR LEARNING AND CAREER GROWTH</p>
@@ -459,6 +458,35 @@
       const language = button.dataset.language;
       setLanguage(language);
     }));
+
+    function deferHeroEffects() {
+      const hero = document.querySelector('.hero.pattern-background');
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      if (!hero || reduceMotion.matches) return;
+
+      let started = false;
+      const start = () => {
+        if (started || reduceMotion.matches) return;
+        started = true;
+        const layers = document.createDocumentFragment();
+        const layer = document.createElement('div');
+        layer.className = 'hero-pattern-light';
+        layer.setAttribute('aria-hidden', 'true');
+        layers.appendChild(layer);
+        hero.prepend(layers);
+        window.requestAnimationFrame(() => {
+          window.requestAnimationFrame(() => hero.classList.add('hero-effects-ready'));
+        });
+      };
+      const arm = () => {
+        window.setTimeout(start, 2500);
+      };
+
+      if (document.readyState === 'complete') arm();
+      else window.addEventListener('load', arm, { once: true });
+    }
+
+    deferHeroEffects();
     setLanguage(storedLanguage());
   </script>
 </body>
