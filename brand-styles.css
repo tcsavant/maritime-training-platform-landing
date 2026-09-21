@@ -1096,12 +1096,22 @@ footer .footer-main>a:last-child {
   }
 
   .hero {
-    min-height: fit-content;
-    padding: 40px 0;
+    height: auto;
+    min-height: 0;
+    padding: 0;
+    align-items: flex-start;
   }
 
   .hero-grid {
-    padding-block: 40px;
+    padding: calc(var(--mobile-header-offset, 66px) + 24px) 0 36px;
+  }
+
+  .hero-lead {
+    margin: 18px 0 24px;
+  }
+
+  .actions {
+    gap: 12px;
   }
 
   .hero-grid,
@@ -1722,8 +1732,8 @@ footer .footer-main>a:last-child {
 
   .kicker { margin-bottom:12px; font-size:9px; letter-spacing:.11em; }
 
-  .hero { min-height:0; padding:0; align-items:flex-start; }
-  .hero-grid { padding:100px 0 28px; }
+  .hero { height: auto; min-height: 0; padding: 0; align-items: flex-start; }
+  .hero-grid { padding: calc(var(--mobile-header-offset, 66px) + 20px) 0 28px; }
   .hero h1 {
     max-width:100%;
     font-size:clamp(38px,11vw,46px);
