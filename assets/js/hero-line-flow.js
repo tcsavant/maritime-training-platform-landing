@@ -15,20 +15,21 @@
     applyFit(svg);
 
     svg.querySelectorAll('path').forEach((path, index) => {
-      const glow = path.cloneNode();
-      glow.removeAttribute('fill');
-      glow.removeAttribute('fill-opacity');
-      glow.removeAttribute('style');
-      glow.setAttribute('class', 'hero-flow-glow hero-flow-line--' + index);
-
       const line = path.cloneNode();
       line.removeAttribute('fill');
       line.removeAttribute('fill-opacity');
       line.removeAttribute('style');
       line.setAttribute('class', 'hero-flow-core hero-flow-line--' + index);
-
-      path.parentNode.appendChild(glow);
       path.parentNode.appendChild(line);
+
+      if (index === 0) {
+        const glow = path.cloneNode();
+        glow.removeAttribute('fill');
+        glow.removeAttribute('fill-opacity');
+        glow.removeAttribute('style');
+        glow.setAttribute('class', 'hero-flow-glow hero-flow-line--' + index);
+        path.parentNode.insertBefore(glow, line);
+      }
     });
 
     const wrap = document.createElement('div');

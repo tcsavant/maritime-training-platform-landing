@@ -275,38 +275,37 @@ a {
   stroke-linejoin: round;
   vector-effect: non-scaling-stroke;
   mix-blend-mode: screen;
-  mix-blend-mode: plus-lighter;
-  animation: hero-flow-run 16s linear infinite;
+  animation: hero-flow-run 18s linear infinite;
 }
 
 .hero-flow-glow {
-  stroke: rgba(229, 195, 99, .9);
-  stroke-width: 5px;
-  stroke-dasharray: 36 86;
-  filter: drop-shadow(0 0 6px rgba(229, 195, 99, .95)) drop-shadow(0 0 16px rgba(169, 209, 255, .85));
-  opacity: .85;
+  stroke: rgba(229, 195, 99, .7);
+  stroke-width: 2.4px;
+  stroke-dasharray: 14 132;
+  filter: drop-shadow(0 0 3px rgba(229, 195, 99, .8));
+  opacity: .72;
 }
 
 .hero-flow-core {
   stroke: #fff;
-  stroke-width: 1.7px;
-  stroke-dasharray: 22 100;
-  filter: drop-shadow(0 0 3px rgba(255, 255, 255, .95));
-  opacity: .95;
+  stroke-width: 1.15px;
+  stroke-dasharray: 10 136;
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, .9));
+  opacity: .92;
 }
 
 .hero-flow-line--1 {
-  animation-duration: 11s;
+  animation-duration: 12s;
   animation-direction: reverse;
 }
 
 .hero-flow-line--2 {
-  animation-duration: 19s;
-  animation-delay: -7s;
+  animation-duration: 22s;
+  animation-delay: -8s;
 }
 
 @keyframes hero-flow-run {
-  to { stroke-dashoffset: -244px; }
+  to { stroke-dashoffset: -146px; }
 }
 
 
@@ -1835,24 +1834,25 @@ footer .footer-main>a:last-child {
     background-position: center;
   }
   .hero-flow-glow {
-    stroke: #ffe08a;
-    stroke-width: 8px;
-    stroke-dasharray: 42 64;
-    filter: drop-shadow(0 0 8px rgba(255, 224, 138, 1)) drop-shadow(0 0 18px rgba(169, 209, 255, 1));
-    opacity: 1;
+    stroke: rgba(255, 224, 138, .95);
+    stroke-width: 3.4px;
+    stroke-dasharray: 18 110;
+    filter: drop-shadow(0 0 5px rgba(255, 224, 138, .95)) drop-shadow(0 0 10px rgba(169, 209, 255, .7));
+    opacity: .95;
   }
   .hero-flow-core {
     stroke: #fff;
-    stroke-width: 2.6px;
-    stroke-dasharray: 28 78;
-    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 1)) drop-shadow(0 0 12px rgba(229, 195, 99, .95));
+    stroke-width: 1.7px;
+    stroke-dasharray: 12 116;
+    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 1));
+    opacity: 1;
   }
   .hero-flow-glow,
   .hero-flow-core {
-    animation-duration: 12s;
+    animation-duration: 13s;
   }
-  .hero-flow-line--1 { animation-duration: 8s; }
-  .hero-flow-line--2 { animation-duration: 15s; }
+  .hero-flow-line--1 { animation-duration: 9s; }
+  .hero-flow-line--2 { animation-duration: 16s; }
 }
 
 @media (prefers-reduced-motion: reduce) {
