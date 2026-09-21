@@ -17,7 +17,7 @@
     <div class="container header-container">
       <a class="brand" href="#top" aria-label="Auvenda home">
         <picture class="brand-logo-picture">
-          <source media="(max-width: 800px)" srcset="assets/auvenida/logo–.svg">
+          <source media="(max-width:900px)" srcset="assets/auvenida/logo–.svg">
           <img class="brand-logo" src="assets/auvenida/logo.svg" alt="Auvenda">
         </picture>
         <span class="brand-divider" aria-hidden="true"></span>
@@ -273,7 +273,7 @@
   <footer>
     <div class="container footer-main"><a class="brand" href="#top">
         <picture class="brand-logo-picture">
-          <source media="(max-width: 800px)" srcset="assets/auvenida/logo–.svg"><img class="brand-logo"
+          <source media="(max-width:900px)" srcset="assets/auvenida/logo–.svg"><img class="brand-logo"
             src="assets/auvenida/logo.svg" alt="Auvenda">
         </picture>
       </a><span>European origin · Cross-border access · International maritime market</span><a
@@ -426,7 +426,7 @@
       });
       document.querySelectorAll('.language-switcher').forEach(switcher => {
         switcher.classList.remove('is-open');
-        if (window.matchMedia('(max-width: 800px)').matches) {
+        if (window.matchMedia('(max-width:900px)').matches) {
           const active = switcher.querySelector('button.active');
           if (active) switcher.prepend(active);
         }
@@ -450,7 +450,7 @@
     }
     document.querySelectorAll('.language-switcher button').forEach(button => button.addEventListener('click', () => {
       const switcher = button.closest('.language-switcher');
-      if (window.matchMedia('(max-width: 800px)').matches && button.classList.contains('active')) {
+      if (window.matchMedia('(max-width:900px)').matches && button.classList.contains('active')) {
         switcher.prepend(button);
         switcher.classList.toggle('is-open');
         return;
@@ -468,12 +468,15 @@
       const start = () => {
         if (started || reduceMotion.matches) return;
         started = true;
-        const layers = document.createDocumentFragment();
-        const layer = document.createElement('div');
-        layer.className = 'hero-pattern-light';
-        layer.setAttribute('aria-hidden', 'true');
-        layers.appendChild(layer);
-        hero.prepend(layers);
+        const wrap = document.createElement('div');
+        wrap.className = 'hero-pattern-lights';
+        wrap.setAttribute('aria-hidden', 'true');
+        ['', 'hero-pattern-light--b', 'hero-pattern-light--c'].forEach((mod) => {
+          const layer = document.createElement('span');
+          layer.className = mod ? `hero-pattern-light ${mod}` : 'hero-pattern-light';
+          wrap.appendChild(layer);
+        });
+        hero.prepend(wrap);
         window.requestAnimationFrame(() => {
           window.requestAnimationFrame(() => hero.classList.add('hero-effects-ready'));
         });

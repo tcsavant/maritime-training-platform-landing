@@ -1108,7 +1108,7 @@ document.addEventListener('click', event => {
   const languageControl = event.target.closest('[data-language]');
   if (languageControl) {
     const switcher = languageControl.closest('.language-switcher');
-    if (window.matchMedia('(max-width: 800px)').matches && languageControl.classList.contains('active')) {
+    if (window.matchMedia('(max-width:900px)').matches && languageControl.classList.contains('active')) {
       switcher.classList.toggle('is-open');
     } else {
       setLanguage(languageControl.dataset.language);

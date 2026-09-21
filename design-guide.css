@@ -187,7 +187,7 @@ button:disabled, input:disabled, select:disabled, textarea:disabled { cursor: no
   .catalogue-demo .catalogue-body { grid-template-columns: 220px 1fr; }
   .catalogue-demo .course-results-grid { grid-template-columns: 1fr; }
 }
-@media (max-width: 800px) {
+@media (max-width:900px) {
   .guide-header { padding-inline: 20px; }
   .guide-header .logo > span:last-child, .guide-header-meta > span { display: none; }
   .guide-layout { display: block; }
