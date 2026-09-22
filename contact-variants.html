@@ -16,8 +16,17 @@
     .variant-label .container { display:flex; align-items:center; gap:18px; }
     .variant-label b { font-size:13px; letter-spacing:.12em; text-transform:uppercase; }
     .variant-label span { color:var(--muted); font-size:13px; }
-    .contact-variant-original .auvenda-kommo-form { min-height:720px; background:rgba(255,255,255,.35); border:1px dashed rgba(17,41,62,.35); display:grid; place-items:center; }
-    .contact-variant-original .auvenda-kommo-form::before { content:"Production Kommo form area"; color:var(--blue); font-size:13px; font-weight:600; }
+    .variant-contact-form { border:1px solid var(--navy); border-top:0; background:rgba(255,255,255,.72); padding:26px; }
+    .variant-form-fields { display:grid; grid-template-columns:1fr; gap:18px; }
+    .variant-contact-form label { margin:0; }
+    .variant-contact-form input,.variant-contact-form select,.variant-contact-form textarea { margin-top:8px; width:100%; min-height:48px; }
+    .variant-contact-form textarea { min-height:120px; resize:vertical; }
+    .variant-contact-form .button { margin-top:22px; }
+    .variant-contact-form--wide .variant-form-fields { grid-template-columns:repeat(3,minmax(0,1fr)); }
+    .variant-contact-form--wide .message-field { grid-column:1 / -1; }
+    .compact-form-panel { width:100%; max-width:none !important; }
+    @media(max-width:1080px) { .variant-contact-form--wide .variant-form-fields { grid-template-columns:repeat(2,minmax(0,1fr)); } .variant-contact-form--wide .message-field { grid-column:1 / -1; } }
+    @media(max-width:640px) { .variant-contact-form--wide .variant-form-fields { grid-template-columns:1fr; } .variant-contact-form--wide .message-field { grid-column:auto; } }
     @media(max-width:700px) {
       .variants-header .container,.variant-label .container { align-items:flex-start; flex-direction:column; }
     }
@@ -47,7 +56,19 @@
           <button type="button">I’m a Training Provider</button>
           <button type="button">I’m a Company Representative</button>
         </div>
-        <div class="auvenda-kommo-form"></div>
+        
+          <form class="variant-contact-form">
+            <div class="variant-form-fields">
+              <label>Full name<input type="text" placeholder="Your name"></label>
+              <label>Email<input type="email" placeholder="name@email.com"></label>
+              <label>Phone<input type="tel" placeholder="+00 000 000 0000"></label>
+              <label>Country<select><option>Select country</option><option>Ukraine</option><option>United Kingdom</option><option>Germany</option></select></label>
+              <label>Course / area of interest<input type="text" placeholder="Course or training area"></label>
+              <label>Preferred format<select><option>Select format</option><option>Online</option><option>Offline</option><option>Hybrid</option></select></label>
+              <label class="message-field">Message<textarea rows="4" placeholder="Tell us what you need"></textarea></label>
+            </div>
+            <button class="button button-gold" type="button">Send Inquiry <span>→</span></button>
+          </form>
       </div>
     </div>
   </section>
@@ -68,18 +89,19 @@
           <button type="button">I’m a Training Provider</button>
           <button type="button">I’m a Company Representative</button>
         </div>
-        <form class="compact-contact-form">
-          <div class="compact-form-grid">
-            <label>Full name<input type="text" placeholder="Your name"></label>
-            <label>Email<input type="email" placeholder="name@email.com"></label>
-            <label>Phone<input type="tel" placeholder="+00 000 000 0000"></label>
-            <label>Country<select><option>Select country</option><option>Ukraine</option><option>United Kingdom</option><option>Germany</option></select></label>
-            <label>Course / area of interest<input type="text" placeholder="Course or training area"></label>
-            <label>Preferred format<select><option>Select format</option><option>Online</option><option>Offline</option><option>Hybrid</option></select></label>
-            <label class="compact-form-span-2">Message<textarea rows="4" placeholder="Tell us what you need"></textarea></label>
-            <div class="compact-form-submit"><button class="button button-gold" type="button">Send Inquiry <span>→</span></button></div>
-          </div>
-        </form>
+        
+          <form class="variant-contact-form variant-contact-form--wide">
+            <div class="variant-form-fields">
+              <label>Full name<input type="text" placeholder="Your name"></label>
+              <label>Email<input type="email" placeholder="name@email.com"></label>
+              <label>Phone<input type="tel" placeholder="+00 000 000 0000"></label>
+              <label>Country<select><option>Select country</option><option>Ukraine</option><option>United Kingdom</option><option>Germany</option></select></label>
+              <label>Course / area of interest<input type="text" placeholder="Course or training area"></label>
+              <label>Preferred format<select><option>Select format</option><option>Online</option><option>Offline</option><option>Hybrid</option></select></label>
+              <label class="message-field">Message<textarea rows="4" placeholder="Tell us what you need"></textarea></label>
+            </div>
+            <button class="button button-gold" type="button">Send Inquiry <span>→</span></button>
+          </form>
       </div>
     </div>
   </section>
