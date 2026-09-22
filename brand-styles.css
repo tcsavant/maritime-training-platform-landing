@@ -491,28 +491,25 @@ h3 {
   background: var(--blue);
 }
 
+/* One circular module per section. It keeps a clearance from content and
+   never sits flush against type or cards. */
 .orbit-pattern {
-  --orbit-color: #1f3d86;
-  --orbit-opacity: .14;
+  --orbit-color: #1e3a8a;
+  --orbit-clearance: 72px;
+  --orbit-size: min(440px, 36vw);
+  --orbit-top: calc(var(--orbit-size) * -.28);
+  --orbit-right: calc(var(--orbit-size) * -.2);
+  --orbit-opacity: .4;
+  --orbit-turn: 34s;
+  --orbit-lag: .55s;
   position: relative;
   isolation: isolate;
   overflow: hidden;
 }
 
-.orbit-pattern::before {
-  content: "";
-  position: absolute;
-  z-index: 0;
-  display: block;
-  background: var(--orbit-color);
-  opacity: var(--orbit-opacity);
-  pointer-events: none;
-  -webkit-mask-image: var(--orbit-image);
-  mask-image: var(--orbit-image);
-  -webkit-mask-position: center;
-  mask-position: center;
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
+.orbit-pattern::before,
+.orbit-pattern::after {
+  content: none;
 }
 
 .orbit-pattern > .container {
@@ -520,42 +517,56 @@ h3 {
   z-index: 1;
 }
 
-.orbit-pattern--one { --orbit-image: url("assets/auvenida/orbit-1.svg"); }
-.orbit-pattern--two { --orbit-image: url("assets/auvenida/orbit-2.svg"); }
-.orbit-pattern--three { --orbit-image: url("assets/auvenida/orbit-3.svg"); }
-
-.orbit-pattern--full { --orbit-opacity: .06; }
-.orbit-pattern--full::before {
-  inset: -18%;
-  -webkit-mask-size: cover;
-  mask-size: cover;
-}
-
-.orbit-pattern--half-right::before,
-.orbit-pattern--half-left::before {
-  top: 0;
-  bottom: 0;
-  width: 52%;
-  -webkit-mask-size: contain;
-  mask-size: contain;
-}
-.orbit-pattern--half-right::before { right: -2%; }
-.orbit-pattern--half-left::before { left: -2%; }
-
-.orbit-pattern--object-right::before {
-  right: 2%;
-  bottom: -18%;
-  width: min(44vw, 620px);
+.orbit-graphic {
+  position: absolute;
+  z-index: 0;
+  top: var(--orbit-top);
+  right: var(--orbit-right);
+  width: var(--orbit-size);
   aspect-ratio: 1;
-  -webkit-mask-size: contain;
-  mask-size: contain;
+  color: var(--orbit-color);
+  opacity: var(--orbit-opacity);
+  pointer-events: none;
+}
+
+.orbit-graphic svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.orbit-graphic .orbit-ring {
+  transform-box: view-box;
+  transform-origin: center;
+}
+
+.orbit-graphic.is-in-view .orbit-ring {
+  animation: orbit-turn var(--orbit-turn) linear infinite;
+  animation-delay: calc(var(--i, 0) * var(--orbit-lag) * -1);
 }
 
 .section-dark-base.orbit-pattern {
   --orbit-color: #a9d1ff;
-  --orbit-opacity: .2;
+  --orbit-opacity: .46;
 }
-.section-dark-base.orbit-pattern.orbit-pattern--full { --orbit-opacity: .1; }
+
+.journey.orbit-pattern {
+  --orbit-size: min(400px, 32vw);
+  --orbit-lag: .15s;
+}
+
+.contact.orbit-pattern .kommo-form-panel {
+  position: relative;
+  z-index: 1;
+  padding: 28px;
+  background: #fff;
+}
+
+@keyframes orbit-turn {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
 
 .compact {
   margin-bottom: 52px;
@@ -1820,29 +1831,28 @@ footer .footer-main>a:last-child {
 }
 
 @media (max-width:900px) {
-  .orbit-pattern--half-right::before,
-  .orbit-pattern--half-left::before {
-    width: 82%;
-    opacity: .1;
-  }
-  .orbit-pattern--half-right::before { right: -28%; }
-  .orbit-pattern--half-left::before { left: -28%; }
-
-  .orbit-pattern--object-right::before {
-    right: -32%;
-    bottom: -8%;
-    width: 96vw;
-    opacity: .12;
+  .orbit-pattern,
+  .journey.orbit-pattern {
+    --orbit-clearance: 40px;
+    --orbit-size: 52vw;
+    --orbit-top: -16vw;
+    --orbit-right: -22vw;
+    --orbit-opacity: .34;
   }
 
-  .section-dark-base.orbit-pattern--half-right::before,
-  .section-dark-base.orbit-pattern--half-left::before,
-  .section-dark-base.orbit-pattern--object-right::before { opacity: .16; }
+  .section-dark-base.orbit-pattern {
+    --orbit-opacity: .42;
+  }
+
+  .contact.orbit-pattern .kommo-form-panel {
+    padding: 18px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .hero::before,
   .hero::after { display: none; }
+  .orbit-graphic .orbit-ring { animation: none; }
 }
 
 
