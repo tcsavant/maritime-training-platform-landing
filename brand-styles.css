@@ -542,7 +542,11 @@ h3 {
 }
 
 .journey.orbit-pattern {
-  --orbit-size: min(400px, 32vw);
+  --orbit-size: min(280px, 24vw);
+}
+
+.journey.orbit-pattern > .container > .section-intro.compact {
+  min-height: var(--orbit-size);
 }
 
 .contact.orbit-pattern .kommo-form-panel {
