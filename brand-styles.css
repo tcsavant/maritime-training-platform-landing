@@ -491,17 +491,13 @@ h3 {
   background: var(--blue);
 }
 
-/* One circular module per section. It keeps a clearance from content and
-   never sits flush against type or cards. */
+/* Circular module in the learning-journey block only, as a child of the container. */
 .orbit-pattern {
   --orbit-color: #1e3a8a;
-  --orbit-clearance: 72px;
-  --orbit-size: min(440px, 36vw);
-  --orbit-top: calc(var(--orbit-size) * -.28);
-  --orbit-right: calc(var(--orbit-size) * -.2);
+  --orbit-size: min(280px, 24vw);
+  --orbit-top: 0;
+  --orbit-right: 0;
   --orbit-opacity: .4;
-  --orbit-turn: 34s;
-  --orbit-lag: .55s;
   position: relative;
   isolation: isolate;
   overflow: hidden;
@@ -515,13 +511,17 @@ h3 {
 .orbit-pattern > .container {
   position: relative;
   z-index: 1;
+  overflow: hidden;
+  min-height: var(--orbit-size);
 }
 
 .orbit-graphic {
   position: absolute;
-  z-index: 0;
+  z-index: -1;
   top: var(--orbit-top);
   right: var(--orbit-right);
+  left: auto;
+  bottom: auto;
   width: var(--orbit-size);
   aspect-ratio: 1;
   color: var(--orbit-color);
@@ -536,36 +536,8 @@ h3 {
   overflow: visible;
 }
 
-.orbit-graphic .orbit-ring {
-  transform-box: view-box;
-  transform-origin: center;
-}
-
-.orbit-graphic.is-in-view .orbit-ring {
-  animation: orbit-turn var(--orbit-turn) linear infinite;
-  animation-delay: calc(var(--i, 0) * var(--orbit-lag) * -1);
-}
-
-.section-dark-base.orbit-pattern {
-  --orbit-color: #a9d1ff;
-  --orbit-opacity: .46;
-}
-
-.journey.orbit-pattern {
-  --orbit-size: min(400px, 32vw);
-  --orbit-lag: .15s;
-}
-
-.contact.orbit-pattern .kommo-form-panel {
-  position: relative;
-  z-index: 1;
-  padding: 28px;
-  background: #fff;
-}
-
-@keyframes orbit-turn {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.journey.orbit-pattern > .container > .section-intro.compact {
+  min-height: var(--orbit-size);
 }
 
 .compact {
@@ -1831,28 +1803,17 @@ footer .footer-main>a:last-child {
 }
 
 @media (max-width:900px) {
-  .orbit-pattern,
-  .journey.orbit-pattern {
-    --orbit-clearance: 40px;
+  .orbit-pattern {
     --orbit-size: 52vw;
-    --orbit-top: -16vw;
-    --orbit-right: -22vw;
+    --orbit-top: 0;
+    --orbit-right: 0;
     --orbit-opacity: .34;
-  }
-
-  .section-dark-base.orbit-pattern {
-    --orbit-opacity: .42;
-  }
-
-  .contact.orbit-pattern .kommo-form-panel {
-    padding: 18px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .hero::before,
   .hero::after { display: none; }
-  .orbit-graphic .orbit-ring { animation: none; }
 }
 
 
