@@ -553,6 +553,7 @@ h3 {
 
 .journey.orbit-pattern {
   --orbit-size: min(400px, 32vw);
+  --orbit-lag: .15s;
 }
 
 .contact.orbit-pattern .kommo-form-panel {
