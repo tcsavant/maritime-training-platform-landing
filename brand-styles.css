@@ -491,44 +491,23 @@ h3 {
   background: var(--blue);
 }
 
-/* One circular module per section. A second copy at another size reads as a doubled pattern. */
+/* One circular module per section. It keeps a clearance from content and
+   never sits flush against type or cards. */
 .orbit-pattern {
   --orbit-color: #1e3a8a;
-  --orbit-image: url("assets/auvenida/module.svg");
-  --edge: calc((100% - min(1240px, 100% - 80px)) / 2);
-  --orbit-size: min(640px, 48vw);
-  --orbit-top: 50%;
-  --orbit-right: calc(var(--edge) - 40px);
-  --orbit-shift: -50%;
-  --orbit-opacity: .34;
+  --orbit-clearance: 72px;
+  --orbit-size: min(440px, 36vw);
+  --orbit-top: calc(var(--orbit-size) * -.28);
+  --orbit-right: calc(var(--orbit-size) * -.2);
+  --orbit-opacity: .4;
+  --orbit-turn: 34s;
+  --orbit-lag: .55s;
   position: relative;
   isolation: isolate;
   overflow: hidden;
 }
 
-.orbit-pattern::before {
-  content: "";
-  position: absolute;
-  z-index: 0;
-  display: block;
-  width: var(--orbit-size);
-  aspect-ratio: 1;
-  top: var(--orbit-top);
-  right: var(--orbit-right);
-  opacity: var(--orbit-opacity);
-  transform: translateY(var(--orbit-shift));
-  background: var(--orbit-color);
-  pointer-events: none;
-  -webkit-mask-image: var(--orbit-image);
-  mask-image: var(--orbit-image);
-  -webkit-mask-position: center;
-  mask-position: center;
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-size: contain;
-  mask-size: contain;
-}
-
+.orbit-pattern::before,
 .orbit-pattern::after {
   content: none;
 }
@@ -538,69 +517,42 @@ h3 {
   z-index: 1;
 }
 
+.orbit-graphic {
+  position: absolute;
+  z-index: 0;
+  top: var(--orbit-top);
+  right: var(--orbit-right);
+  width: var(--orbit-size);
+  aspect-ratio: 1;
+  color: var(--orbit-color);
+  opacity: var(--orbit-opacity);
+  pointer-events: none;
+}
+
+.orbit-graphic svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.orbit-graphic .orbit-ring {
+  transform-box: view-box;
+  transform-origin: center;
+}
+
+.orbit-graphic.is-in-view .orbit-ring {
+  animation: orbit-turn var(--orbit-turn) linear infinite;
+  animation-delay: calc(var(--i, 0) * var(--orbit-lag) * -1);
+}
+
 .section-dark-base.orbit-pattern {
   --orbit-color: #a9d1ff;
-  --orbit-opacity: .4;
+  --orbit-opacity: .46;
 }
 
-/* Title sits on the left; the module hangs in the empty top-right corner. */
 .journey.orbit-pattern {
-  --orbit-size: min(480px, 38vw);
-  --orbit-top: -96px;
-  --orbit-right: calc(var(--edge) - 72px);
-  --orbit-shift: 0;
-  --orbit-opacity: .36;
-}
-
-.journey.orbit-pattern .section-intro,
-.journey.orbit-pattern .journey-list {
-  position: relative;
-  z-index: 1;
-  background: var(--sky);
-}
-
-.journey.orbit-pattern .section-intro {
-  padding: 4px 28px 12px 0;
-}
-
-/* Circle frames the fact row. */
-.global-platform.orbit-pattern {
-  --orbit-size: min(640px, 46vw);
-  --orbit-right: calc(var(--edge) - 24px);
-}
-
-/* Module frames the provider list on the right. */
-.provider-section.orbit-pattern {
-  --orbit-size: min(680px, 48vw);
-  --orbit-right: calc(var(--edge) - 16px);
-}
-
-/* Process list is the cycle; keep the headline clear of the rings. */
-.course-production.orbit-pattern {
-  --orbit-size: min(560px, 40vw);
-  --orbit-right: calc(var(--edge) + 8px);
-}
-
-/* Module frames the ecosystem map. */
-.platform-ecosystem.orbit-pattern {
-  --orbit-size: min(680px, 48vw);
-  --orbit-right: calc(var(--edge) - 8px);
-}
-
-/* The round module sits behind and around the form card. */
-.contact.orbit-pattern {
-  --orbit-size: min(560px, 40vw);
-  --orbit-top: 12px;
-  --orbit-shift: 0;
-  --orbit-right: calc(var(--edge) - 8px);
-  --orbit-opacity: .36;
-}
-
-/* Compact variant stacks the form full width, so the module stays in the empty corner. */
-.contact-compact-demo.orbit-pattern {
-  --orbit-size: min(420px, 34vw);
-  --orbit-top: -28px;
-  --orbit-right: calc(var(--edge) + 12px);
+  --orbit-size: min(400px, 32vw);
 }
 
 .contact.orbit-pattern .kommo-form-panel {
@@ -610,14 +562,9 @@ h3 {
   background: #fff;
 }
 
-.global-platform.orbit-pattern .global-facts,
-.course-production.orbit-pattern .production-flow {
-  background: var(--sky);
-}
-
-.provider-section.orbit-pattern .provider-grid ul,
-.platform-ecosystem.orbit-pattern .ecosystem-map {
-  background: var(--blue);
+@keyframes orbit-turn {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 .compact {
@@ -1883,28 +1830,17 @@ footer .footer-main>a:last-child {
 }
 
 @media (max-width:900px) {
-  .journey.orbit-pattern,
-  .global-platform.orbit-pattern,
-  .provider-section.orbit-pattern,
-  .course-production.orbit-pattern,
-  .platform-ecosystem.orbit-pattern,
-  .contact.orbit-pattern,
-  .contact-compact-demo.orbit-pattern {
-    --orbit-size: 64vw;
-    --orbit-top: -10vw;
-    --orbit-right: -20vw;
-    --orbit-shift: 0;
-    --orbit-opacity: .32;
-  }
-
+  .orbit-pattern,
   .journey.orbit-pattern {
-    --orbit-size: 56vw;
-    --orbit-top: -18vw;
-    --orbit-right: -28vw;
+    --orbit-clearance: 40px;
+    --orbit-size: 52vw;
+    --orbit-top: -16vw;
+    --orbit-right: -22vw;
+    --orbit-opacity: .34;
   }
 
   .section-dark-base.orbit-pattern {
-    --orbit-opacity: .4;
+    --orbit-opacity: .42;
   }
 
   .contact.orbit-pattern .kommo-form-panel {
@@ -1915,6 +1851,7 @@ footer .footer-main>a:last-child {
 @media (prefers-reduced-motion: reduce) {
   .hero::before,
   .hero::after { display: none; }
+  .orbit-graphic .orbit-ring { animation: none; }
 }
 
 
