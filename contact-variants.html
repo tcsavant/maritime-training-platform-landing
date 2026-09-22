@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Auvenda — Contact Layout Variants</title>
+  <link rel="icon" href="assets/auvenida/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="brand-styles.css">
+  <style>
+    body { background:#fff; }
+    .variants-header { padding:28px 0; background:var(--navy); color:#fff; }
+    .variants-header .container { display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .variants-header strong { font-family:"IBM Plex Serif",Georgia,serif; font-size:24px; }
+    .variants-header a { color:var(--gold); font-weight:600; }
+    .variant-label { padding:18px 0; border-bottom:1px solid rgba(17,41,62,.18); background:#fff; }
+    .variant-label .container { display:flex; align-items:center; gap:18px; }
+    .variant-label b { font-size:13px; letter-spacing:.12em; text-transform:uppercase; }
+    .variant-label span { color:var(--muted); font-size:13px; }
+    .contact-variant-original .auvenda-kommo-form { min-height:720px; background:rgba(255,255,255,.35); border:1px dashed rgba(17,41,62,.35); display:grid; place-items:center; }
+    .contact-variant-original .auvenda-kommo-form::before { content:"Production Kommo form area"; color:var(--blue); font-size:13px; font-weight:600; }
+    @media(max-width:700px) {
+      .variants-header .container,.variant-label .container { align-items:flex-start; flex-direction:column; }
+    }
+  </style>
+</head>
+<body>
+  <header class="variants-header">
+    <div class="container">
+      <strong>Contact Section — Layout Variants</strong>
+      <a href="index.html">← Back to landing</a>
+    </div>
+  </header>
+
+  <div class="variant-label">
+    <div class="container"><b>Variant 01</b><span>Current two-column composition</span></div>
+  </div>
+  <section class="contact contact-variant-original section-blue orbit-pattern orbit-pattern--object-right orbit-pattern--three">
+    <div class="container contact-grid">
+      <div>
+        <p class="kicker">CONTACT &amp; INQUIRIES</p>
+        <h2>Select Your Role</h2>
+        <p>Choose the option that best reflects how you plan to use the platform:</p>
+      </div>
+      <div class="kommo-form-panel">
+        <div class="form-type-switcher" role="group" aria-label="Select form type">
+          <button type="button" class="active">I’m a Learner</button>
+          <button type="button">I’m a Training Provider</button>
+          <button type="button">I’m a Company Representative</button>
+        </div>
+        <div class="auvenda-kommo-form"></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="variant-label">
+    <div class="container"><b>Variant 02</b><span>Heading above, compact multi-column form</span></div>
+  </div>
+  <section class="contact contact-compact-demo section-blue orbit-pattern orbit-pattern--object-right orbit-pattern--three">
+    <div class="container contact-compact-layout">
+      <div class="contact-compact-intro">
+        <p class="kicker">CONTACT &amp; INQUIRIES</p>
+        <h2>Select Your Role</h2>
+        <p>Choose the option that best reflects how you plan to use the platform:</p>
+      </div>
+      <div class="kommo-form-panel compact-form-panel">
+        <div class="form-type-switcher" role="group" aria-label="Select compact form type">
+          <button type="button" class="active">I’m a Learner</button>
+          <button type="button">I’m a Training Provider</button>
+          <button type="button">I’m a Company Representative</button>
+        </div>
+        <form class="compact-contact-form">
+          <div class="compact-form-grid">
+            <label>Full name<input type="text" placeholder="Your name"></label>
+            <label>Email<input type="email" placeholder="name@email.com"></label>
+            <label>Phone<input type="tel" placeholder="+00 000 000 0000"></label>
+            <label>Country<select><option>Select country</option><option>Ukraine</option><option>United Kingdom</option><option>Germany</option></select></label>
+            <label>Course / area of interest<input type="text" placeholder="Course or training area"></label>
+            <label>Preferred format<select><option>Select format</option><option>Online</option><option>Offline</option><option>Hybrid</option></select></label>
+            <label class="compact-form-span-2">Message<textarea rows="4" placeholder="Tell us what you need"></textarea></label>
+            <div class="compact-form-submit"><button class="button button-gold" type="button">Send Inquiry <span>→</span></button></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
