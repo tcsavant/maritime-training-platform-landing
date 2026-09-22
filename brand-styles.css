@@ -545,11 +545,22 @@ h3 {
 
 /* Title sits on the left; the module hangs in the empty top-right corner. */
 .journey.orbit-pattern {
-  --orbit-size: min(620px, 46vw);
-  --orbit-top: -48px;
-  --orbit-right: calc(var(--edge) - 8px);
+  --orbit-size: min(480px, 38vw);
+  --orbit-top: -96px;
+  --orbit-right: calc(var(--edge) - 72px);
   --orbit-shift: 0;
   --orbit-opacity: .36;
+}
+
+.journey.orbit-pattern .section-intro,
+.journey.orbit-pattern .journey-list {
+  position: relative;
+  z-index: 1;
+  background: var(--sky);
+}
+
+.journey.orbit-pattern .section-intro {
+  padding: 4px 28px 12px 0;
 }
 
 /* Circle frames the fact row. */
@@ -1884,6 +1895,12 @@ footer .footer-main>a:last-child {
     --orbit-right: -20vw;
     --orbit-shift: 0;
     --orbit-opacity: .32;
+  }
+
+  .journey.orbit-pattern {
+    --orbit-size: 56vw;
+    --orbit-top: -18vw;
+    --orbit-right: -28vw;
   }
 
   .section-dark-base.orbit-pattern {
