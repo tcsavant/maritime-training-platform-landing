@@ -491,10 +491,10 @@ h3 {
   background: var(--blue);
 }
 
-/* One circular module per section, as a child of the content container. */
+/* Circular module in the learning-journey block only, as a child of the container. */
 .orbit-pattern {
   --orbit-color: #1e3a8a;
-  --orbit-size: min(440px, 36vw);
+  --orbit-size: min(280px, 24vw);
   --orbit-top: 0;
   --orbit-right: 0;
   --orbit-opacity: .4;
@@ -536,24 +536,8 @@ h3 {
   overflow: visible;
 }
 
-.section-dark-base.orbit-pattern {
-  --orbit-color: #a9d1ff;
-  --orbit-opacity: .46;
-}
-
-.journey.orbit-pattern {
-  --orbit-size: min(280px, 24vw);
-}
-
 .journey.orbit-pattern > .container > .section-intro.compact {
   min-height: var(--orbit-size);
-}
-
-.contact.orbit-pattern .kommo-form-panel {
-  position: relative;
-  z-index: 1;
-  padding: 28px;
-  background: #fff;
 }
 
 .compact {
@@ -1819,20 +1803,11 @@ footer .footer-main>a:last-child {
 }
 
 @media (max-width:900px) {
-  .orbit-pattern,
-  .journey.orbit-pattern {
+  .orbit-pattern {
     --orbit-size: 52vw;
     --orbit-top: 0;
     --orbit-right: 0;
     --orbit-opacity: .34;
-  }
-
-  .section-dark-base.orbit-pattern {
-    --orbit-opacity: .42;
-  }
-
-  .contact.orbit-pattern .kommo-form-panel {
-    padding: 18px;
   }
 }
 

@@ -1,6 +1,6 @@
 (function () {
   const SOURCE = "assets/auvenida/module.svg";
-  const sections = [...document.querySelectorAll(".orbit-pattern")];
+  const sections = [...document.querySelectorAll(".journey.orbit-pattern")];
   if (!sections.length) return;
 
   fetch(SOURCE)
