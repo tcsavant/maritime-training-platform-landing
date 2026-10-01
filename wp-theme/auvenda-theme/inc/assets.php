@@ -8,23 +8,27 @@ function auvenda_enqueue_assets() {
     $is_maintenance = is_page_template('page-maintenance.php') || (function_exists('auvenda_should_show_maintenance') && auvenda_should_show_maintenance());
     $is_service = is_404() || $is_maintenance;
 
-    if ($is_maintenance) {
-        $page_handle = 'auvenda-service-page';
-        wp_enqueue_style($page_handle, $uri . '/assets/css/service-pages.css', array(), filemtime($dir . '/assets/css/service-pages.css'));
+    if ($is_service) {
+        wp_enqueue_style('auvenda-service-page', $uri . '/assets/css/service-pages.css', array(), filemtime($dir . '/assets/css/service-pages.css'));
         return;
-    } elseif ($is_service) {
-        $page_handle = 'auvenda-service-page';
-        wp_enqueue_style($page_handle, $uri . '/assets/css/service-pages.css', array(), filemtime($dir . '/assets/css/service-pages.css'));
-    } elseif ($is_catalogue) {
+    }
+
+    if ($is_catalogue) {
         $page_handle = 'auvenda-catalogue-page';
         wp_enqueue_style($page_handle, $uri . '/assets/css/pages/catalogue.css', array(), filemtime($dir . '/assets/css/pages/catalogue.css'));
     } else {
         $page_handle = 'auvenda-landing-page';
         wp_enqueue_style($page_handle, $uri . '/assets/css/pages/landing.css', array(), filemtime($dir . '/assets/css/pages/landing.css'));
     }
+
     wp_enqueue_style('auvenda-common', $uri . '/assets/css/common.css', array($page_handle), filemtime($dir . '/assets/css/common.css'));
     if (is_front_page()) {
         wp_enqueue_style('auvenda-landing-sync', $uri . '/assets/css/pages/landing-sync.css', array('auvenda-common'), filemtime($dir . '/assets/css/pages/landing-sync.css'));
+        wp_enqueue_script('auvenda-hero-signal', $uri . '/assets/js/hero-signal.js', array(), filemtime($dir . '/assets/js/hero-signal.js'), true);
+        wp_enqueue_script('auvenda-orbit', $uri . '/assets/js/orbit-module.js', array(), filemtime($dir . '/assets/js/orbit-module.js'), true);
+        wp_localize_script('auvenda-orbit', 'auvendaOrbit', array(
+            'source' => auvenda_asset('auvenida/module.svg'),
+        ));
     }
     wp_enqueue_script('auvenda-main', $uri . '/assets/js/main.js', array(), filemtime($dir . '/assets/js/main.js'), true);
 }
