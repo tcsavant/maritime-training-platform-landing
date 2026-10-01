@@ -4,12 +4,13 @@ $header_descriptor = auvenda_field('header_descriptor', 'Maritime Training Platf
 if ($header_descriptor === 'Maritime Training Platform') $header_descriptor = 'Maritime<br>Training Platform';
 $header_logo = auvenda_image_url('header_logo', auvenda_asset('auvenida/logo.svg'));
 $mobile_logo = auvenda_image_url('mobile_logo', auvenda_asset('auvenida/logo–.svg'));
-?><!doctype html><html <?php language_attributes(); ?>><head><meta charset="<?php bloginfo('charset'); ?>"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="<?php echo esc_url(auvenda_asset('images/favicon.svg')); ?>" type="image/svg+xml"><?php wp_head(); ?></head><body <?php body_class(); ?>><?php wp_body_open(); ?>
+?><!doctype html><html <?php language_attributes(); ?>><head><meta charset="<?php bloginfo('charset'); ?>"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="<?php echo esc_url(auvenda_asset('auvenida/favicon.svg')); ?>" type="image/svg+xml"><?php wp_head(); ?></head><body <?php body_class(); ?>><?php wp_body_open(); ?>
+<a class="skip-link" href="#<?php echo (is_page_template('page-catalogue.php') || is_post_type_archive('course') || is_tax('course_direction')) ? 'main-content' : 'content'; ?>"><?php esc_html_e('Skip to content', 'auvenda-theme'); ?></a>
 <header class="brand-header">
   <div class="container header-container">
     <a class="brand" href="<?php echo esc_url(auvenda_home_url()); ?>" aria-label="<?php esc_attr_e('Auvenda home', 'auvenda-theme'); ?>">
       <picture class="brand-logo-picture">
-        <source media="(max-width: 800px)" srcset="<?php echo esc_url($mobile_logo); ?>">
+        <source media="(max-width: 900px)" srcset="<?php echo esc_url($mobile_logo); ?>">
         <img class="brand-logo auvenda-logo" src="<?php echo esc_url($header_logo); ?>" alt="Auvenda">
       </picture>
       <span class="brand-divider" aria-hidden="true"></span>
@@ -18,7 +19,7 @@ $mobile_logo = auvenda_image_url('mobile_logo', auvenda_asset('auvenida/logo–.
     <nav id="primary-menu" class="primary-menu desktop-nav" aria-label="<?php esc_attr_e('Primary navigation', 'auvenda-theme'); ?>"><?php wp_nav_menu(array('theme_location'=>'primary','container'=>false,'fallback_cb'=>'wp_page_menu','menu_class'=>'menu')); ?></nav>
     <div class="header-actions">
       <?php auvenda_language_switcher(); ?>
-      <a class="button button-gold button-dark button-small header-contact desktop-contact" href="#contact"><?php echo esc_html(auvenda_field('contact_label', 'Contact', 'option')); ?></a>
+      <a class="button button-gold header-contact desktop-contact" href="#contact"><?php echo esc_html(auvenda_field('contact_label', 'Contact', 'option')); ?></a>
       <button class="menu-button menu-toggle" type="button" aria-expanded="false" aria-controls="primary-menu" aria-label="<?php esc_attr_e('Open navigation', 'auvenda-theme'); ?>"><span></span><span></span><span></span></button>
     </div>
   </div>
