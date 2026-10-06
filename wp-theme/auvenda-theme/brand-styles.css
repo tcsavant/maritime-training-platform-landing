@@ -253,7 +253,7 @@ a {
   --glow-h: 165px;
   --pattern-size: cover;
   height: 100vh;
-  min-height: 750px;
+  min-height: fit-content;
   display: flex;
   align-items: center;
   overflow: hidden;
