@@ -6,8 +6,6 @@ $socials = array(
     array('label' => 'Facebook', 'url' => auvenda_field('facebook_url', '', 'option'), 'icon' => '<path d="M14.5 20v-7h2.75l.5-3h-3.25V8.25c0-.87.43-1.75 1.8-1.75H18V4.1c-.9-.13-1.8-.2-2.7-.2-2.75 0-4.8 1.67-4.8 4.7V10H8v3h2.5v7"/>'),
 );
 $socials = array_filter($socials, static function ($social) { return !empty($social['url']); });
-$footer_email = auvenda_field('footer_email', 'hello@auvenda.com', 'option');
-$footer_phone = auvenda_field('footer_phone', '', 'option');
 $footer_logo = auvenda_image_url('footer_logo', auvenda_asset('auvenida/logo.svg'));
 $mobile_logo = auvenda_image_url('mobile_logo', auvenda_asset('auvenida/logo–.svg'));
 ?>
@@ -17,16 +15,13 @@ $mobile_logo = auvenda_image_url('mobile_logo', auvenda_asset('auvenida/logo–.
     <span><?php echo esc_html(auvenda_field('footer_text', 'European origin · Cross-border access · International maritime market', 'option')); ?></span>
     <a href="<?php echo esc_url(get_post_type_archive_link('course') ?: home_url('/courses/')); ?>"><?php esc_html_e('Explore courses →', 'auvenda-theme'); ?></a>
   </div>
-  <?php if ($footer_email || $footer_phone) : ?>
-    <div class="container site-container footer-contact-row">
-      <p class="footer-row-label"><?php echo esc_html(auvenda_field('contact_label_footer', 'Get in touch', 'option')); ?></p>
-      <div class="footer-contacts footer-contact-links">
-        <?php if ($footer_email) : ?><a href="mailto:<?php echo esc_attr(antispambot($footer_email)); ?>"><span><?php esc_html_e('Email', 'auvenda-theme'); ?></span><?php echo esc_html(antispambot($footer_email)); ?></a><?php endif; ?>
-        <?php if ($footer_phone) : ?><a href="tel:<?php echo esc_attr(preg_replace('/[^0-9+]/', '', $footer_phone)); ?>"><span><?php esc_html_e('Phone', 'auvenda-theme'); ?></span><?php echo esc_html($footer_phone); ?></a><?php endif; ?>
-        <a href="<?php echo esc_url(auvenda_home_url() . '#contact'); ?>"><span><?php esc_html_e('Enquiries', 'auvenda-theme'); ?></span><?php esc_html_e('Contact our team →', 'auvenda-theme'); ?></a>
-      </div>
+  <div class="container site-container footer-contact-row">
+    <p class="footer-row-label"><?php echo esc_html(auvenda_field('contact_label_footer', 'Get in touch', 'option')); ?></p>
+    <div class="footer-contacts footer-contact-links">
+      <?php auvenda_contact_channels_html('dark'); ?>
+      <a href="<?php echo esc_url(auvenda_home_url() . '#contact'); ?>"><span><?php esc_html_e('Enquiries', 'auvenda-theme'); ?></span><?php esc_html_e('Contact our team →', 'auvenda-theme'); ?></a>
     </div>
-  <?php endif; ?>
+  </div>
   <?php if ($socials) : ?>
     <div class="container site-container footer-social-row footer-socials">
       <p class="footer-row-label"><?php echo esc_html(auvenda_field('social_label', 'Follow our journey', 'option')); ?></p>

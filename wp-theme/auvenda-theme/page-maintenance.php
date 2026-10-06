@@ -30,6 +30,7 @@ $header_logo = auvenda_image_url('header_logo', auvenda_asset('auvenida/logo.svg
     <p class="maintenance-kicker"><?php echo esc_html(auvenda_field('maintenance_eyebrow', 'MARITIME TRAINING PLATFORM', 'option')); ?></p>
     <h1 class="maintenance-title"><?php echo wp_kses_post(auvenda_field('maintenance_title', 'We are preparing<br><em>to launch.</em>', 'option')); ?></h1>
     <p class="maintenance-lead"><?php echo wp_kses_post(auvenda_field('maintenance_text', 'Auvenda will open for maritime professionals, training providers and shipping companies on<br>1 September.', 'option')); ?></p>
+    <?php auvenda_contact_channels_html('dark'); ?>
   </div>
 </main>
 <?php wp_footer(); ?>

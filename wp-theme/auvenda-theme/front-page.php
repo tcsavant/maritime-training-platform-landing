@@ -240,6 +240,7 @@ $step_icons = array('find', 'enroll', 'learn', 'assess', 'certify');
       <p class="kicker"><?php echo esc_html(auvenda_field('form_eyebrow', 'CONTACT & INQUIRIES')); ?></p>
       <h2><?php echo wp_kses_post(auvenda_field('form_title', 'Select Your Role')); ?></h2>
       <p><?php echo esc_html(auvenda_field('form_text', 'Choose the option that best reflects how you plan to use the platform:')); ?></p>
+      <?php auvenda_contact_channels_html(); ?>
     </div>
     <?php if (trim($form_html) !== '') : ?><div class="kommo-form-panel"><div class="form-wrap"><?php echo do_shortcode($form_html); ?></div></div><?php endif; ?>
   </div>

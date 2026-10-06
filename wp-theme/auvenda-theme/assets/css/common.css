@@ -132,6 +132,13 @@ body:not(.home) .brand-header { position: relative; top: auto; }
 .site-footer .social-links a:hover { border-color: var(--gold); background: var(--gold); color: var(--navy); transform: translateY(-2px); }
 .site-footer .social-links a:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 .site-footer .social-links svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.site-footer .footer-contacts { align-items: flex-end; }
+.site-footer .contact-channels { display: flex; flex-wrap: wrap; align-items: flex-end; gap: clamp(28px, 5vw, 72px); margin-top: 0; }
+.site-footer .contact-channel-icons { display: flex; gap: 10px; }
+.site-footer .footer-contacts .contact-channel-icons a { display: grid; width: 42px; height: 42px; place-items: center; gap: 0; border: 1px solid rgba(207, 224, 244, .5); border-radius: 50%; color: #fff; font-size: 0; transition: color .2s ease, background-color .2s ease, border-color .2s ease, transform .2s ease; }
+.site-footer .footer-contacts .contact-channel-icons a:hover { border-color: var(--gold); background: var(--gold); color: var(--navy); transform: translateY(-2px); }
+.site-footer .footer-contacts .contact-channel-icons a:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.site-footer .footer-contacts .contact-channel-icons svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 
 @media (max-width: 900px) {
   .container,
@@ -140,5 +147,6 @@ body:not(.home) .brand-header { position: relative; top: auto; }
   .site-footer .footer-main > span { order: 3; flex-basis: 100%; }
   .site-footer .footer-contact-row,
   .site-footer .footer-social-row { align-items: flex-start; flex-direction: column; gap: 16px; }
-  .site-footer .footer-contacts { align-items: flex-start; flex-direction: column; gap: 18px; }
+  .site-footer .footer-contacts,
+  .site-footer .contact-channels { align-items: flex-start; flex-direction: column; gap: 18px; }
 }
