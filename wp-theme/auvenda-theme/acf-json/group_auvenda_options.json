@@ -118,7 +118,22 @@
             "key": "field_footer_phone",
             "label": "Phone",
             "name": "footer_phone",
-            "type": "text"
+            "type": "text",
+            "default_value": "+44 7346 465364"
+        },
+        {
+            "key": "field_telegram_url",
+            "label": "Telegram URL",
+            "name": "telegram_url",
+            "type": "url",
+            "default_value": "https://t.me/+447346465364"
+        },
+        {
+            "key": "field_whatsapp_url",
+            "label": "WhatsApp URL",
+            "name": "whatsapp_url",
+            "type": "url",
+            "default_value": "https://wa.me/447346465364"
         },
         {
             "key": "field_linkedin_url",
